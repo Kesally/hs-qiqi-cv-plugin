@@ -1,0 +1,111 @@
+{{extend defaultLayout}}
+{{block 'css'}}
+<link rel="stylesheet" type="text/css" href="{{_res_path}}/admin/index.css"/>
+{{/block}}
+{{block 'main'}}
+
+<div class="info_box">
+  <div class="head-box type{{bgType}}">
+    <div class="label">枫叶设置管理</div>
+    <div class="title">枫叶设置</div>
+  </div>
+</div>
+<div class="cfg-box">
+  <div class="cfg-group">名字设置</div>
+  <ul class="cfg-ul">
+
+ 
+    <li class="cfg-li">
+      <div class="cfg-line">
+        Bot名字
+        <span class="cfg-hint">枫叶设置机器人名字+(名字)</span>
+        {{@botname}}
+      </div>
+      <div class="cfg-desc">设置->机器人名字</div>
+    </li>
+
+    
+    </ul>
+ </div>
+
+
+<div class="cfg-box">
+  <div class="cfg-group">功能设置</div>
+  <ul class="cfg-ul">
+
+
+    <li class="cfg-li">
+      <div class="cfg-line">
+        拉黑词开关
+        <span class="cfg-hint">枫叶设置拉黑词+开启/关闭</span>
+        {{@laheici}}
+      </div>
+      <div class="cfg-desc">拉黑词的使用</div>
+    </li>
+    <li class="cfg-li">
+    <div class="cfg-line">
+        睡眠时间
+    <span class="cfg-hint">枫叶设置睡眠时间+开启/关闭</span>
+        {{@smsj}}
+    </div>
+    <div class="cfg-desc">计算睡眠时间，早安晚安</div>
+    </li>
+
+    <li class="cfg-li">
+    <div class="cfg-line">
+        丁真，小黑子
+        <span class="cfg-hint">枫叶设置丁真+开启/关闭</span>
+        {{@dz}}
+    </div>
+    <div class="cfg-desc">回复特色表情</div>
+    </li>
+
+    <li class="cfg-li">
+    <div class="cfg-line">
+    数字炸弹
+    <span class="cfg-hint">枫叶设置数字炸弹+开启/关闭</span>
+    {{@szzd}}
+    </div>
+    <div class="cfg-desc">猜数字游戏</div>
+  </li>
+
+        <li class="cfg-li">
+      <div class="cfg-line">
+        随机运气类游戏
+        <span class="cfg-hint">枫叶设置随机类游戏+开启/关闭</span>
+        {{@jryq}}
+      </div>
+      <div class="cfg-desc">今日运气|开奖|娶群主|群友老婆（老公）</div>
+    </li>
+    
+
+    <li class="cfg-li">
+      <div class="cfg-line">
+        涩涩
+        <span class="cfg-hint">枫叶设置涩涩+开启/关闭</span>
+        {{@ss}}
+      </div>
+      <div class="cfg-desc">涩涩,怕封号的建议关闭</div>
+    </li>
+
+    <li class="cfg-li">
+      <div class="cfg-line">
+        戳一戳
+        <span class="cfg-hint">枫叶设置戳一戳+开启/关闭</span>
+        {{@cyc}}
+      </div>
+      <div class="cfg-desc">戳一戳语音会和别的冲突建议的关掉</div>
+    </li>
+	
+	<li class="cfg-li">
+      <div class="cfg-line">
+        OpenAi
+        <span class="cfg-hint">枫叶设置openai+开启/关闭</span>
+        {{@openai}}
+      </div>
+      <div class="cfg-desc">为了保额度，默认关闭</div>
+    </li>
+
+  </ul>
+</div>
+{{/block}}
