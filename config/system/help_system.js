@@ -93,8 +93,7 @@ export const helpList = [{
   },
    {"icon":56,
      "title":"ai","desc":"与openai对话，命令前缀为ai，私人key，额度可能会不足，key可更改"
-  }
-     {
+   },{
     "icon": 47,
     "title": "青年大学习", "desc": "返回本期青年大学习完成截图，大学生以假乱真的神器"
     },
