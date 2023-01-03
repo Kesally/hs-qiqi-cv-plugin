@@ -19,10 +19,24 @@
 
 推荐使用git进行安装，以方便后续升级。在Yunzai目录打开终端，运行~
 
-// 使用gitee
+// 使用Gitee
 
 ```
 git clone https://gitee.com/kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
+
+```
+
+// 使用GitHub Proxy
+
+```
+git clone https://ghporxy.com/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
+
+```
+
+// 使用GitHub
+
+```
+git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
 
 ```
 
