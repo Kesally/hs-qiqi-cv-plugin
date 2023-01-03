@@ -5,5 +5,5 @@ import Version from './Version.js'
 import Data from './Data.js'
 import Common from './Common.js'
 import Config from './Config.js'
-
-export {Common, Config, Data, Version, Path, Plugin_Name, Plugin_Path}
+import render from './common-lib/render.js';
+export {render, Common, Config, Data, Version, Path, Plugin_Name, Plugin_Path}
