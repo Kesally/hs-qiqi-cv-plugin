@@ -38,7 +38,7 @@ initCfg() {
   getdefSet (app, name) {
     return this.getYaml(app, name, 'defSet')
   }
-
+  
   /** 用户配置 */
   getConfig (app, name) {
 	return this.getYaml(app, name, 'config')

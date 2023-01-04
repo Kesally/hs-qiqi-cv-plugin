@@ -15,13 +15,13 @@ export function supportGuoba() {
   return {
     pluginInfo: {
       name: 'hs-qiqi-plugin',
-      title: 'hs-qiqi-plugin',
-      author: '@Kesally',
+      title: '枫叶插件',
+      author: '@Kesally @huasheng @qiqi',
       authorLink: 'https://gitee.com/kesally',
       link: 'https://gitee.com/kesally/hs-qiqi-cv-plugin',
       isV3: true,
       isV2: false,
-      description: '提供一些有用或没用的娱乐功能',
+      description: '枫叶是Yunzai-Bot的扩展插件，可能提供有用或者没用的功能(?)',
       // 显示图标，此为个性化配置
       // 图标可在 https://icon-sets.iconify.design 这里进行搜索
       // icon: 'emojione-monotone:baby-chick',
@@ -85,7 +85,7 @@ export function supportGuoba() {
       ],
       // 获取配置数据方法（用于前端填充显示数据）
       getConfigData() {
-        return Config.Notice
+        return Config.Yaml
       },
 
       // 设置配置的方法（前端点确定后调用的方法）
