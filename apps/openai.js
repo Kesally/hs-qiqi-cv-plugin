@@ -3,14 +3,14 @@ import _ from 'lodash'
 import fetch from "node-fetch";
 import { Config} from '../components/index.js'
 import { segment } from 'oicq';
-let apikey = "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"   //这是你申请的apikey
+let apikey = "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"   //这是你申请的apikey
 let kg = 0
 var tempMsg = ""
 //const openAIAuth = await getOpenAIAuth({
 // email: process.env.OPENAI_EMAIL,
 // password: process.env.OPENAI_PASSWORD
 //})
-//const api = new ChatGPTAPI({ ...openAIAuth, markdown: false })
+//const api = new ChatGPTAPI({ ...openAIAuth, markdown: false })1
 
 //const conversation = api.getConversation()
 export class example extends plugin {
