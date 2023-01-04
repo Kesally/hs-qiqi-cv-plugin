@@ -3,7 +3,7 @@ import _ from 'lodash'
 import fetch from "node-fetch";
 import { Config} from '../components/index.js'
 import { segment } from 'oicq';
-let apikey = "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"   //这是你申请的apikey
+let apikey = "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"   //这是你申请的apikey
 let kg = 0
 var tempMsg = ""
 //const openAIAuth = await getOpenAIAuth({
