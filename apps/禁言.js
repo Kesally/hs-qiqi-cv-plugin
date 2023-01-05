@@ -15,7 +15,7 @@ export class ztwd extends plugin {
             name: '禁言',
             dsc: '',
             event: 'message.group',
-            priority: -999999999,
+            priority: 4888,
             rule: [
                 {
                     reg: '^(闭嘴?|放开?)$',
