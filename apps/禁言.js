@@ -42,9 +42,9 @@ export class ztwd extends plugin {
       let atItem = e.message.filter((item) => item.type === "at");
       A = atItem[0].qq;
       }else{
-        qq = qq.match(/[1-9]\d*/g)
+        A = A.match(/[1-9]\d*/g)
       }
-      if (!qq) return e.reply("你自己看看这是QQ号吗")
+      if (!A) return e.reply("你自己看看这是QQ号吗")
       if (data.indexOf(A) == -1&&e.msg.includes('闭嘴')){
         if(A != ''){
           await data.splice(data.indexOf(A), 1)
