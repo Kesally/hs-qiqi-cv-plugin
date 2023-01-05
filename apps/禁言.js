@@ -45,6 +45,7 @@ export class ztwd extends plugin {
         A = A.match(/[1-9]\d*/g)
       }
       if (!A) return e.reply("你自己看看这是QQ号吗")
+      A = parseInt(A);
       if (data.indexOf(A) == -1&&e.msg.includes('闭嘴')){
         if(A != ''){
           await data.splice(data.indexOf(A), 1)
