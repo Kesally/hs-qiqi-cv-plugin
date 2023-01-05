@@ -36,7 +36,8 @@ export class hslistener extends plugin {
       rule: [ {
         reg: '',
         /** 执行方法 */
-        fnc: 'hslistener'
+        fnc: 'hslistener',
+		log: false
       },/*{
         reg: '#名字',
         fnc: 'cs'

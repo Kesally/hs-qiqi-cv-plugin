@@ -24,6 +24,7 @@ export class ztwd extends plugin {
                 {
                     reg: '',
                     fnc: 't',
+					log: false
                 },
             ]
         })

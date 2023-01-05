@@ -42,7 +42,8 @@ export class fy_yy extends plugin {
           /** 命令正则匹配 */
           reg: '',
           /** 执行方法 */
-          fnc: 'jc'
+          fnc: 'jc',
+		  log: false
         }
         
       ]
