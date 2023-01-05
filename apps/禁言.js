@@ -24,6 +24,7 @@ export class ztwd extends plugin {
                 {
                     reg: '',
                     fnc: 't',
+					log: false
                 },
             ]
         })
@@ -31,7 +32,7 @@ export class ztwd extends plugin {
     async z(e) {
   if (!e.isMaster) 
   {
-    e.reply('你是什么东西')
+    e.reply('你几把谁啊，我要见我主人')
     return true
 }
       let data=await getread()

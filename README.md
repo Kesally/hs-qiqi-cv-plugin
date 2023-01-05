@@ -169,6 +169,8 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
     -【与openai对话】
 	
+	-#填写
+	
 - 青年大学习.js
 
     -【获取本期青年大学习完成图片，以假乱真】

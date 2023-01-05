@@ -56,10 +56,8 @@ export const helpList = [{
    },{
      "icon":35,
      "title":"戳一戳","desc":"使用前请在枫叶设置打开,戳机器人发送本地语音等"
-   },{
-     "icon":56,
-     "title":"ai","desc":"与openai对话，命令前缀为ai，私人key，额度可能会不足，key可更改"
- },{
+   },
+  {
      "icon":65,
      "title":"几点了","desc":"查看现在时间，没用的功能+1"
  },{
@@ -93,7 +91,12 @@ export const helpList = [{
   },
    {"icon":56,
      "title":"ai","desc":"与openai对话，命令前缀为ai，私人key，额度可能会不足，key可更改"
-   },{
+   },
+  {
+    "icon": 55,
+    "title": "#填写", "desc": "填写openai密钥"
+    },
+ {
     "icon": 47,
     "title": "青年大学习", "desc": "返回本期青年大学习完成截图，大学生以假乱真的神器"
     },
