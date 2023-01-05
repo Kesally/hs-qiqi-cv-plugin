@@ -37,8 +37,14 @@ export class ztwd extends plugin {
 }
       let data=await getread()
       if (!data) data= [];
+      let A = e.message[0].text.replace(/闭嘴/g, "").trim()
+      if(e.message[1]){
       let atItem = e.message.filter((item) => item.type === "at");
-      let A = atItem[0].qq;
+      A = atItem[0].qq;
+      }else{
+        qq = qq.match(/[1-9]\d*/g)
+      }
+      if (!qq) return e.reply("你自己看看这是QQ号吗")
       if (data.indexOf(A) == -1&&e.msg.includes('闭嘴')){
         if(A != ''){
           await data.splice(data.indexOf(A), 1)
