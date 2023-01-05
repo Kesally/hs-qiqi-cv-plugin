@@ -14,7 +14,6 @@ const cfgMap = {
     '随机类游戏': 'pz.jryq',
     '涩涩': 'pz.ss',
 	'openai': 'pz.openai',
-};
 const ccc = {
     '戳一戳': 'cyc',
 	'拉黑词': 'laheici',

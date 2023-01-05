@@ -1,5 +1,5 @@
 
-<h1>hs-qiqi-cv-Plugin</h1>
+<h1>hs-qiqi-Plugin</h1>
 
 
 枫叶插件是一个Yunzai-Bot的扩展插件，给bot提供一些有趣的功能。
@@ -13,7 +13,7 @@
 </div>
 
 ## 安装教程
-**`注意`：hs-qiqi-cv-Plugin只适配Yunzai-BotV3!!!**
+**`注意`：hs-qiqi-Plugin只适配Yunzai-BotV3!!!**
 
 将hs-qiqi-Plugin下载下来放在Yunzai-Bot/plugins目录下，重启Yunzai-Bot后即可使用。
 
@@ -42,7 +42,7 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 ## 功能介绍
 
-> hs-qiqi-cv-Plugin为您提供以下功能
+> hs-qiqi-Plugin为您提供以下功能
 > 具体您可使用 **枫叶帮助  枫叶设置**  查看详细
 
 
@@ -112,10 +112,17 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 - news.js
 
     -【查看今日新闻】
+	
 - 现在时间.js
 
     -【查看现在的时间，无用功能+1】
 
+- 禁言.js
+
+    - 闭嘴@某人
+
+    - 放开@某人
+	
 </details>
 <details>
   <summary>娱乐类</summary>
@@ -166,7 +173,7 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 ## 免责声明
 
-1. 功能仅限内部交流与小范围使用，请勿将Yunzai-Bot及hs-qiqi-cv-Plugin用于任何以盈利为目的的场景.
+1. 功能仅限内部交流与小范围使用，请勿将Yunzai-Bot及hs-qiqi-Plugin用于任何以盈利为目的的场景.
 2. 图片与其他素材均来自于网络，仅供交流学习使用，如有侵权请联系，会立即删除.
 
 #### 联系方式
