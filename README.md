@@ -1,4 +1,8 @@
 
+<div align="center">
+  <img src="resources/README.md图片/0.jpg" alt="枫叶" width = "600">
+
+  
 <h1>hs-qiqi-Plugin</h1>
 
 
