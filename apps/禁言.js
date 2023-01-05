@@ -15,16 +15,15 @@ export class ztwd extends plugin {
             name: '禁言',
             dsc: '',
             event: 'message.group',
-            priority: 1145,
+            priority: -999999999,
             rule: [
                 {
                     reg: '^(闭嘴?|放开?)$',
-                    fnc: 'bz',
+                    fnc: 'z',
                 },
                 {
                     reg: '',
-                    fnc: 'jt',
-					log: false
+                    fnc: 't',
                 },
             ]
         })
@@ -32,7 +31,7 @@ export class ztwd extends plugin {
     async z(e) {
   if (!e.isMaster) 
   {
-    e.reply('你几把谁啊，我要见的我主人')
+    e.reply('你是什么东西')
     return true
 }
       let data=await getread()
@@ -40,6 +39,9 @@ export class ztwd extends plugin {
       let atItem = e.message.filter((item) => item.type === "at");
       let A = atItem[0].qq;
       if (data.indexOf(A) == -1&&e.msg.includes('闭嘴')){
+        if(A != ''){
+          await data.splice(data.indexOf(A), 1)
+         }
      await data.push(A)
      await e.reply(`好的主人从现在开始让(${A})闭嘴`)
       }
