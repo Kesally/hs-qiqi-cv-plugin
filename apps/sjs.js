@@ -102,7 +102,6 @@ export class sjs extends plugin {
    if(!Config.getConfig('set','pz')['dz']) {return false}
   let file = fs.readdirSync(xhz_path)
      let imgnum = Math.round(Math.random() * (file.length - 1))
-     let pp =  (segment.image(xhz_path + file[imgnum]))
 
 if(numss > numbb){
 	await e.reply("正在开奖中.....");
@@ -110,7 +109,7 @@ if(numss > numbb){
 	 setTimeout(() => {
 	  e.reply("摇号成功，三秒后开奖");
 	},1000);
- let msg = ['恭喜抽中三等奖,送你一个哥哥', pp]
+ let msg = ['恭喜抽中三等奖,送你一个哥哥', segment.image(xhz_path + file[imgnum])]
  setTimeout(() => {
   e.reply(msg);
  }, 3000);
@@ -128,7 +127,7 @@ if(numss > numbb){
 	 await e.reply("正在开奖中.....");
 	 
 	  setTimeout(() => {
-	   e.reply("摇号成功，一秒后开奖");
+	   e.reply("摇号成功，三秒后开奖");
 	 },1000);
 	let msp = ['恭喜抽中特等奖晚安', segment.image('https://iw233.cn/API/Random.php')]
   setTimeout(() => {
@@ -139,7 +138,7 @@ if(numss > numbb){
 	await e.reply("正在开奖中.....");
 	
 	 setTimeout(() => {
-	  e.reply("摇号成功，一秒后开奖");
+	  e.reply("摇号成功，三秒后开奖");
 	},1000);
 	let msk = ['恭喜抽中一等奖,涩图一张', segment.image('https://api.sdgou.cc/api/tao/')]
   setTimeout(() => {
