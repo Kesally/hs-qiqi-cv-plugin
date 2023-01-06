@@ -18,6 +18,10 @@ export class ztwd extends plugin {
             priority: -99999999,
             rule: [
                 {
+                reg: '^openai帮助$',
+                fnc: 'o',
+                },
+                {
                     reg: '^#?(只?听我的|听大家的?)$',
                     fnc: 'z',
                 },
@@ -28,6 +32,10 @@ export class ztwd extends plugin {
                 },
             ]
         })
+   }
+   async o(e){
+    await e.reply('[枫叶]openai使用帮助\n#填写...来填写你的apikey\n命令是 #机器人....  #给我图   #重置聊天 \n支持连续对话\n枫叶设置填写你的机器人名称，触发命令，将作为前缀\n注意！！！ 一定要安装依赖 axios  命令如下\n1.npm install axios  这个很大概率网速非常慢，连不上\n2.cnpm install axios -w  这个需要安装 cnpm， 命令是 npm install -g cnpm -registry=https://registry.npm.taobao.org\n3.pnpm add axios -w 这个有几率掉依赖（希望你不要中奖，掉依赖就是安装过得依赖要全部装一遍）\n我推荐第二种')
+    return true;
    }
     async z(e) {
   if (!e.isMaster) 
