@@ -32,7 +32,7 @@ export class r18ss extends plugin {
                         fnc: 'fy'
                     },
                     {
-                        reg: '^给我涩图.*$',
+                        reg: '^给我(涩|色)图.*$',
                         fnc: 's'
                     },
                     {
