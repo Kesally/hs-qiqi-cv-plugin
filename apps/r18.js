@@ -52,6 +52,7 @@ export class r18ss extends plugin {
         }
         async fy(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!e.isMaster){e.reply('你不是主人走开');return true}
             let ee = await getread();
             let u = ee / 1000;
             let nickname = Bot.nickname
@@ -93,6 +94,7 @@ export class r18ss extends plugin {
         }
         async o(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!e.isMaster){e.reply('你不是主人走开');return true}
             if (e.msg.includes('涩图更换动漫源')){
                 ss = 1;
                 await e.reply('更换成功涩图源为动漫源')
@@ -105,6 +107,7 @@ export class r18ss extends plugin {
     }return;}
         async t(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!e.isMaster){e.reply('你不是主人走开');return true}
                 let data=await getread()
                 if (!data) data= [];
                 let st = e.message[0].text.replace(/涩图撤回时间/g, "").trim();
