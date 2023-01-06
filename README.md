@@ -115,11 +115,11 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
     - 【戳一戳机器人发送消息】
 - news.js
 
-    -【查看今日新闻】
+    - 【查看今日新闻】
 	
 - 现在时间.js
 
-    -【查看现在的时间，无用功能+1】
+    - 【查看现在的时间，无用功能+1】
 
 - 禁言.js
 
@@ -167,13 +167,19 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 	
 - OpenAi.js
 
-    -【与openai对话】
+    - openai帮助
 	
-	-#填写
+    - 与openai对话
+	
+	- #填写
 	
 - 青年大学习.js
 
-    -【获取本期青年大学习完成图片，以假乱真】
+    - 获取本期青年大学习完成图片，以假乱真
+	
+- 这周讨伐谁.js
+    
+	- 随机帮你选出这周讨伐谁，选择恐惧症的福音
 
 </details>
 
