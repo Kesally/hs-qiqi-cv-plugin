@@ -6,7 +6,7 @@
 
 export const helpCfg = {
   title: '枫叶帮助',
-  subTitle: '[枫叶插件] hs-qiqi-Plugin',
+  subTitle: '[枫叶插件] Yunzai-Bot&hs-qiqi-Plugin',
   columnCount: 4,
   colWidth: 300,
   theme: 'all',
@@ -100,7 +100,10 @@ export const helpList = [{
     "icon": 47,
     "title": "青年大学习", "desc": "返回本期青年大学习完成截图，大学生以假乱真的神器"
     },
-
+  {
+    "icon": 38,
+    "title": "#这周讨伐谁", "desc": "让机器人来选择你该讨伐谁吧！"
+    }
   ]
 },
 

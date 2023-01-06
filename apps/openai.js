@@ -95,7 +95,7 @@ export class example extends plugin {
   return true;
   }
   async czdg(e) {
-	if(!Config.getConfig('set','openai')['openai']) {return false}
+	if(!Config.getConfig('set','pz')['openai']) {return false}
     tempMsg = ""
     e.reply('重置聊天对话啦')
 
