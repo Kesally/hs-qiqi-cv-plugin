@@ -126,6 +126,10 @@ export class r18ss extends plugin {
                 await e.reply('请在群聊使用')
             }
             let st = e.message[0].text.replace(/给我涩图/g, "").trim();
+            if(st <= 0 || st > 1000){
+                await e.reply(`你的要求不合理请重试`)
+                return true;
+            }
             await e.reply(`好的,${bot}马上给你${st}张涩图`)
             let url;
             if(ss != 1){
