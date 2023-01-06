@@ -146,6 +146,10 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 - R18.js
     
     - sese
+	
+	- 枫叶涩涩帮助
+	
+	- 涩图撤回时间
 
 - 数字炸弹
     
