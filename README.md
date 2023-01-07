@@ -175,7 +175,7 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 	
     - 与openai对话
 	
-	- #填写
+	- #激活openai
 	
 - 青年大学习.js
 
