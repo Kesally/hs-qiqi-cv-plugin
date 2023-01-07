@@ -100,7 +100,7 @@ export const helpList = [{
    },
   {
     "icon": 55,
-    "title": "#填写", "desc": "填写openai密钥"
+    "title": "#激活openai", "desc": "填写openai密钥"
     },
  {
     "icon": 47,
