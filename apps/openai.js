@@ -43,7 +43,7 @@ export class example extends plugin {
         },
         {
           /** 命令正则匹配 */
-          reg: "^#填写.*", //匹配消息正则,命令正则
+          reg: "^#激活openai.*", //匹配消息正则,命令正则
           /** 执行方法 */
           fnc: 'tx',
           permission: 'master'
@@ -83,7 +83,7 @@ export class example extends plugin {
       await e.reply('请私聊使用')
       return true;
   }
-  let ck = e.message[0].text.replace(/#|填写/g, "").trim();
+  let ck = e.message[0].text.replace(/#|激活openai/g, "").trim();
   let data=await getread();
   if (!data) data= [];
   if(ck != ''){
