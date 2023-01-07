@@ -5,6 +5,7 @@ import { Config, Common } from '../components/index.js'
 
 
 const cfgMap = {
+    '随机图片': 'pz.sjtp',
 	'拉黑词': 'pz.laheici',
     '戳一戳': 'pz.cyc',
 	'机器人名字': 'mz.botname',
@@ -16,6 +17,7 @@ const cfgMap = {
 	'openai': 'pz.openai',
 };
 const ccc = {
+    '随机图片': 'sjtp',
     '戳一戳': 'cyc',
 	'拉黑词': 'laheici',
     '丁真': 'dz',
@@ -171,6 +173,7 @@ async function Setgb(e) {
            jryq: allgb,
            ss: allgb,
 		   openai: allgb,
+           sjtp: allgb,
         }
         //渲染图像
         return await Common.render("admin/index", {
@@ -193,6 +196,7 @@ async function Setkq(e) {
            jryq: allkq,
            ss: allkq,
 		   openai: allkq,
+           sjtp: allkq
         }
         //渲染图像
         return await Common.render("admin/index", {
