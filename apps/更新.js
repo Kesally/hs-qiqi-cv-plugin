@@ -1,3 +1,4 @@
+import fs from 'fs'
 import plugin from '../../../lib/plugins/plugin.js'
 import { execSync } from 'child_process'
 import { update } from '../model/update.js'
