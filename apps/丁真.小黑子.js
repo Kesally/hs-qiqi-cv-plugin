@@ -60,7 +60,7 @@ async sf(e){
       e.reply('目前一张图都没有请使用上传坤图')
       return true
       }
-      msglist.push(`坤坤图片共${File.length}张，可输入【删除戳一戳图片+(序列号)】进行删除`)
+      msglist.push(`坤坤图片共${File.length}张，可输入【删除坤坤图片+(序列号)】进行删除`)
       for (let i = 0; i < File.length; i++) {
         msglist.push([`${i+1}.`, segment.image(`${xhz_path}${File[i]}`)])
       }
