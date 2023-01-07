@@ -5,7 +5,6 @@ import { promisify } from "util"
 import cfg from '../../../lib/config/config.js'
 import { pipeline } from "stream"
 import fetch from "node-fetch";
-import fs from 'fs'
 let mp3 = 10 //音频文件数量初始10个
 let botsender = true
 import { Config} from '../components/index.js'
@@ -13,7 +12,6 @@ if (!fs.existsSync(`plugins/hs-qiqi-plugin/resources/video/`)) {
   fs.mkdirSync(`plugins/hs-qiqi-plugin/resources/video/`);}
 const chuo_path ='plugins/hs-qiqi-plugin/resources/戳一戳图片/'
 let _path='./plugins/hs-qiqi-plugin/config/只听我的_群号.yaml'
-if (!fs.existsSync(_path)) {fs.writeFileSync(_path,'')}
 let timeout = 20000//冷却
 let r18 = false;//true开启绅士模式
 
