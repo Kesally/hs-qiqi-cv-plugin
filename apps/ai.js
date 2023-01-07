@@ -128,7 +128,7 @@ async function answer(e) {
     let num = Math.ceil(Math.random()* 4)
     let name =Config.getConfig('set','mz')['botname']
     e.msg=e.msg.replace(`${name}`, "小爱")
-    let res = await(await fetch(`https://xiaobai.klizi.cn/API/other/xiaoai.php?data=&msg=${e.msg}`)).json()
+    let res = await(await fetch(`http://api.duozy.cn/api/xiaoai.php?msg=${e.msg}`)).json()
     //判断是否关闭语音
     let yy =await redis.get('aiyy:ai')
     let qd=1

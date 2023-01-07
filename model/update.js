@@ -129,15 +129,15 @@ export class update extends plugin {
     let time = await this.getTime(plugin)
 
     if (/Already up|已经是最新/g.test(ret.stdout)) {
-      await this.reply(`${this.typeName}已经是最新\n最后更新时间：${time}+8:00`)
+      await this.reply(`${this.typeName}已经是最新\n最后更新时间：${time}`)
     } else {
-      await this.reply(`${this.typeName}更新成功\n更新时间：${time}+8:00`)
+      await this.reply(`${this.typeName}更新成功\n更新时间：${time}`)
       this.isUp = true
       let log = await this.getLog(plugin)
       await this.reply(log)
     }
 
-    logger.mark(`${this.e.logFnc} 最后更新时间：${time}+8：00`)
+    logger.mark(`${this.e.logFnc} 最后更新时间：${time}`)
 
     return true
   }
