@@ -5,6 +5,7 @@ import { promisify } from "util"
 import cfg from '../../../lib/config/config.js'
 import { pipeline } from "stream"
 import fetch from "node-fetch";
+import YAML from 'yaml'
 let mp3 = 10 //音频文件数量初始10个
 let botsender = true
 import { Config} from '../components/index.js'
