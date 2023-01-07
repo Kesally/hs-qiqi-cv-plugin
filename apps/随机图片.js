@@ -52,6 +52,7 @@ export class example extends plugin {
 }
 async bz(e){
     if(!Config.getConfig('set','pz')['sjtp']){return false}
+    if(!e.isMaster){e.reply('你不能用叫主人来'); return true;}
     let ee = await getread();
             let nickname = Bot.nickname
             if (this.e.isGroup) {
@@ -174,6 +175,7 @@ async kt(e){
 }
 async sj(e){
     if(!Config.getConfig('set','pz')['sjtp']){return false}
+    if(!e.isMaster){e.reply('你不能用叫主人来'); return true;}
   let data=await getread()
   if (!data) data= [];
   let sj = e.message[0].text.replace(/随机图片概率/g, "").trim();
@@ -188,6 +190,7 @@ async sj(e){
 }
 async sjtp(e) {
     if(!Config.getConfig('set','pz')['sjtp']){return false}
+    if(!e.isMaster){e.reply('你不能用叫主人来'); return true;}
     logger.info('[枫叶]随机图片')
   let oo = await getread()
   let num = Math.ceil(Math.random( )* 100)
