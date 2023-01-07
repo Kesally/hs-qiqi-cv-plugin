@@ -40,7 +40,7 @@ export class fy_update extends plugin {
 	
 	async update_plugin(){
 		if (!this.e.isMaster) 
-        {if(zr.includes(this.e.user_id)){
+        {if(!(zr.includes(this.e.user_id))){
 			return false;
 		}}
 		let Update_Plugin = new update();
