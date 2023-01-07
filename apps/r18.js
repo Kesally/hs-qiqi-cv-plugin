@@ -142,12 +142,12 @@ export class r18ss extends plugin {
                 await e.reply(`你的要求不合理请重试`)
                 return true;
             }
-            let oo = await e.reply(`好的,${bot}马上给你${st}张涩图`)
+            await e.reply(`好的,${bot}马上给你${st}张涩图`)
             let url;
             if(ss == 2){
                 url = await(await fetch('https://api.lolicon.app/setu/v2?proxy=i.pixiv.re&r18=0')).json();
             }
-            else if(ss == 0){
+            if(ss == 0){
             url = 'https://api.sdgou.cc/api/tao/'}
             else{
                 url = `https://iw233.cn/API/Random.php`;
@@ -171,7 +171,6 @@ export class r18ss extends plugin {
           if (ee != 0 && y && y.message_id) {
             let target = e.group;
             setTimeout(() => {
-                target.recallMsg(oo.message_id);
                 target.recallMsg(y.message_id);
             }, ee);
         }
