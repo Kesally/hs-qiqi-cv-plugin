@@ -5,7 +5,6 @@ import { promisify } from "util"
 import cfg from '../../../lib/config/config.js'
 import { pipeline } from "stream"
 import fetch from "node-fetch";
-import YAML from 'yaml'
 let mp3 = 10 //音频文件数量初始10个
 let botsender = true
 import { Config} from '../components/index.js'
@@ -36,18 +35,6 @@ export class chuo extends plugin{
   async cycyy (e) {
     if(e.target_id == cfg.qq){
       if(!Config.getConfig('set','pz')['cyc']){return false}
-      //判断只听我的
-let group = await Yaml.getread(_path)
-try {
-     for (let qqq of group) {
-    if(e.group_id == qqq){
-    if(e.operator_id ==cfg.masterQQ[0]){
-       }else{
-       return
-       }
-       }
-     }
-   } catch (e) {}
       let fy =  e.operator_id
     let now_time = new Date().getTime();
         let g = await redis.get("xs" + fy + ":g");
