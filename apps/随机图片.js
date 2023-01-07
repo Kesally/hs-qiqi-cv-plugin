@@ -190,7 +190,6 @@ async sj(e){
 }
 async sjtp(e) {
     if(!Config.getConfig('set','pz')['sjtp']){return false}
-    if(!e.isMaster){e.reply('你不能用叫主人来'); return true;}
     logger.info('[枫叶]随机图片')
   let oo = await getread()
   let num = Math.ceil(Math.random( )* 100)
