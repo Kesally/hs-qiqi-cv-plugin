@@ -129,7 +129,7 @@ export class r18ss extends plugin {
         async s(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
             let rr = await getread()
-            if(rr == ''){
+            if(rr == 0){
                 await e.reply('请先设置涩涩冷却再使用')
                 return true;
             }
