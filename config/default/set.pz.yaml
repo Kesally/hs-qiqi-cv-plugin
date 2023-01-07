@@ -1,8 +1,10 @@
 laheici: false
-dz: false
-smsj: false
+dz: true
+smsj: true
 szzd: false
-ai : false
-jryq : false
-ss : false
-cyc : false
+ai: false
+jryq: false
+ss: false
+cyc: false
+openai: false
+sjtp: true
