@@ -197,3 +197,13 @@ async function cyc() {
        }catch(err) {}
 } 
 } 
+function getread() {
+  try {
+    var fileContents = fs.readFileSync(_path, 'utf8');
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+  //转换
+  return YAML.parse(fileContents);
+}
