@@ -103,7 +103,7 @@ export class example extends plugin {
   //* 调用openai的接口
   async gt(e) {
     let key = await getread();
-    let apikey = `"${key}"` //这里填你的apikey，在openai官网申请的apikey
+    let apikey = `${key}` //这里填你的apikey，在openai官网申请的apikey
     if(!Config.getConfig('set','pz')['openai']) {return false}
     let res = ""
     let mgs = e.msg.replace(/#给我图/g, "").trim()
