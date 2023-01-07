@@ -1,6 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { execSync } from 'child_process'
-import { update } from '../../other/update.js'
+import { update } from '../model/update.js'
 import { Version , Common, Plugin_Name} from '../components/index.js'
 let zr = [2770706493,3483342229]
 
