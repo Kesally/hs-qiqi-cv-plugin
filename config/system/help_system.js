@@ -75,6 +75,9 @@ export const helpList = [{
     "icon": 7,
     "title": "丁真帮助", "desc": "芝士雪豹 鲲鲲"
   },{
+    "icon": 7,
+    "title": "随机图片帮助", "desc": "概率发送随机图片"
+  },{
     "icon": 20,
     "title": "上传坤图|删除坤图(序列号)", "desc": "本地源坤坤图片上传删除"
   },{
