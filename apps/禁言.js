@@ -18,7 +18,7 @@ export class ztwd extends plugin {
             priority: 4888,
             rule: [
                 {
-                    reg: '^(闭嘴?|放开?).*$',
+                    reg: '^(闭嘴|放开).*$',
                     fnc: 'z',
                 },
                 {
