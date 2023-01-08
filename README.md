@@ -197,9 +197,10 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 | `机器人使用问题，建议加群咨询`|
 | ------------- | 
-|  `原枫叶群号:` 779217677|
+|  `枫叶群号:` 779217677|
 |  `ikun群:` [707499227](https://jq.qq.com/?_wv=1027&k=yTbA4lk6)|
-|[原作者七七](https://gitee.com/fengyeplugin)|
+|[现作者Kesally](https://gitee.com/fengyeplugin)|
+|[现原作者七七](https://gitee.com/fengyeplugin)|
 |[原作者花生](https://gitee.com/huasheng1999)|
 |[我的爱发电](http://afdian.net/a/Kesally)|
 </div>
