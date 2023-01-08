@@ -5,7 +5,7 @@ import YAML from 'yaml'
 
 
 
-let path='./plugins/hs-qiqi-plugin/config/禁言.yaml'
+let path='./plugins/hs-qiqi-plugin/resources/禁言.yaml'
 
 if (!fs.existsSync(path)) {fs.writeFileSync(path,'')}
 
@@ -47,6 +47,9 @@ export class ztwd extends plugin {
       if (!A) return e.reply("你自己看看这是QQ号吗")
       A = parseInt(A);
       if (data.indexOf(A) == -1&&e.msg.includes('闭嘴')){
+        if(A != ''){
+          await data.splice(data.indexOf(A), 1)
+         }
      await data.push(A)
      await e.reply(`好的主人从现在开始让(${A})闭嘴`)
       }
@@ -58,9 +61,10 @@ export class ztwd extends plugin {
 }
 async t(e) {
    let used = await getread()
+   let op = e.user_id
    try {
         for (let Q of used) {
-          if(Q == e.user_id &&!e.isMaster){
+          if(op == Q &&!e.isMaster){
             if(e.img){
               let num = Math.ceil(Math.random() * 100)
               while(num <= 0){num++};
