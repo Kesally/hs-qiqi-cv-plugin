@@ -9,13 +9,13 @@ export class example extends plugin {
   constructor () {
     super({
       /** 功能名称 */
-      name: '新闻',
+      name: '[枫叶]今日新闻',
       /** 功能描述 */
       dsc: '简单开发示例',
       /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       /** 优先级，数字越小等级越高 */
-      priority: 4399,
+      priority: 3399,
       rule: [
         {
           /** 命令正则匹配 */
@@ -28,7 +28,7 @@ export class example extends plugin {
  }
 
 
-async xinwen(e) {
+async news(e) {
     
   //e.msg 用户的命令消息
   console.log("用户命令：", e.msg);
