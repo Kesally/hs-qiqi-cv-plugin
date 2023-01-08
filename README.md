@@ -12,7 +12,7 @@
 </div>
 <div align="center">
 
-[![访问量](https://profile-counter.glitch.me/hs-qiqi-plugin/count.svg)](https://gitee.com/kesally/hs-qiqi-cv-plugin.git)
+[![访问量](https://profile-counter.glitch.me/hs-qiqi-cv-plugin/count.svg)](https://gitee.com/kesally/hs-qiqi-cv-plugin.git)
 
 </div>
 
@@ -53,10 +53,6 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 <details>
   <summary>功能类</summary>
-
-- 卸载枫叶.js
-
-    - 一键卸载枫叶插件，让报错与您说拜拜
 
 - 原神语音.js
 
@@ -201,9 +197,10 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 | `机器人使用问题，建议加群咨询`|
 | ------------- | 
-|  `原枫叶群号:` 779217677|
+|  `枫叶群号:` 779217677|
 |  `ikun群:` [707499227](https://jq.qq.com/?_wv=1027&k=yTbA4lk6)|
-|[原作者七七](https://gitee.com/fengyeplugin)|
+|[现作者Kesally](https://gitee.com/kesally)|
+|[现原作者七七](https://gitee.com/fengyeplugin)|
 |[原作者花生](https://gitee.com/huasheng1999)|
 |[我的爱发电](http://afdian.net/a/Kesally)|
 </div>
