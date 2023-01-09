@@ -124,6 +124,7 @@ export class sjs extends plugin {
 }
   async jy(e){
     if(!Config.getConfig('set','pz')['jryq']) return this.reply('抽奖功能已关闭')
+    if(!e.isMaster){e.reply('你不是主人走开');return true}
     let data=await Yaml.getread(path)
     let chtime=e.msg.replace(/开奖禁言时间|秒/g,'')
     let 禁言时间=chtime
@@ -134,6 +135,7 @@ export class sjs extends plugin {
 }
   async ch(e){
     if(!Config.getConfig('set','pz')['jryq']) return this.reply('抽奖功能已关闭')
+    if(!e.isMaster){e.reply('你不是主人走开');return true}
     let data=await Yaml.getread(path)
     let chtime=e.msg.replace(/开奖撤回时间|秒/g,'')
     let 撤回时间=chtime
@@ -144,6 +146,7 @@ export class sjs extends plugin {
 }
   async kj(e){
     if(!Config.getConfig('set','pz')['jryq']) return this.reply('抽奖功能已关闭')
+    if(!e.isMaster){e.reply('你不是主人走开');return true}
     let data=await Yaml.getread(path)
     let chtime=e.msg.replace(/开奖冷却时间|秒/g,'')
     let 冷却时间=chtime
