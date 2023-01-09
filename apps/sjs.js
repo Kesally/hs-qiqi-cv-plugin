@@ -155,7 +155,9 @@ export class sjs extends plugin {
 	  if(!Config.getConfig('set','pz')['jryq']) return this.reply('抽奖功能已关闭')
     let data=await Yaml.getread(path)
     let lq = data.开奖冷却
+    lq = lq * 1;
     let ee = data.开奖撤回
+    ee = ee * 1;
     let wjy = data.开奖禁言
     wjy = wjy * 1;
     if(e.isMaster){e.reply('你是主人没有CD')}
