@@ -78,6 +78,7 @@ export class sjs extends plugin {
     let ee = data.开奖撤回
     ee = ee / 1000;
     let wjy = data.开奖禁言
+    wjy = wjy * 1;
     let nickname = Bot.nickname
     if (this.e.isGroup) {
     let info = await Bot.getGroupMemberInfo(this.e.group_id, Bot.uin)
@@ -156,6 +157,7 @@ export class sjs extends plugin {
     let lq = data.开奖冷却
     let ee = data.开奖撤回
     let wjy = data.开奖禁言
+    wjy = wjy * 1;
     if(e.isMaster){e.reply('你是主人没有CD')}
     else{
 	  let qq =  e.user_id
