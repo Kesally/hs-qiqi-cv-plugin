@@ -25,11 +25,15 @@ export class sjs extends plugin {
       /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       /** 优先级，数字越小等级越高 */
-      priority: 5000,
+      priority: 1,
       rule: [
         {
           reg: '^开奖帮助$',
           fnc: 'bz',
+        },
+        {
+          reg: '^开奖(一|二|三|特)等奖(开启|关闭)撤回$',
+          fnc: 'kq',
         },
         {
           reg: '^开奖禁言时间(\\d)+(秒)?$',
@@ -70,6 +74,53 @@ export class sjs extends plugin {
       ]
     })
   }
+  async kq(e){
+    if(!Config.getConfig('set','pz')['jryq']) return this.reply('抽奖功能已关闭')
+    if(!e.isMaster){e.reply('你不是主人走开');return true}
+    if (e.isMaster&&e.msg.includes('开奖一等奖开启撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖一等奖=1;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖一等奖开启撤回成功`,true)
+    }
+    if (e.isMaster&&e.msg.includes('开奖一等奖关闭撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖一等奖=2;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖一等奖关闭撤回成功`,true)
+    }if (e.isMaster&&e.msg.includes('开奖二等奖开启撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖二等奖=1;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖二等奖开启撤回成功`,true)
+    }if (e.isMaster&&e.msg.includes('开奖二等奖关闭撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖二等奖=2;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖二等奖关闭撤回成功`,true)
+    }if (e.isMaster&&e.msg.includes('开奖三等奖开启撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖三等奖=1;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖三等奖开启撤回成功`,true)
+    }if (e.isMaster&&e.msg.includes('开奖三等奖关闭撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖三等奖=2;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖三等奖关闭撤回成功`,true)
+    }if (e.isMaster&&e.msg.includes('开奖特等奖开启撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖特等奖=1;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖特等奖开启撤回成功`,true)
+    }if (e.isMaster&&e.msg.includes('开奖特等奖关闭撤回')){
+      let data=await Yaml.getread(path)
+      data.开奖特等奖=2;
+      await Yaml.getwrite(path,data)
+      return e.reply(`开奖特等奖关闭撤回成功`,true)
+    }
+    return false;
+  }
   async bz(e){
     if(!Config.getConfig('set','pz')['jryq']) return this.reply('抽奖功能已关闭')
     if(!e.isMaster){e.reply('你不是主人走开');return true}
@@ -80,6 +131,10 @@ export class sjs extends plugin {
     ee = ee / 1000;
     let wjy = data.开奖禁言
     wjy = wjy * 1;
+    let yi = data.开奖一等奖
+    let er = data.开奖二等奖
+    let san = data.开奖三等奖
+    let te = data.开奖特等奖
     let nickname = Bot.nickname
     if (this.e.isGroup) {
     let info = await Bot.getGroupMemberInfo(this.e.group_id, Bot.uin)
@@ -98,6 +153,30 @@ export class sjs extends plugin {
     let msg = [];
     let ui =[];
     let pp =[];
+    let se =[];
+    let st =[];
+    let sy =[];
+    let su =[];
+    if(yi == 1){
+      se.push(`开奖一等奖是否撤回:是`)
+    }else if(yi == 2){
+      se.push(`开奖一等奖是否撤回:否`)
+    }
+    if(er == 1){
+      st.push(`开奖二等奖是否撤回:是`)
+    }else if(er == 2){
+      st.push(`开奖二等奖是否撤回:否`)
+    }
+    if(san == 1){
+      sy.push(`开奖三等奖是否撤回:是`)
+    }else if(san == 2){
+      sy.push(`开奖三等奖是否撤回:否`)
+    }
+    if(te == 1){
+      su.push(`开奖特等奖是否撤回:是`)
+    }else if(te == 2){
+      su.push(`开奖特等奖是否撤回:否`)
+    }
     msg.push(`当前枫叶开奖撤回时间为${ee}秒\n可发送开奖撤回时间()秒来调整`)
     ui.push(`当前枫叶开奖冷却时间为${lq}秒\n可发送开奖冷却时间()秒来调整`)
     pp.push(`当前枫叶开奖禁言时间为${wjy}秒\n可发送开奖禁言时间()秒来调整`)
@@ -117,6 +196,30 @@ export class sjs extends plugin {
     {
       ...userInfo,
       message: pp
+    }
+  )
+  forwardMsg.push(
+    {
+      ...userInfo,
+      message: se
+    }
+  )
+  forwardMsg.push(
+    {
+      ...userInfo,
+      message: st
+    }
+  )
+  forwardMsg.push(
+    {
+      ...userInfo,
+      message: sy
+    }
+  )
+  forwardMsg.push(
+    {
+      ...userInfo,
+      message: su
     }
   )
   forwardMsg = await this.e.group.makeForwardMsg(forwardMsg)
@@ -164,6 +267,10 @@ export class sjs extends plugin {
     ee = ee * 1;
     let wjy = data.开奖禁言
     wjy = wjy * 1;
+    let yi = data.开奖一等奖
+    let er = data.开奖二等奖
+    let san = data.开奖三等奖
+    let te = data.开奖特等奖
     if(e.isMaster){e.reply('你是主人没有CD')}
     else{
 	  let qq =  e.user_id
@@ -218,27 +325,40 @@ if(numss > numbb){
 	await e.reply("正在开奖中.....");
  let msg = ['恭喜抽中三等奖,送你一个哥哥', segment.image(xhz_path + file[imgnum])]
  let yy = await e.reply(msg);
- await common.sleep(ee);
+ if(san == 1){
+  await common.sleep(ee);
   e.group.recallMsg(yy.message_id);
+ }else{
+  await e.reply(yy);
+ }
 }else if(numss < num3){
 	await e.reply("正在开奖中.....");
  let msk = ['恭喜抽中二等奖,送你一张壁纸', segment.image('https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top')]
   let i = await e.reply(msk);
+  if(er == 1){
   await common.sleep(ee);
-  e.group.recallMsg(i.message_id);
+  e.group.recallMsg(i.message_id);}else{
+    await e.reply(i);
+  }
  }else if(num3 < num4){
 	 await e.reply("正在开奖中.....");
 	let msp = ['恭喜抽中特等奖晚安', segment.image('https://iw233.cn/API/Random.php')]
     let oo = await e.reply(msp);
+    if(te == 1){
     await common.sleep(ee);
-  e.group.recallMsg(oo.message_id);
+  e.group.recallMsg(oo.message_id);}else{
+    await e.reply(oo);
+  }
 	e.group.muteMember(qq,wjy);
 }else if(num4 < numbb){
 	await e.reply("正在开奖中.....");
 	let msk = ['恭喜抽中一等奖,涩图一张', segment.image('https://api.sdgou.cc/api/tao/')]
     let uu = await e.reply(msk);
+if(yi == 1){
     await common.sleep(ee);
-  e.group.recallMsg(uu.message_id);
+  e.group.recallMsg(uu.message_id);}else{
+    await e.reply(uu);
+  }
 }
   return true; //返回true 阻挡消息不再往下
   }
