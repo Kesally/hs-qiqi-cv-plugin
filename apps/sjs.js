@@ -12,7 +12,7 @@ let GayCD = {};
 import fs from 'node:fs'
 const xhz_path ='plugins/hs-qiqi-plugin/resources/小黑子图片/'
 await tp()
-let path='./plugins/hs-qiqi-plugin/config/开奖配置.yaml'
+let path='./plugins/hs-qiqi-plugin/config/配置/开奖配置.yaml'
 
 
 export class sjs extends plugin {
