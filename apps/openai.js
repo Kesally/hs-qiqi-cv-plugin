@@ -3,7 +3,6 @@ import _ from 'lodash'
 import fetch from "node-fetch";
 import { Config} from '../components/index.js'
 import { segment } from 'oicq';
-import axios from 'axios'  //需要安装依赖 命令 cnpm install axios -w 或者 pnpm add axios -w(pnpm这个可能会掉依赖)
 import fs from "node:fs"
 import YAML from 'yaml'
 let kg = 0
@@ -172,59 +171,50 @@ export class example extends plugin {
 
 
       try {
-
-      } catch {
-
-      }
-      axios({
-        method: 'post',
-        url: 'https://api.openai.com/v1/completions',
-        headers: {
-          'Content-Type': "application/json",
-          'Accept-Encoding': 'gzip,deflate',
-          'Content-Length': 1024,
-          'Transfer-Encoding': 'chunked',
-          'Authorization': 'Bearer ' + apikey
-        },
-        data: JSON.stringify(data2)
-      })
-        .then(function (response) {
-          let res2 = response.data
-
-          let jieguo = res2.choices[0].text
-          jieguo = jieguo.replace(/\n/, "").trim()
-          jieguo = jieguo.replace(/答：/, "").trim()
-          jieguo = jieguo.replace(/Bot:/, "").trim()
-          jieguo = jieguo.replace(/robot:/, "").trim()
-          jieguo = jieguo.replace(/Robot:/, "").trim()
-          jieguo = jieguo.replace(/Computer:/, "").trim()
-          jieguo = jieguo.replace(/computer:/, "").trim()
-          jieguo = jieguo.replace(/AI:/, "").trim()
-
-
-          tempMsg = tempMsg + "\nAI: " + jieguo
-          let zs = tempMsg.length
-          // logger.mark(`[AI回复]${tempMsg}`)
-          ForwardMsg(e, jieguo)
-
+        res = await fetch('https://api.openai.com/v1/completions', {
+            method: "post",
+            body: JSON.stringify(data2),
+    
+            headers: {
+                'Content-Type': "application/json", 
+               
+                'Authorization':'Bearer '+apikey
+            }
 
         })
-        .catch(function (error) {
-          console.log(error);
-          tempMsg = ""
-          e.reply('超过上限,对话已重置')
-        });
-
-
-
-
+       
+    } catch (err) {
+        logger.info(err)
+        logger.info('openai访问失败');
+        return false
     }
-
-  }
-
-
-
-}
+    let res2 =await res.json()
+  let jieguo
+    try {
+   jieguo = res2.choices[0].text
+    }
+    catch (err){
+    logger.error('\nopenai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n');
+   return true
+    }
+    jieguo = jieguo.replace(/\n/ , "").trim()
+    jieguo = jieguo.replace(/答：/ , "").trim()
+    jieguo = jieguo.replace(/Bot:/ , "").trim()
+    jieguo = jieguo.replace(/robot:/ , "").trim()
+    jieguo = jieguo.replace(/Robot:/ , "").trim()
+jieguo = jieguo.replace(/Computer:/ , "").trim()
+jieguo = jieguo.replace(/computer:/ , "").trim()
+    jieguo = jieguo.replace(/AI:/ , "").trim()
+    jieguo = jieguo.replace(/一个聊天机器人/, bot).trim()
+    jieguo = jieguo.replace(/聊天机器人/, bot).trim()
+    jieguo = jieguo.replace(/机器人:/, '').trim()
+    jieguo = jieguo.replace(/机器人：/, '').trim()
+    tempMsg = tempMsg + "\n\n " + jieguo
+    // logger.mark(`[AI回复]${tempMsg}`)
+    e.reply(jieguo,true)
+    //console.log(res2.choices[0])
+   return true
+  }}}
 
 
 async function getAgent() {
