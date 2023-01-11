@@ -4,7 +4,7 @@ const xhz_path ='plugins/hs-qiqi-plugin/resources/随机图片/'
 let source={}
 import YAML from 'yaml'
 import co from '../../../lib/common/common.js'
-let path='./plugins/hs-qiqi-plugin/config/随机表情概率.yaml'
+let path='./plugins/hs-qiqi-plugin/config/随机图片概率.yaml'
 import { Config} from '../components/index.js'
 
 if (!fs.existsSync(path)) {fs.writeFileSync(path,'')}
@@ -179,8 +179,9 @@ async sj(e){
   let data=await getread()
   if (!data) data= [];
   let sj = e.message[0].text.replace(/随机图片概率/g, "").trim();
+  sj = sj * 1
   if(sj > 100 || sj < 0){return e.reply('概率不能超过100或低于0')}
-  if(sj != ''){
+  if(sj != null){
     await data.splice(data.indexOf(sj), 1)
 }
     await data.push(sj);
