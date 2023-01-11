@@ -25,7 +25,7 @@ export class example extends plugin {
 
 async shijian(e) {
 
-  let url = `http://tfapi.top/API/time.php`;
+  let url = `http://api.tangdouz.com/time.php`;
   let response = await fetch(url);
   let res = await response.text();
   console.log(res);
