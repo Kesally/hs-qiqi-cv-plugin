@@ -3,21 +3,21 @@ import fetch from "node-fetch";
 import { Config} from '../components/index.js'
 import fs from 'fs'
 import YAML from 'yaml'
+import Yaml from '../model/Yaml.js'
 const _path = process.cwd();
 let timeout = 10000; 
 let CD = {};
 let isR18 = true;
 let isR18s = true;
-let botsender = true;
+let path='./plugins/hs-qiqi-plugin/config/配置/涩涩配置.yaml'
 if(Config.getConfig('set','mz')['botname']==null){
     logger.info('【枫叶插件】检测到未设置机器人名字')
     logger.info(' 请发送：枫叶设置，查看名字')
   }
   let bot = Config.getConfig('set','mz')['botname']
-  let path='./plugins/hs-qiqi-plugin/config/冷却.yaml'
-  let ss = 0;
+  let path_='./plugins/hs-qiqi-plugin/config/冷却.yaml'
 
-  if (!fs.existsSync(path)) {fs.writeFileSync(path,'')}
+  if (!fs.existsSync(path_)) {fs.writeFileSync(path_,'')}
 export class r18ss extends plugin {
     constructor() {
         super(
@@ -32,11 +32,15 @@ export class r18ss extends plugin {
                         fnc: 'fy'
                     },
                     {
+                        reg: '^(开启|关闭)发图人伪装$',
+                        fnc: 'wz'
+                    },
+                    {
                         reg: '^给我(涩|色)图.*$',
                         fnc: 's'
                     },
                     {
-                        reg: '^涩图更换(动漫源|现实源|p站源)$',
+                        reg: '^涩图更换(动漫源|现实源|p站源|漫画源)$',
                         fnc: 'o'
                     },
                     {
@@ -50,9 +54,28 @@ export class r18ss extends plugin {
                 ]
             })
         }
+        async wz(e){
+            if (e.msg.includes('开启发图人伪装')){
+                let data=await Yaml.getread(path)
+                data.伪装=1;
+                await Yaml.getwrite(path,data)
+                await e.reply('已开启发图人伪装')
+                return true;
+            }
+            if (e.msg.includes('关闭发图人伪装')){
+                let data=await Yaml.getread(path)
+                data.伪装=0;
+                await Yaml.getwrite(path,data)
+                await e.reply('已关闭发图人伪装')
+                return true;
+            }
+        }
         async fy(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
             if(!e.isMaster){e.reply('你不是主人走开');return true}
+            let data=await Yaml.getread(path)
+            let ss = data.涩图更换
+            let wz = data.伪装
             let ee = await getread();
             let u = ee / 1000;
             let nickname = Bot.nickname
@@ -72,13 +95,23 @@ export class r18ss extends plugin {
               ]
             let msg = [];
             let ui =[];
+            let pp = [];
+            let v = [];
             msg.push(`当前枫叶涩图撤回时间为${u}秒\n可发送涩图撤回时间()秒来调整`)
             if(ss==0){
-                ui.push(`当前枫叶涩图源为现实源\n可发送涩图更换(动漫源|现实源|p站源)`)}
+                ui.push(`当前枫叶涩图源为现实源\n可发送涩图更换(动漫源|现实源|p站源|漫画源)`)}
                 else if(ss==1){
-                    ui.push(`当前枫叶涩图源为动漫源\n可发送涩图更换(动漫源|现实源|p站源)`)}else{
-                        ui.push(`当前枫叶涩图源为p站源\n可发送涩图更换(动漫源|现实源|p站源)`)
+                    ui.push(`当前枫叶涩图源为动漫源\n可发送涩图更换(动漫源|现实源|p站源|漫画源)`)}else if(ss==2){
+                        ui.push(`当前枫叶涩图源为p站源\n可发送涩图更换(动漫源|现实源|p站源|漫画源)`)
+                    }else if(ss == 3){
+                        ui.push(`当前枫叶涩图源为漫画源\n可发送涩图更换(动漫源|现实源|p站源|漫画源)`)
                     }
+                    if(wz == 1){
+                        pp.push('当前枫叶发图人伪装已关闭\n发送关闭发图人伪装开启')
+                    }else if(wz == 0){
+                        pp.push('当前枫叶发图人伪装已开启\n发送关闭发图人伪装关闭')
+                    }
+                    v.push('还有一个命令是涩涩\n如果在使用中遇到什么问题请加枫叶群:779217677反馈')
           forwardMsg.push(
             {
               ...userInfo,
@@ -91,6 +124,18 @@ export class r18ss extends plugin {
               message: ui
             }
           )
+          forwardMsg.push(
+            {
+              ...userInfo,
+              message: pp
+            }
+          )
+          forwardMsg.push(
+            {
+              ...userInfo,
+              message: v
+            }
+          )
           forwardMsg = await this.e.group.makeForwardMsg(forwardMsg)
             await e.reply(forwardMsg)
         }
@@ -98,19 +143,33 @@ export class r18ss extends plugin {
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
             if(!e.isMaster){e.reply('你不是主人走开');return true}
             if (e.msg.includes('涩图更换p站源')){
-                ss = 2;
+                let data=await Yaml.getread(path)
+                data.涩图更换=2;
+                await Yaml.getwrite(path,data)
                 await e.reply('更换成功涩图源为p站源')
                 return true;}
             if (e.msg.includes('涩图更换动漫源')){
-                ss = 1;
+                let data=await Yaml.getread(path)
+                data.涩图更换=1;
+                await Yaml.getwrite(path,data)
                 await e.reply('更换成功涩图源为动漫源')
                 return true;
         }
         if (e.msg.includes('涩图更换现实源')){
-            ss = 0;
+            let data=await Yaml.getread(path)
+            data.涩图更换=0;
+            await Yaml.getwrite(path,data)
             await e.reply('更换成功涩图源为现实源')
             return true;
-    }return;}
+        }
+        if (e.msg.includes('涩图更换漫画源')){
+            let data=await Yaml.getread(path)
+            data.涩图更换=3;
+            await Yaml.getwrite(path,data)
+            await e.reply('更换成功涩图源为漫画源')
+            return true;
+        }
+        return;}
         async t(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
             if(!e.isMaster){e.reply('你不是主人走开');return true}
@@ -128,6 +187,7 @@ export class r18ss extends plugin {
         }
         async s(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            let bot = Config.getConfig('set','mz')['botname']
             let rr = await getread()
             if(rr == 0){
                 await e.reply('请先设置涩涩冷却再使用')
@@ -144,13 +204,23 @@ export class r18ss extends plugin {
             }
             await e.reply(`好的,${bot}马上给你${st}张涩图`)
             let url;
-            if(ss == 2){
-                url = await(await fetch('https://api.lolicon.app/setu/v2?proxy=i.pixiv.re&r18=0')).json();
+            let data=await Yaml.getread(path)
+            let ss = data.涩图更换
+            let oe = data.伪装
+            let botsender;
+            if(oe == 1){
+                botsender = true;
+            }else{
+                botsender = false;
             }
-            if(ss == 0){
+            if(ss == 2){
+                url = await(await fetch(`https://api.lolicon.app/setu/v2?proxy=i.pixiv.re&r18=0`)).json();
+            }else if(ss == 0){
             url = 'https://api.sdgou.cc/api/tao/'}
-            else{
+            else if(ss == 1){
                 url = `https://iw233.cn/API/Random.php`;
+            }else if(ss == 3){
+                url = `https://www.acy.moe/api/404`;
             }
             let msgList = []
           const forwarder =
@@ -160,12 +230,20 @@ export class r18ss extends plugin {
               nickname: this.e.sender.card || this.e.user_id,
               user_id: this.e.user_id,
             };
+        if(ss == 4 && ss == 2){
+            for(let i = 1; i <= st; i++){
+                msgList.push({
+                  message: segment.image(url.data[0].urls.original),
+                  ...forwarder,
+                });
+              }
+        }else{
           for(let i = 1; i <= st; i++){
             msgList.push({
               message: segment.image(url),
               ...forwarder,
             });
-          }
+          }}
           let y = await e.reply(await e.group.makeForwardMsg(msgList))
           let ee = await getread()
           if (ee != 0 && y && y.message_id) {
@@ -266,7 +344,7 @@ export class r18ss extends plugin {
 /** 读取 */
 function getread() {
     try {
-      var fileContents = fs.readFileSync(path, 'utf8');
+      var fileContents = fs.readFileSync(path_, 'utf8');
     } catch (e) {
       console.log(e);
       return false;
@@ -280,7 +358,7 @@ function getread() {
     try {
       //转换
       let yaml = YAML.stringify(data);
-      fs.writeFileSync(path, yaml, 'utf8');
+      fs.writeFileSync(path_, yaml, 'utf8');
       return true
     } catch (e) {
       //错误处理
