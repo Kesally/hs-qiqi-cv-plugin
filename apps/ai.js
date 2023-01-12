@@ -12,7 +12,7 @@ if(Config.getConfig('set','mz')['botname']==null){
   logger.info(' 请发送：枫叶设置，查看名字')
 }
 let bot = Config.getConfig('set','mz')['botname']  //这里是你的想要的机器人名称，将作为触发前缀
-let path_='plugins/hs-qiqi-plugin/config/openapia.yaml/'
+let path_='plugins/hs-qiqi-plugin/resources/openapia.yaml/'
 let path='./plugins/hs-qiqi-plugin/config/配置/ai.yaml'
 if (!fs.existsSync(path_)) {fs.writeFileSync(path_,'')}
 
