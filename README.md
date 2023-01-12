@@ -17,9 +17,9 @@
 </div>
 
 ## 安装教程
-**`注意`：hs-qiqi-Plugin只适配Yunzai-BotV3!!!**
+**`注意`：hs-qiqi-plugin只适配Yunzai-BotV3!!!**
 
-将hs-qiqi-Plugin下载下来放在Yunzai-Bot/plugins目录下，重启Yunzai-Bot后即可使用。
+将hs-qiqi-plugin下载下来放在Yunzai-Bot/plugins目录下，重启Yunzai-Bot后即可使用。
 
 推荐使用git进行安装，以方便后续升级。在Yunzai目录打开终端，运行~
 
@@ -46,7 +46,7 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 ## 功能介绍
 
-> hs-qiqi-Plugin为您提供以下功能
+> hs-qiqi-plugin为您提供以下功能
 > 具体您可使用 **枫叶帮助  枫叶设置**  查看详细
 
 
@@ -61,37 +61,11 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
     - 高清语音(开启|关闭)
     
     - xx语音列表
-    
-- 计算睡眠时间.js
-  
-  - 早安/早上好
-  
-  - 晚安/睡觉去了
-    
-  - 我第几睡觉
-
-  - 我第几起床
-  
+     
 - 绑定
   
 - 全部/所有抽卡记录
   
-- 拉黑词帮助
-
-    - 创建拉黑词xx
-  
-    - 取消拉黑词xx
-
-    - 拉黑词列表
-    
-    - 直接拉黑
-
-    - 拉黑QQ123456789x
-    
-    - 拉黑名单
-
-    - 取消拉黑QQ123456789x
-
 - ai.js
 
     - ai回复概率+数字
@@ -184,18 +158,22 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 - 这周讨伐谁.js
     
 	- 随机帮你选出这周讨伐谁，选择恐惧症的福音
+	
+- 随机图片
+
+    - 监听发言并发出随机的图片
 
 </details>
 
 ## 免责声明
 
-1. 功能仅限内部交流与小范围使用，请勿将Yunzai-Bot及hs-qiqi-Plugin用于任何以盈利为目的的场景.
+1. 功能仅限内部交流与小范围使用，请勿将Yunzai-Bot及hs-qiqi-plugin用于任何以盈利为目的的场景.
 2. 图片与其他素材均来自于网络，仅供交流学习使用，如有侵权请联系，会立即删除.
 
 #### 联系方式
 <div align="center">
 
-| `机器人使用问题，建议加群咨询`|
+| `机器人及插件的使用问题，建议加群咨询`|
 | ------------- | 
 |  `枫叶群号:` 779217677|
 |  `ikun群:` [707499227](https://jq.qq.com/?_wv=1027&k=yTbA4lk6)|
@@ -205,6 +183,6 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 |[我的爱发电](http://afdian.net/a/Kesally)|
 </div>
 
-##其他
+## 其他
 * Yunzai-Bot插件库：[☞Github](https://github.com/yhArcadia/Yunzai-Bot-plugins-index)/[☞Gitee](https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index)
 * Yunzai-Bot：[☞Github](https://github.com/Le-niao/Yunzai-Bot)/[☞Gitee](https://gitee.com/Le-niao/Yunzai-Bot) 
