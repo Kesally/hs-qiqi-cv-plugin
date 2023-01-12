@@ -180,8 +180,6 @@ async sj(e){
   if (!data) data= [];
   let sj = e.message[0].text.replace(/随机图片概率/g, "").trim();
   sj = sj * 1
-  sj = sj.match(/[1-9]\d*/g)
-  if (!sj) return e.reply("你的命令输错了")
   if(sj > 100 || sj < 0){return e.reply('概率不能超过100或低于0')}
   if(sj != null){
     await data.splice(data.indexOf(sj), 1)
