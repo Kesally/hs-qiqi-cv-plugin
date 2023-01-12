@@ -6,11 +6,9 @@ import { Config, Common } from '../components/index.js'
 
 const cfgMap = {
     '随机图片': 'pz.sjtp',
-	'拉黑词': 'pz.laheici',
     '戳一戳': 'pz.cyc',
 	'机器人名字': 'mz.botname',
     '丁真': 'pz.dz',
-    '睡眠时间': 'pz.smsj',
     '数字炸弹': 'pz.szzd',
     '随机类游戏': 'pz.jryq',
     '涩涩': 'pz.ss',
@@ -19,9 +17,7 @@ const cfgMap = {
 const ccc = {
     '随机图片': 'sjtp',
     '戳一戳': 'cyc',
-	'拉黑词': 'laheici',
     '丁真': 'dz',
-    '睡眠时间': 'smsj',
     '数字炸弹': 'szzd',
     '随机类游戏': 'jryq',
     '涩涩': 'ss',
