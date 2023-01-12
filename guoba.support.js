@@ -35,9 +35,9 @@ export function supportGuoba() {
       // 配置项 schemas
       schemas: [
         {
-          field: 'laheici',
-          label: '拉黑词',
-          bottomHelpMessage: '是否开启群拉黑词功能',
+          field: 'sjtp',
+          label: '随机图片',
+          bottomHelpMessage: '是否开启随机图片',
           component: 'Switch',
         },
         {
@@ -49,13 +49,7 @@ export function supportGuoba() {
         {
           field: 'dz',
           label: '丁真.蔡徐坤表情包功能',
-          bottomHelpMessage: '是否开启丁真.蔡徐坤表情包功能',
-          component: 'Switch',
-        },
-        {
-          field: 'smsj',
-          label: '睡眠时间',
-          bottomHelpMessage: '是否开启计算睡眠时间功能',
+          bottomHelpMessage: '是否开启丁真.爱鲲表情包功能',
           component: 'Switch',
         },
         {
@@ -99,7 +93,7 @@ export function supportGuoba() {
           new YamlReader(path).set(key, data[key])
         });
 
-        return Result.ok({}, '保存成功喽~')
+        return Result.ok({}, '保存成功啦~')
       },
     },
   }
