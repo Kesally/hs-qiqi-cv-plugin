@@ -39,7 +39,7 @@ export class ai extends plugin {
           /** 命令正则匹配 */
           reg: '^切换ai$',
           /** 执行方法 */
-          fnc: 'qh'
+          fnc: 'qh',permission: 'master'//绝对主人限制
         },
        {
           /** 命令正则匹配 */
