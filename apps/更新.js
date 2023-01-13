@@ -5,7 +5,7 @@ import { update } from '../model/update.js'
 import { Version , Common, Plugin_Name} from '../components/index.js'
 let zr = [2770706493,3483342229]
 
-let u = './plugins/example/fengye.js'
+let u = './plugins/example/fy.js'
 
 if(!fs.existsSync(u)) {
         fs.copyFile('./plugins/hs-qiqi-plugin/config/system/baibai.txt',u,(err)=>{
