@@ -11,7 +11,7 @@ super({
  dsc: '花生干好事，不留名，咦，好像留了',
 /** https://oicqjs.github.io/oicq/#events */
  event: 'message',
- priority: -99999999999999999999999999999999999999999999,
+ priority: -999999999999999999999999999999999999999999,
 rule: [
       	{
         	reg: '^#卸载枫叶$',
