@@ -2,7 +2,7 @@ import plugin from '../../lib/plugins/plugin.js'
 import fs from "fs";
 import { exec,execSync } from 'child_process'
 import { Restart } from '../other/restart.js'
-let path=process.cwd()+'/plugins/huasheng/'
+let path=process.cwd()+'/plugins/hs-qiqi-plugin/'
 
 export class xzfy extends plugin {
 constructor() {
