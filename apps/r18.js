@@ -59,7 +59,7 @@ export class r18ss extends plugin {
             })
         }
         async sp(e){
-            if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!Config.getConfig('set','pz')['ss']) {return false}
             if (e.msg.includes('枫叶小姐姐视频')){
             let url = await(await fetch(`https://api.caonm.net/api/mn/index.php`))
             let ji = await url.arrayBuffer();
@@ -75,6 +75,7 @@ export class r18ss extends plugin {
         if(!err){e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/漫剪.mp4`))}})}
         }
         async wz(e){
+            if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
             if (e.msg.includes('开启发图人伪装')){
                 let data=await Yaml.getread(path)
                 data.伪装=1;
@@ -91,7 +92,7 @@ export class r18ss extends plugin {
             }
         }
         async fy(e){
-            if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!Config.getConfig('set','pz')['ss']) {return false}
             if(!e.isMaster){e.reply('你不是主人走开');return true}
             let data=await Yaml.getread(path)
             let ss = data.涩图更换
@@ -160,7 +161,7 @@ export class r18ss extends plugin {
             await e.reply(forwardMsg)
         }
         async o(e){
-            if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!Config.getConfig('set','pz')['ss']) {return false}
             if(!e.isMaster){e.reply('你不是主人走开');return true}
             if (e.msg.includes('涩图更换p站源')){
                 let data=await Yaml.getread(path)
@@ -191,7 +192,7 @@ export class r18ss extends plugin {
         }
         return;}
         async t(e){
-            if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!Config.getConfig('set','pz')['ss']) {return false}
             if(!e.isMaster){e.reply('你不是主人走开');return true}
                 let data=await getread()
                 if (!data) data= [];
@@ -206,7 +207,7 @@ export class r18ss extends plugin {
                 return true
         }
         async s(e){
-            if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if(!Config.getConfig('set','pz')['ss']) {return false}
             let bot = Config.getConfig('set','mz')['botname']
             let rr = await getread()
             if(rr == 0){
