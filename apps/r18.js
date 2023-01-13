@@ -28,6 +28,10 @@ export class r18ss extends plugin {
                 priority: 1,
                 rule: [
                     {
+                        reg: '^枫叶小姐姐视频|枫叶漫剪视频$',
+                        fnc: 'sp'
+                    },
+                    {
                         reg: '^枫叶涩涩帮助$',
                         fnc: 'fy'
                     },
@@ -53,6 +57,22 @@ export class r18ss extends plugin {
                     },
                 ]
             })
+        }
+        async sp(e){
+            if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
+            if (e.msg.includes('枫叶小姐姐视频')){
+            let url = await(await fetch(`https://api.caonm.net/api/mn/index.php`))
+            let ji = await url.arrayBuffer();
+            fs.writeFile("plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4", Buffer.from(ji), "binary", function (err) {
+            console.log(err || "保存成功");
+        if(!err){e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4`))
+    }})}
+        if (e.msg.includes('枫叶漫剪视频')){
+            let url = await(await fetch(`http://api.caonm.net/api/mjsp/m.php`))
+            let ji = await url.arrayBuffer();
+            fs.writeFile("plugins/hs-qiqi-plugin/resources/video/漫剪.mp4", Buffer.from(ji), "binary", function (err) {
+            console.log(err || "保存成功");
+        if(!err){e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/漫剪.mp4`))}})}
         }
         async wz(e){
             if (e.msg.includes('开启发图人伪装')){
