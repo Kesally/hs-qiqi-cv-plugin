@@ -2,12 +2,14 @@ import { segment } from "oicq";//导包部分
 import fs from 'node:fs'
 const xhz_path ='plugins/hs-qiqi-plugin/resources/随机图片/'
 let source={}
+import Yaml from '../model/Yaml.js'
 import YAML from 'yaml'
 import co from '../../../lib/common/common.js'
-let path='./plugins/hs-qiqi-plugin/config/随机图片概率.yaml'
+let path_='./plugins/hs-qiqi-plugin/config/开启随机图.yaml'
+let path='./plugins/hs-qiqi-plugin/config/配置/随机图片.yaml'
 import { Config} from '../components/index.js'
 
-if (!fs.existsSync(path)) {fs.writeFileSync(path,'')}
+if (!fs.existsSync(path_)) {fs.writeFileSync(path_,'')}
 await tp()
 export class example extends plugin {
     constructor () {
@@ -21,6 +23,10 @@ export class example extends plugin {
         /** 优先级，数字越小等级越高 */
         priority: 10,
         rule: [
+          {
+            reg: '^(开启|关闭)本群随机图$',
+            fnc: 'kq',permission: 'master'
+          },
           {
             reg: '^上传随机图$',
             fnc: 'kt'
@@ -50,6 +56,21 @@ export class example extends plugin {
         ]
     })
 }
+async kq(e){
+  if(!Config.getConfig('set','pz')['sjtp']){return false}
+  let data=await getread()
+  if (!data) data= [];
+  if (e.isMaster&&e.msg.includes('关闭本群随机图')){
+    await data.push(e.group_id)
+    getwrite(data)
+    await e.reply('已关闭本群随机图')
+  }
+  if (e.isMaster&&e.msg.includes('开启本群随机图')){
+    await data.splice(data.indexOf(e.group_id), 1)
+    getwrite(data)
+    await e.reply('已开启本群随机图')
+  }
+}
 async bz(e){
     if(!Config.getConfig('set','pz')['sjtp']){return false}
     if(!e.isMaster){e.reply('你不能用叫主人来'); return true;}
@@ -71,7 +92,7 @@ async bz(e){
               ]
             let msg = [];
             let ui =[];
-            msg.push(`1,上传随机图\n2,删除随机图片\n3.随机图片列表`)
+            msg.push(`1,上传随机图\n2,删除随机图片\n3.随机图片列表\n(开启|关闭)本群随机图`)
             ui.push(`当前随机图片概率为${ee}%\n可发送随机图片概率.更改`)
           forwardMsg.push(
             {
@@ -176,25 +197,27 @@ async kt(e){
 async sj(e){
     if(!Config.getConfig('set','pz')['sjtp']){return false}
     if(!e.isMaster){e.reply('你不能用叫主人来'); return true;}
-  let data=await getread()
-  if (!data) data= [];
   let sj = e.message[0].text.replace(/随机图片概率/g, "").trim();
   sj = sj * 1
   if(sj > 100 || sj < 0){return e.reply('概率不能超过100或低于0')}
-  if(sj != null){
-    await data.splice(data.indexOf(sj), 1)
-}
-    await data.push(sj);
+  let data=await Yaml.getread(path)
+      data.随机图概率=sj;
+      await Yaml.getwrite(path,data)
     await e.reply(`当前图片回复概率为${sj}%`)
-     getwrite(data)
      return true;
 }
 async sjtp(e) {
     if(!Config.getConfig('set','pz')['sjtp']){return false}
+    let group = await getread()
+      try{for(let pp of group){
+      if(e.group_id == pp){
+        return true;
+      }}}catch(e){}
     logger.info('[枫叶]随机图片')
-  let oo = await getread()
+    let data=await Yaml.getread(path)
+    let ss = data.随机图概率;
   let num = Math.ceil(Math.random( )* 100)
-  if(num <= oo){
+  if(num <= ss){
   let file = fs.readdirSync(xhz_path)
      let imgnum = Math.round(Math.random() * (file.length - 1))
      let msg = segment.image(xhz_path + file[imgnum])
@@ -216,7 +239,7 @@ async sjtp(e) {
 /** 读取 */
 function getread() {
   try {
-    var fileContents = fs.readFileSync(path, 'utf8');
+    var fileContents = fs.readFileSync(path_, 'utf8');
   } catch (e) {
     console.log(e);
     return false;
@@ -230,7 +253,7 @@ function getwrite(data) {
   try {
     //转换
     let yaml = YAML.stringify(data);
-    fs.writeFileSync(path, yaml, 'utf8');
+    fs.writeFileSync(path_, yaml, 'utf8');
     return true
   } catch (e) {
     //错误处理
