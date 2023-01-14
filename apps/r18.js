@@ -5,7 +5,6 @@ import fs from 'fs'
 import YAML from 'yaml'
 import Yaml from '../model/Yaml.js'
 const _path = process.cwd();
-let timeout = 10000; 
 let CD = {};
 let isR18 = true;
 let isR18s = true;
@@ -65,14 +64,14 @@ export class r18ss extends plugin {
             let ji = await url.arrayBuffer();
             fs.writeFile("plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4", Buffer.from(ji), "binary", function (err) {
             console.log(err || "保存成功");
-        if(!err){e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4`))
-    }})}
+            let rr = e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4`))
+    })}
         if (e.msg.includes('枫叶漫剪视频')){
             let url = await(await fetch(`http://api.caonm.net/api/mjsp/m.php`))
             let ji = await url.arrayBuffer();
             fs.writeFile("plugins/hs-qiqi-plugin/resources/video/漫剪.mp4", Buffer.from(ji), "binary", function (err) {
             console.log(err || "保存成功");
-        if(!err){e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/漫剪.mp4`))}})}
+            let rr = e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/漫剪.mp4`))})}
         }
         async wz(e){
             if(!Config.getConfig('set','pz')['ss']&&!e.isMaster) {return false}
@@ -306,6 +305,7 @@ export class r18ss extends plugin {
                 ];
             }
             //发送消息
+            let timeout = await getread();
             let msgRes = await e.reply(msg);
             if (timeout != 0 && msgRes && msgRes.message_id) {
                 let target = e.group;
