@@ -74,7 +74,7 @@ async kq(e){
 async bz(e){
     if(!Config.getConfig('set','pz')['sjtp']){return false}
     if(!e.isMaster){e.reply('你不能用叫主人来'); return true;}
-    let ee = await getread();
+    let ee = await Yaml.getread(path);
             let nickname = Bot.nickname
             if (this.e.isGroup) {
             let info = await Bot.getGroupMemberInfo(this.e.group_id, Bot.uin)
