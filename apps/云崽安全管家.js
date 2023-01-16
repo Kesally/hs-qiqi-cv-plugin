@@ -1,7 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import fs from "fs";
 import { exec,execSync } from 'child_process'
-import { Restart } from '../other/restart.js'
+import { Restart } from '../../other/restart.js'
 import schedule from "node-schedule";
 let path=process.cwd()+'/plugins/liulian-plugin'
 
