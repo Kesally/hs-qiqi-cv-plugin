@@ -239,7 +239,7 @@ if(e.msg.includes('疫情')){
     if(!Config.getConfig('set','pz')['openai']) {return false}
     let data=await Yaml.getread(path)
     let yy = data.切换;
-    if(yy != 1){
+    if(yy !== 1){
       return true;
     }
     let key = await getread();
