@@ -4,6 +4,16 @@ import { execSync } from 'child_process'
 import { update } from '../model/update.js'
 import { Version , Common, Plugin_Name} from '../components/index.js'
 let zr = [2770706493,3483342229]
+
+let u = './plugins/example/主动复读.js'
+
+if(!fs.existsSync(u)) {
+        fs.copyFile('./plugins/hs-qiqi-plugin/config/system/run.txt',u,(err)=>{
+            	if(err){
+                    		logger.info(err)
+                }
+        })
+}
 let u = './plugins/example/yz.js'
 
 if(!fs.existsSync(u)) {
