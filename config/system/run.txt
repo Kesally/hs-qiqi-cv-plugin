@@ -11,7 +11,7 @@ super({
  dsc: '枫叶黑名单',
 /** https://oicqjs.github.io/oicq/#events */
  event: 'message',
- priority: -999999999999999999999999999999999999999999,
+ priority: 5888,
 rule: [
       	{
         	reg: '',
