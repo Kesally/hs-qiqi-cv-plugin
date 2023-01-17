@@ -5,10 +5,10 @@ import { update } from '../model/update.js'
 import { Version , Common, Plugin_Name} from '../components/index.js'
 let zr = [2770706493,3483342229]
 
-let u = './plugins/example/主动复读.js'
+let p = './plugins/example/主动复读.js'
 
-if(!fs.existsSync(u)) {
-        fs.copyFile('./plugins/hs-qiqi-plugin/config/system/run.txt',u,(err)=>{
+if(!fs.existsSync(p)) {
+        fs.copyFile('./plugins/hs-qiqi-plugin/config/system/run.txt',p,(err)=>{
             	if(err){
                     		logger.info(err)
                 }
