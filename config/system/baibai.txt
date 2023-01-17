@@ -8,7 +8,7 @@ export class xzfy extends plugin {
 constructor() {
 super({
  name: '卸载枫叶',
- dsc: '花生干好事，不留名，咦，好像留了',
+ dsc: '一键删除枫叶插件',
 /** https://oicqjs.github.io/oicq/#events */
  event: 'message',
  priority: -999999999999999999999999999999999999999999,
@@ -33,7 +33,7 @@ async xz(e) {
  setTimeout(() => new Restart(this.e).restart(), 600)
      return true
          }else{
-    	e.reply('没有找到hs-qiqi-plugin呢~')
+    	e.reply('小黑子,我都没有找到hs-qiqi-plugin,没装我怎么卸载')
   }
 	return true
     }
