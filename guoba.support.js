@@ -16,7 +16,7 @@ export function supportGuoba() {
     pluginInfo: {
       name: 'hs-qiqi-plugin',
       title: '枫叶插件',
-      author: '@Kesally @huasheng @qiqi',
+      author: '@Kesally @qiqi',
       authorLink: 'https://gitee.com/kesally',
       link: 'https://gitee.com/kesally/hs-qiqi-cv-plugin',
       isV3: true,
