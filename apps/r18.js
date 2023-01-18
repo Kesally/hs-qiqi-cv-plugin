@@ -47,7 +47,7 @@ export class r18ss extends plugin {
                         fnc: 'o'
                     },
                     {
-                        reg: '^涩图撤回时间.*$',
+                        reg: '^涩图撤回时间.*+(秒)?$',
                         fnc: 't'
                     },
                     {
@@ -195,7 +195,7 @@ export class r18ss extends plugin {
             if(!e.isMaster){e.reply('你不是主人走开');return true}
                 let data=await getread()
                 if (!data) data= [];
-                let st = e.message[0].text.replace(/涩图撤回时间/g, "").trim();
+                let st = e.message[0].text.replace(/涩图撤回时间|秒/g, "").trim();
                 let i = st * 1000;
                 if(i != ''){
                     await data.splice(data.indexOf(i), 1)
