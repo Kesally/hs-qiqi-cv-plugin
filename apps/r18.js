@@ -47,7 +47,7 @@ export class r18ss extends plugin {
                         fnc: 'o'
                     },
                     {
-                        reg: '^涩图撤回时间.*+(秒)?$',
+                        reg: '^涩图撤回时间(\\d)+(秒)?$',
                         fnc: 't'
                     },
                     {
