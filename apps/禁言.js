@@ -1,7 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import fs from 'fs'
 import YAML from 'yaml'
-
+import common from'../../../lib/common/common.js'
 
 
 
@@ -67,32 +67,8 @@ async t(e) {
    try {
         for (let Q of used) {
           if(op == Q &&!e.isMaster){
-            if(e.img){
-              let num = Math.ceil(Math.random() * 100)
-              while(num <= 0){num++};
-              if(num >= 90){
-                let pp;
-                pp = (await e.group.getChatHistory(e.message_id.seq, 1)).pop();
-                await e.group.muteMember(pp,10);
-              }else{
-              let pp;
-              pp = (await e.group.getChatHistory(e.img.seq, 1)).pop();
-              await e.group.recallMsg(pp.message_id);
-              return true;
-              }}
-              if(e.msg){
-              let num = Math.ceil(Math.random() * 100)
-              while(num <= 0){num++};
-              if(num >= 90){
-                let pp;
-                pp = (await e.group.getChatHistory(e.message_id.seq, 1)).pop();
-                await e.group.muteMember(pp,10);
-              }else{
-              let pp;
-              pp = (await e.group.getChatHistory(e.message_id.seq, 1)).pop();
-              await e.group.recallMsg(pp.message_id);
-              return true;
-          }}
+            await common.sleep(0);
+            e.group.recallMsg(e.message_id);
       }else{
           return false
           }
