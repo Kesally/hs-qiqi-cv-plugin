@@ -69,9 +69,6 @@ export class laheici extends plugin {
     if (!fs.existsSync(path)) { fs.mkdirSync(path) }
   }
   async lahlb () {
-  if(!Config.getConfig('set','pz')['laheici']){
-  return this.reply('拉黑词功能已关闭')
-  }
     let words = []
     let files = []
     let forWordMsg = []
