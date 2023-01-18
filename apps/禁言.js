@@ -31,6 +31,13 @@ export class ztwd extends plugin {
    }
     async z(e) {
         if (!e.group.is_owner && !e.group.is_admin) {return false;}
+        let used = await getread();
+        let op = e.user_id
+        if(used == op){
+          await common.sleep(0);
+          e.group.recallMsg(e.message_id);
+          return true
+        }
   if (!e.isMaster) 
   {
     e.reply('你几把谁啊，我要见我主人')
