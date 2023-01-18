@@ -63,7 +63,7 @@ export class laheici extends plugin {
     })
 
     this._path = process.cwd().replace(/\\/g, '/')
-    this.wordResPath = `${this._path}/plugins/huasheng/config/拉黑词`
+    this.wordResPath = `${this._path}/plugins/hs-qiqi-plugin/config/拉黑词`
   }
     async init (path = `${this.wordResPath}/`) {
     if (!fs.existsSync(path)) { fs.mkdirSync(path) }
