@@ -11,11 +11,12 @@ super({
  dsc: '黑名单',
 /** https://oicqjs.github.io/oicq/#events */
  event: 'message',
- priority: 10888,
+ priority: 58889,
 rule: [
       	{
         	reg: '',
-            fnc: 'xz'
+            fnc: 'xz',
+            log: false
          }
          ]
   })
