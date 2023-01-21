@@ -3,7 +3,10 @@
   <img src="resources/README.md图片/0.jpg" alt="枫叶" width = "600">
 
   
-<h1>hs-qiqi-Plugin</h1>
+<h1>hs-qiqi-plugin</h1>
+
+
+<h1>在此祝各位新年快乐!</h1>
 
 
 枫叶插件是一个Yunzai-Bot的扩展插件，给bot提供一些有趣的功能。
