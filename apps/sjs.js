@@ -271,8 +271,7 @@ export class sjs extends plugin {
     let er = data.开奖二等奖
     let san = data.开奖三等奖
     let te = data.开奖特等奖
-    if(e.isMaster){e.reply('你是主人没有CD')}
-    else{
+    if(e.isMaster){}else{
 	  let qq =  e.user_id
     let now_time = new Date().getTime();
         let g = await redis.get("xs" + qq + ":g");
@@ -298,13 +297,10 @@ export class sjs extends plugin {
         return true
     }
     
-    var num = Math.random();
-  num = Math.ceil(num * 10);
+var num = Math.random();
+num = Math.ceil(num * 10);
  var nums = num*0.10
  var numss = num + nums
- 
- 
- 
  
  var num2 = Math.random();
   num2 = Math.ceil(num2 * 12);
@@ -322,41 +318,46 @@ export class sjs extends plugin {
      let imgnum = Math.round(Math.random() * (file.length - 1))
 
 if(numss > numbb){
-	await e.reply("正在开奖中.....");
- let msg = ['恭喜抽中三等奖,送你一个哥哥', segment.image(xhz_path + file[imgnum])]
+	let y = await e.reply("正在开奖中.....");
+ let msg = [segment.at(e.user_id),'恭喜抽中三等奖,送你一个哥哥', segment.image(xhz_path + file[imgnum])]
  let yy = await e.reply(msg);
  if(san == 1){
   await common.sleep(ee);
   e.group.recallMsg(yy.message_id);
+  e.group.recallMsg(y.message_id);
  }else{
   await e.reply(yy);
  }
 }else if(numss < num3){
-	await e.reply("正在开奖中.....");
- let msk = ['恭喜抽中二等奖,送你一张壁纸', segment.image('https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top')]
+	let y = await e.reply("正在开奖中.....");
+ let msk = [segment.at(e.user_id),'恭喜抽中二等奖,送你一张壁纸', segment.image('https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top')]
   let i = await e.reply(msk);
   if(er == 1){
   await common.sleep(ee);
-  e.group.recallMsg(i.message_id);}else{
+  e.group.recallMsg(i.message_id);
+  e.group.recallMsg(y.message_id);}else{
     await e.reply(i);
   }
  }else if(num3 < num4){
-	 await e.reply("正在开奖中.....");
-	let msp = ['恭喜抽中特等奖晚安', segment.image('https://iw233.cn/API/Random.php')]
+	 let yy = await e.reply("正在开奖中.....");
+	let msp = [segment.at(e.user_id),'恭喜抽中特等奖晚安', segment.image('https://iw233.cn/API/Random.php')]
     let oo = await e.reply(msp);
     if(te == 1){
     await common.sleep(ee);
-  e.group.recallMsg(oo.message_id);}else{
+  e.group.recallMsg(oo.message_id);
+  e.group.recallMsg(yy.message_id);
+}else{
     await e.reply(oo);
   }
 	e.group.muteMember(qq,wjy);
 }else if(num4 < numbb){
-	await e.reply("正在开奖中.....");
-	let msk = ['恭喜抽中一等奖,涩图一张', segment.image('https://api.sdgou.cc/api/tao/')]
+	let yy = await e.reply("正在开奖中.....");
+	let msk = [segment.at(e.user_id),'恭喜抽中一等奖,涩图一张', segment.image('https://api.sdgou.cc/api/tao/')]
     let uu = await e.reply(msk);
 if(yi == 1){
     await common.sleep(ee);
-  e.group.recallMsg(uu.message_id);}else{
+  e.group.recallMsg(uu.message_id);
+  e.group.recallMsg(yy.message_id);}else{
     await e.reply(uu);
   }
 }
