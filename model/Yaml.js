@@ -16,7 +16,7 @@ getread(path) {
   //转换
   return YAML.parse(file);
 }
-
+ 
 getwrite(path,data) {
   try {
     //转换
