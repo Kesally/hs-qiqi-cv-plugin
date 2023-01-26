@@ -13,6 +13,7 @@ const cfgMap = {
     '随机类游戏': 'pz.jryq',
     '涩涩': 'pz.ss',
 	'openai': 'pz.openai',
+	'睡眠时间': 'pz.smsj',
 };
 const ccc = {
     '随机图片': 'sjtp',
@@ -22,6 +23,7 @@ const ccc = {
     '随机类游戏': 'jryq',
     '涩涩': 'ss',
 	'openai': 'openai',
+	'睡眠时间': 'smsj',
 };
 const CfgReg = `^#?枫叶(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
 
