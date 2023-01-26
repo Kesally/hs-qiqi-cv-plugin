@@ -15,7 +15,7 @@ export function supportGuoba() {
   return {
     pluginInfo: {
       name: 'hs-qiqi-plugin',
-      title: '枫叶插件',
+      title: '枫叶插件 (hs-qiqi-Plugin)',
       author: '@Kesally @qiqi',
       authorLink: 'https://gitee.com/kesally',
       link: 'https://gitee.com/kesally/hs-qiqi-cv-plugin',
@@ -75,6 +75,12 @@ export function supportGuoba() {
           label: 'OpenAi功能',
           bottomHelpMessage: '是否开启OpenAi功能',
           component: 'Switch',
+        },
+		        {
+          field: 'smsj',
+          label: '睡眠时间',
+          bottomHelpMessage: '是否开启计算睡眠时间功能',
+		  component: 'Switch',
         }
       ],
       // 获取配置数据方法（用于前端填充显示数据）
