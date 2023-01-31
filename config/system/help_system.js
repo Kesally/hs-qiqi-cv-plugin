@@ -73,6 +73,14 @@ export const helpList = [{
   {
      "icon":75,
      "title":"今日新闻","desc":"api获取今日新闻"
+  },
+  {
+    "icon": 3,
+    "title": "早安|晚安", "desc": "记录睡眠时间"
+  },
+  {
+    "icon": 8,
+    "title": "我第几(睡觉|起床)", "desc": "查看记录的排名"
   }
   ]
 },
