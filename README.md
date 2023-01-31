@@ -6,6 +6,9 @@
 <h1>hs-qiqi-plugin</h1>
 
 
+<h1>[我们的官网](https://mapleleaves.cn/index.html)</h1>
+
+
 枫叶插件是一个Yunzai-Bot的扩展插件，给bot提供一些有趣的功能。
 
 
@@ -174,8 +177,9 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 <div align="center">
 
 | `机器人及插件的使用问题，建议加群咨询`|
-| ------------- | 
-|  `枫叶群号:` 779217677|
+| ------------- |
+|[有能力可去提issues](https://gitee.com/kesally/hs-qiqi-cv-plugin/issues)| 
+|  `枫叶群号:` [779217677](https://jq.qq.com/?_wv=1027&k=QfzmOyLZ)|
 |  `ikun群:` [707499227](https://jq.qq.com/?_wv=1027&k=yTbA4lk6)|
 |[现作者Kesally](https://gitee.com/kesally)|
 |[现原作者七七](https://gitee.com/fengyeplugin)|
