@@ -34,7 +34,7 @@ async news(e) {
   console.log("用户命令：", e.msg);
 
   //执行的逻辑功能
-  let url = `https://api.03c3.cn/zb/`;
+  let url = `https://api.qqsuu.cn/api/dm-60s`;
   let msg = [
     segment.at(e.user_id),
     segment.image(url),
