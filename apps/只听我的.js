@@ -34,7 +34,7 @@ export class ztwd extends plugin {
         })
    }
    async o(e){
-    await e.reply('[枫叶]openai帮助\nhttps://docs.qq.com/doc/DR0NkS090ZkFMRmRU');
+    await e.reply('[枫叶]openai帮助\nhttps://www.wolai.com/x69VNxE1GMa251NTWrLsQC');
     return true;
    }
     async z(e) {
