@@ -30,7 +30,7 @@ export class qndxx extends plugin {
         let msg = e.msg
         msg = msg.replace(/青年/g, "大学习")
         if (!msg) return
-        let url = 'https://quickso.cn/api/qndxx/api.php?sort=random'
+        let url = 'https://home.huangyuheng.top/tool/daxuexi.html'
         let response = await fetch(url)
         let res = await response.text()
         res = res.replace(/<\/br>/g, '').trim()
