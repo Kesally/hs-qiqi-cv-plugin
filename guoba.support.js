@@ -28,7 +28,7 @@ export function supportGuoba() {
       // 图标颜色，例：#FF0000 或 rgb(255, 0, 0)
       // iconColor: '#ffff99',
       // 如果想要显示成图片，也可以填写图标路径（绝对路径）
-      iconPath: `${Plugin_Path}/resources/img/tb.png`,
+      iconPath: `${Plugin_Path}/resources/img/tb.jpg`,
     },
     // 配置项信息
     configInfo: {
