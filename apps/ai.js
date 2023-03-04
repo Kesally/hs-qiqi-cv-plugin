@@ -339,7 +339,7 @@ if(e.msg.includes('疫情')){
    jieguo = res2.choices[0].text
     }
     catch (err){
-    e.reply('openai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n如需使用请访问https://docs.qq.com/doc/DR0NkS090ZkFMRmRU');
+    e.reply('openai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n如需使用请访问https://www.wolai.com/x69VNxE1GMa251NTWrLsQC');
     logger.error('\nopenai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n');
    return true
     }
