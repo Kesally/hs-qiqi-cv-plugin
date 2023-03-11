@@ -299,152 +299,27 @@ if(e.msg.includes('疫情')){
       let apikey = `${key}` //这里填你的apikey，在openai官网申请的apikey
       let res = ""
       let msg = _.trimStart(e.msg, bot)
-      tempMsg = tempMsg + "\nHuman: " + msg
-
-
-
-      var data2 = {
-        "model": "text-davinci-003",
-        "prompt": tempMsg,
-        "max_tokens": 2048,
-        "temperature": 0,
-        "top_p": 1,
-        "frequency_penalty": 0,
-        "presence_penalty": 0.6,
-        "stop": [" Human:", " AI:"],
-      }
-
-
-      try {
-        res = await fetch('https://api.openai.com/v1/completions', {
-            method: "post",
-            body: JSON.stringify(data2),
-    
+        if (e.isMaster | e.isGroup) {
+          let msg = _.trimStart(e.msg, bot)  
+          let response4 = await fetch('https://www.tukuai.one/gpt.php?&miyao='+apikey, {
+            method: 'POST', //接口来自土块
             headers: {
-                'Content-Type': "application/json", 
-               
-                'Authorization':'Bearer '+apikey
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(
+             { "model": "gpt-3.5-turbo-0301",
+              "messages": [{"role": "user", "content": msg}]
             }
-
-        })
-       
-    } catch (err) {
-        logger.info(err)
-        logger.info('openai访问失败');
-        return false
-    }
-    let res2 =await res.json()
-  let jieguo
-    try {
-   jieguo = res2.choices[0].text
-    }
-    catch (err){
-    e.reply('openai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n如需使用请访问https://www.wolai.com/x69VNxE1GMa251NTWrLsQC');
-    logger.error('\nopenai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n');
-   return true
-    }
-    jieguo = jieguo.replace(/\n/ , "").trim()
-    jieguo = jieguo.replace(/答：/ , "").trim()
-    jieguo = jieguo.replace(/Bot:/ , "").trim()
-    jieguo = jieguo.replace(/robot:/ , "").trim()
-    jieguo = jieguo.replace(/Robot:/ , "").trim()
-jieguo = jieguo.replace(/Computer:/ , "").trim()
-jieguo = jieguo.replace(/computer:/ , "").trim()
-    jieguo = jieguo.replace(/AI:/ , "").trim()
-    jieguo = jieguo.replace(/一个聊天机器人/, bot).trim()
-    jieguo = jieguo.replace(/聊天机器人/, bot).trim()
-    jieguo = jieguo.replace(/机器人:/, '').trim()
-    jieguo = jieguo.replace(/机器人：/, '').trim()
-    tempMsg = tempMsg + "\n\n " + jieguo
-    // logger.mark(`[AI回复]${tempMsg}`)
-    e.reply(jieguo,true)
-    //console.log(res2.choices[0])
-   return true
-  }}}
-
-
-async function getAgent() {
-  if(!Config.getConfig('set','pz')['openai']) {return false}
-  let proxyAddress = cfg.bot.proxyAddress
-  if (!proxyAddress) return null
-  if (proxyAddress === 'http://0.0.0.0:0') return null
-
-
-
-  if (HttpsProxyAgent === '') {
-    HttpsProxyAgent = await import('https-proxy-agent').catch((err) => {
-      logger.error(err)
-    })
-
-    HttpsProxyAgent = HttpsProxyAgent ? HttpsProxyAgent.default : undefined
-  }
-
-  if (HttpsProxyAgent) {
-    return new HttpsProxyAgent(proxyAddress)
-  }
-
-  return null
-}
-async function imgUrlToBase64(url) {
-	if(!Config.getConfig('set','pz')['openai']) {return false}
-  let base64Img
-  return new Promise(function (resolve, reject) {
-    let req = http.get(url, function (res) {
-      var chunks = [];
-      var size = 0;
-      res.on('data', function (chunk) {
-        chunks.push(chunk);
-        size += chunk.length;
-        //累加缓冲数据的长度
-      });
-      res.on('end', function (err) {
-        var data = Buffer.concat(chunks, size);
-        base64Img = data.toString('base64');
-        resolve({
-          success: true,
-          base64Img
+            )
+           
+    
         });
-      });
-    })
-    req.on('error', (e) => {
-      resolve({
-        success: false,
-        errmsg: e.message
-      });
-    });
-    req.end();
-  })
-}
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-
-
-
-async function ForwardMsg(e, data) {
-
-  let msgList = [];
-  
-      msgList.push({
-          message: data,
-          nickname: Bot.nickname,
-          user_id: Bot.uin,
-      });
-  
-  if (msgList[0].message.length < 70) {
-      await e.reply(msgList[0].message,true);
-  } else {
-      //console.log(msgList);
-      let msg2 = await Bot.makeForwardMsg(msgList);
-msg2.data = msg2.data.replace(/^<\?xml.*version=.*?>/g,'<?xml version="1.0" encoding="utf-8" ?>');
-await e.reply(msg2)
-      
-
-  }
-  return;
-}
-/** 读取 */
-function getread() {
+        let res = await response4.json()
+        res = res.choices[0]
+        e.reply(res.message.content,true)
+      }
+    }
+  function getread() {
   try {
     var fileContents = fs.readFileSync(path_, 'utf8');
   } catch (e) {
@@ -468,7 +343,8 @@ function getwrite(data) {
     return false
   }
 }
-async function answer(e) {
+}}
+ async function answer(e) {
   let num = Math.ceil(Math.random()* 4)
   let name =Config.getConfig('set','mz')['botname']
   e.msg=e.msg.replace(`${name}`, "小爱")
@@ -502,4 +378,4 @@ async function answer(e) {
         return true
       }
     }
-  }}	
+  }}
