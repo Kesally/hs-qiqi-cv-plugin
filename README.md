@@ -17,6 +17,9 @@
 
 </div>
 
+## 我们的网站
+[去访问我们的网站](https://mapleleaves.cn/) https://mapleleaves.cn/
+
 ## 安装教程
 **`注意`：hs-qiqi-plugin只适配Yunzai-BotV3!!!**
 
@@ -176,7 +179,6 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 | `机器人及插件的使用问题，建议加群咨询`|
 | ------------- |
-|[我们的官网](https://mapleleaves.cn/index.html)|
 |[有能力可去提issues](https://gitee.com/kesally/hs-qiqi-cv-plugin/issues)| 
 |  `枫叶群号:` [779217677](https://jq.qq.com/?_wv=1027&k=QfzmOyLZ)|
 |  `ikun群:` [707499227](https://jq.qq.com/?_wv=1027&k=yTbA4lk6)|
