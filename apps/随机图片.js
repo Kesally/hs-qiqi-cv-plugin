@@ -1,4 +1,3 @@
-import { segment } from "oicq";//导包部分
 import fs from 'node:fs'
 const xhz_path ='plugins/hs-qiqi-plugin/resources/随机图片/'
 let source={}
@@ -18,7 +17,6 @@ export class example extends plugin {
         name: '[枫叶]随机图片',
         /** 功能描述 */
         dsc: '概率发送图片',
-        /** https://oicqjs.github.io/oicq/#events */
         event: 'message',
         /** 优先级，数字越小等级越高 */
         priority: 5888,
@@ -51,8 +49,9 @@ export class example extends plugin {
             /** 命令正则匹配 */
             reg: '',
             /** 执行方法 */
-            fnc: 'sjtp'
-          },            
+            fnc: 'sjtp',
+            log: false
+          },
         ]
     })
 }
@@ -123,7 +122,7 @@ async sf(e){
       }
       msglist.push(`随机图片共${File.length}张，可输入【删除随机图片+(序列号)】进行删除`)
       for (let i = 0; i < File.length; i++) {
-        msglist.push([`${i+1}.`, segment.image(`${xhz_path}${File[i]}`)])
+        msglist.push([`${i+1}.`, segment.image(`file://${xhz_path}${File[i]}`)])
       }
   
       let msgRsg = await e.reply(await co.makeForwardMsg(e, msglist))
@@ -215,14 +214,13 @@ async sjtp(e) {
       if(e.group_id == pp){
         return true;
       }}}catch(e){}
-    logger.info('[枫叶]随机图片')
     let data=await Yaml.getread(path)
     let ss = data.随机图概率;
   let num = Math.ceil(Math.random( )* 100)
   if(num <= ss){
   let file = fs.readdirSync(xhz_path)
      let imgnum = Math.round(Math.random() * (file.length - 1))
-     let msg = segment.image(xhz_path + file[imgnum])
+     let msg = segment.image('file://' + xhz_path + file[imgnum])
      await e.reply(msg);}else{
       return false;
     }

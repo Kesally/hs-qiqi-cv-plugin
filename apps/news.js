@@ -1,4 +1,3 @@
-import { segment } from "oicq";
 import fetch from "node-fetch";
 
 //项目路径
@@ -12,7 +11,6 @@ export class example extends plugin {
       name: '[枫叶]今日新闻',
       /** 功能描述 */
       dsc: '简单开发示例',
-      /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       /** 优先级，数字越小等级越高 */
       priority: 3399,

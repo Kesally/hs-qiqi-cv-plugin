@@ -1,10 +1,8 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import { segment } from "oicq";
 import gsCfg from '../../genshin/model/gsCfg.js'
 import fs from 'fs'
 import YAML from 'yaml'
 import { Common } from '../components/index.js'
-import uploadRecord from '../../hs-qiqi-plugin/model/uploadRecord.js'
 
 const _path = process.cwd();
 
@@ -18,7 +16,6 @@ export class fy_yy extends plugin {
       name: '[枫叶]原神角色语音',
       /** 功能描述 */
       dsc: '',
-      /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       /** 优先级，数字越小等级越高 */
       priority: 110,

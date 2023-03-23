@@ -1,5 +1,4 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import { segment } from "oicq";
 import fs from 'node:fs'
 import { promisify } from "util"
 import cfg from '../../../lib/config/config.js'
@@ -67,7 +66,7 @@ export class chuo extends plugin{
      let ma = parseInt(num);
      let imgnum = Math.round(Math.random() * (file.length - 1))
      while(imgnum <= 0){imgnum++;}
-     let msg =  (segment.image(chuo_path + file[imgnum]))
+     let msg =  (segment.image('file://' + chuo_path + file[imgnum]))
      if(ma >= 35){
       await e.reply('给你几张壁纸别戳了')
       if(r18 == false){

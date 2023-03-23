@@ -9,7 +9,6 @@ constructor() {
 super({
  name: '黑名单',
  dsc: '黑名单',
-/** https://oicqjs.github.io/oicq/#events */
  event: 'message',
  priority: 58889,
 rule: [

@@ -1,4 +1,3 @@
-import { segment } from "oicq";
 import fetch from "node-fetch";
 import { Config} from '../components/index.js'
 import fs from 'fs'

@@ -1,5 +1,4 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import { segment } from "oicq";
 import YAML from 'yaml'
 import Yaml from '../model/Yaml.js'
 import { Config} from '../components/index.js'
@@ -22,7 +21,6 @@ export class sjs extends plugin {
       name: '随机类游戏',
       /** 功能描述 */
       dsc: '随机类游戏',
-      /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       /** 优先级，数字越小等级越高 */
       priority: 1,
@@ -319,7 +317,7 @@ num = Math.ceil(num * 10);
 
 if(numss > numbb){
 	let y = await e.reply("正在开奖中.....");
- let msg = [segment.at(e.user_id),'恭喜抽中三等奖,送你一个哥哥', segment.image(xhz_path + file[imgnum])]
+ let msg = [segment.at(e.user_id),'恭喜抽中三等奖,送你一个哥哥', segment.image('file://' + xhz_path + file[imgnum])]
  let yy = await e.reply(msg);
  if(san == 1){
   await common.sleep(ee);
