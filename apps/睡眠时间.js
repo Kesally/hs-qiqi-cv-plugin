@@ -1,7 +1,6 @@
 import { Config} from '../components/index.js'
 import plugin from '../../../lib/plugins/plugin.js' 
 import moment from 'moment';
-import { segment } from 'oicq'
 import schedule from 'node-schedule'
 
 if(Config.getConfig('set','mz')['botname']==null){

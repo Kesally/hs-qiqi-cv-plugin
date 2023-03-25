@@ -1,5 +1,4 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import { segment } from "oicq";
 import fetch from 'node-fetch'
 import { Config} from '../components/index.js'
 import _ from 'lodash'
@@ -30,7 +29,6 @@ export class ai extends plugin {
       name: '[枫叶插件]ai',
       /** 功能描述 */
       dsc: '枫叶ai插件',
-      /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       /** 优先级，数字越小等级越高 */
       priority: 58888,
@@ -96,7 +94,8 @@ export class ai extends plugin {
           /** 命令正则匹配 */
           reg: '',
           /** 执行方法 */
-          fnc: 'xiaoai'
+          fnc: 'xiaoai',
+          log: false
         },
       ]
     })
@@ -231,7 +230,6 @@ if(e.msg.includes('疫情')){
     }
   /**
    * 调用chatgpt接口
-   * @param e oicq传递的事件参数e
    */
    async k(e){
     if(!Config.getConfig('set','pz')['openai']) {return false}

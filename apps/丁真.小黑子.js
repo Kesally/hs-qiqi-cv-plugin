@@ -1,4 +1,3 @@
-import { segment } from "oicq";//导包部分
 import fetch from "node-fetch";
 import { Config} from '../components/index.js'
 import fs from 'node:fs'
@@ -14,7 +13,6 @@ export class example extends plugin {
         name: '一眼丁真',
         /** 功能描述 */
         dsc: '每日一张丁真图片或坤坤图片',
-        /** https://oicqjs.github.io/oicq/#events */
         event: 'message',
         /** 优先级，数字越小等级越高 */
         priority: 10,
@@ -62,7 +60,7 @@ async sf(e){
       }
       msglist.push(`坤坤图片共${File.length}张，可输入【删除坤坤图片+(序列号)】进行删除`)
       for (let i = 0; i < File.length; i++) {
-        msglist.push([`${i+1}.`, segment.image(`${xhz_path}${File[i]}`)])
+        msglist.push([`${i+1}.`, segment.image(`file://${xhz_path}${File[i]}`)])
       }
   
       let msgRsg = await e.reply(await co.makeForwardMsg(e, msglist))
@@ -143,7 +141,7 @@ async jntm(e) {
 	if(!Config.getConfig('set','pz')['dz']) {return false}
   let file = fs.readdirSync(xhz_path)
      let imgnum = Math.round(Math.random() * (file.length - 1))
-     let msg = [segment.at(e.user_id), segment.image(xhz_path + file[imgnum])]
+     let msg = [segment.at(e.user_id), segment.image('file://' + xhz_path + file[imgnum])]
      await e.reply(msg);
     return true; //返回true 阻挡消息不再往下
 }

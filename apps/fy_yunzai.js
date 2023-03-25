@@ -2,7 +2,6 @@ import plugin from '../../../lib/plugins/plugin.js'
 import User from '../../genshin/model/user.js'
 import GachaLog from '../model/gachaLog.js'
 import puppeteer from '../../../lib/puppeteer/puppeteer.js'
-import { segment } from "oicq";
 
 let path='./plugins/hs-qiqi-plugin/resources/记录帮助/'
 //调用yunzai的模块
@@ -60,7 +59,7 @@ async allck () {
 async jlbz (e) {
   let msg='如果你绑定了stoken,可直接使用命令:更新抽卡记录'
   let msg1='如果你有6个月以上的记录文件，可直接发给机器人，云崽支持xlsx和json的记录文件'
-  let msg2=segment.image(`${path}6.jpg`)
+  let msg2=segment.image(`file://${path}6.jpg`)
   let msg3='没有的话，就只能自己手动从游戏里提取，游戏内只有6个月以内的记录'
   let msg4=['安卓方法\n',segment.image(`${path}安卓.jpg`),'链接：https://wwm.lanzoul.com/yclink']
   let v="'"

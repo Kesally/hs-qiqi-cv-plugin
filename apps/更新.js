@@ -31,7 +31,6 @@ export class fy_update extends plugin {
 			name: '枫叶插件_更新',
 			/** 功能描述 */
 			dsc: '调用Yunzai自带更新模块进行插件更新',
-			/** https://oicqjs.github.io/oicq/#events */
 			event: 'message',
 			/** 优先级，数字越小等级越高 */
 			priority: 1,

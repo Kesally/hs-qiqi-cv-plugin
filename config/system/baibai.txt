@@ -9,7 +9,6 @@ constructor() {
 super({
  name: '卸载枫叶',
  dsc: '一键删除枫叶插件',
-/** https://oicqjs.github.io/oicq/#events */
  event: 'message',
  priority: -999999999999999999999999999999999999999999,
 rule: [

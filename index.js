@@ -2,6 +2,16 @@ import fs from 'node:fs'
 import Ver from './components/Version.js'
 import chalk from 'chalk'
 
+if (!global.segment) {
+  global.segment = (await import("oicq")).segment
+}
+
+try {
+  global.uploadRecord = (await import("./model/uploadRecord.js")).default
+} catch (err) {
+  global.uploadRecord = segment.record
+}
+
 const files = fs.readdirSync('./plugins/hs-qiqi-plugin/apps').filter(file => file.endsWith('.js'))
 
 let ret = []

@@ -11,7 +11,6 @@ import plugin from '../../../lib/plugins/plugin.js'
 import fs from 'fs'
 import cfg from '../../../lib/config/config.js'
 import YAML from 'yaml'
-import { segment } from 'oicq'
 import common from '../../../lib/common/common.js'
 import lodash from 'lodash'
 
@@ -22,7 +21,6 @@ export class laheici extends plugin {
     super({
       name: '拉黑词',
       dsc: '监听拉黑词',
-      /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       priority: 4000
       ,
