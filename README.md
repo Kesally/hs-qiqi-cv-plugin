@@ -37,7 +37,7 @@ git clone https://gitee.com/kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plu
 // 使用GitHub Proxy
 
 ```
-git clone https://ghporxy.com/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
+git clone https://ghproxy.com/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
 
 ```
 
@@ -179,7 +179,8 @@ git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-pl
 
 | `机器人及插件的使用问题，建议加群咨询`|
 | ------------- |
-|[有能力可去提issues](https://gitee.com/kesally/hs-qiqi-cv-plugin/issues)| 
+|[有能力可去提issues](https://gitee.com/kesally/hs-qiqi-cv-plugin/issues)|
+|Q群时常满人[建议加入我们的频道](https://pd.qq.com/s/13ptnp2ew)|
 |  `枫叶群号:` [779217677](https://jq.qq.com/?_wv=1027&k=QfzmOyLZ)|
 |  `ikun群:` [707499227](https://jq.qq.com/?_wv=1027&k=yTbA4lk6)|
 |[现作者Kesally](https://gitee.com/kesally)|
