@@ -18,7 +18,8 @@
 </div>
 
 ## 我们的网站
-[去访问我们的网站](https://mapleleaves.cn/) https://mapleleaves.cn/
+[主站（自己的服务器）](https://fengye.ink/) 
+[备用网站(由Vercel提供托管)](https://mapleleaves.cn/)
 
 ## 安装教程
 **`注意`：hs-qiqi-plugin只适配Yunzai-BotV3!!!**
