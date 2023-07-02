@@ -14,14 +14,14 @@ let _path='./plugins/hs-qiqi-plugin/config/只听我的_群号.yaml'
 let timeout = 20000//冷却
 let r18 = false;//true开启绅士模式
 
-await cyc()
+await cyc ()
 export class chuo extends plugin{
     constructor(){
     super({
-        name: '戳一戳语音',
-        dsc: '戳一戳语音',
+        name: '[枫叶插件]戳一戳语音',
+        dsc: '[枫叶插件]戳一戳语音',
         event: 'notice.group.poke',
-        priority: 1,
+        priority: -1,
         rule: [
             {
                 /** 命令正则匹配 */
@@ -51,7 +51,7 @@ export class chuo extends plugin{
             if (!err) {e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/fycyc.mp4`));}});
         }else{
           await e.reply('戳累了看会视频吧')
-          let url = `http://api.caonm.net/api/mjsp/m.php`
+          let url = `http://api.caonm.net/api/mjsp/m?key=4nK9rkmw9WuWEsSTm2TNPgwc6u`
           let response = await fetch(url);
           let ji = await response.arrayBuffer();
           fs.writeFile("plugins/hs-qiqi-plugin/resources/video/fycyc.mp4", Buffer.from(ji), "binary", function (err) {
@@ -70,7 +70,8 @@ export class chuo extends plugin{
      if(ma >= 35){
       await e.reply('给你几张壁纸别戳了')
       if(r18 == false){
-        let url = 'https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top'
+        let url = 'http://api.caonm.net/api/dm/index?key=4nK9rkmw9WuWEsSTm2TNPgwc6u'
+		//key是作者本人的 没额度自己换
         let msgList = []
       const forwarder =
       botsender
@@ -109,7 +110,7 @@ export class chuo extends plugin{
       }
      }}else if(ma >= 30){
       await e.reply('别戳了听会歌吧')
-          let url = "https://xiaobai.klizi.cn/API/music/changya.php"
+          let url = "https://api.uomg.com/api/rand.music?sort=热歌榜&format=json"
           let rt = await fetch(url)
           if(!rt){
             e.reply('您的设备使用不了音乐,请加枫叶群获取其他版本')
@@ -133,9 +134,10 @@ export class chuo extends plugin{
           await e.reply('你把我戳生气了')
           await e.group.muteMember(fy,60);
         }else if(ma >= 10){
-     let url = `http://ovooa.com/API/xiaohua/api.php?`;
+     let url = `https://v2.alapi.cn/api/joke?token=LwExDtUWhF3rH5ib&num=1`;
+	 //token会改变 变了请在插件issue区提出issues
      let response = await fetch(url);
-     let res = await response.text();
+     let res = await response.data();
      if(!res){
       e.reply('别戳了')
       return false
