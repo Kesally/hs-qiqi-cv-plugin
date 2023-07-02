@@ -347,7 +347,7 @@ if(e.msg.includes('疫情')){
         e.reply(res.message.content,true)
         }
         catch (err){
-    e.reply('openai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n如需使用请访问https://mapleleavescn.wordpress.com/2023/06/18/枫叶openai帮助文档/');
+    e.reply('openai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n如需使用请访问[https://blog.mapleleaves.cn/index.php/2023/07/02/openai-help/]查看帮助');
     logger.error('\nopenai访问失败，请检查你输入的openai是否正确，或者可能是你的openai已经没有额度了\n');
    return true
     }
