@@ -5,6 +5,7 @@
   
 <h1>hs-qiqi-plugin</h1>
 
+<h1>注意:现戳一戳功能不适配TRSS-Yunzai</h1>
 
 
 枫叶插件是一个Yunzai-Bot的扩展插件，给bot提供一些有趣的功能。
