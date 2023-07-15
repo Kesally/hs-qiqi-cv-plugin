@@ -40,7 +40,7 @@ export class sleepset extends plugin {  //插件主体
   }
   
  async o(e){
-    await e.reply('[枫叶]openai帮助\nhttps://www.wolai.com/x69VNxE1GMa251NTWrLsQC');
+    await e.reply('[枫叶]Openai帮助链接\nhttps://blog.fengye.ink/index.php/2023/07/02/openai-help');
     return true;
    }
 
