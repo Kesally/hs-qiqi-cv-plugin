@@ -328,7 +328,8 @@ if(numss > numbb){
  }
 }else if(numss < num3){
 	let y = await e.reply("正在开奖中.....");
- let msk = [segment.at(e.user_id),'恭喜抽中二等奖,送你一张壁纸', segment.image('https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top')]
+ let msk = [segment.at(e.user_id),'恭喜抽中二等奖,送你一张壁纸', segment.image('https://t.mwm.moe/ycy')]
+ //替换接口：https://t.lizi.moe/pc 替换接口2：https://moe.jitsu.top/img
   let i = await e.reply(msk);
   if(er == 1){
   await common.sleep(ee);
@@ -339,6 +340,7 @@ if(numss > numbb){
  }else if(num3 < num4){
 	 let yy = await e.reply("正在开奖中.....");
 	let msp = [segment.at(e.user_id),'恭喜抽中特等奖晚安', segment.image('https://iw233.cn/API/Random.php')]
+    //替换接口1：https://pic.tianyi.one 替换接口2：https://moe.jitsu.top/api
     let oo = await e.reply(msp);
     if(te == 1){
     await common.sleep(ee);
@@ -351,6 +353,7 @@ if(numss > numbb){
 }else if(num4 < numbb){
 	let yy = await e.reply("正在开奖中.....");
 	let msk = [segment.at(e.user_id),'恭喜抽中一等奖,涩图一张', segment.image('https://api.sdgou.cc/api/tao/')]
+    //替换接口1：https://api.anosu.top/img 替换接口2：https://api.anosu.top/img
     let uu = await e.reply(msk);
 if(yi == 1){
     await common.sleep(ee);
@@ -394,7 +397,8 @@ e.reply(msg);
 }else if(num > 50 && num < 80){
     let msg =[
   segment.at(e.user_id), 
-  `\n今日你的运气为`+num+`点,人品还行噢,可以安全出门啦！`, segment.image('https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top'),
+  `\n今日你的运气为`+num+`点,人品还行噢,可以安全出门啦！`, segment.image('https://api.yimian.xyz/img?type=moe'),
+  //替换接口1:https://mahiro.tianyi.one  //替换接口2：https://t.mwm.moe/ysmp
 ]
 
 e.reply(msg);
@@ -403,7 +407,8 @@ e.reply(msg);
 }else if(num > 80 && num<= 99){
      let msg =[
   segment.at(e.user_id), 
-  `\n今日你的运气为`+num+`点,建议去买彩票噢！`, segment.image('https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top'),
+  `\n今日你的运气为`+num+`点,建议去买彩票噢！`, segment.image('http://api.caonm.net/api/dm/index?key=UDXaG8Th9jS28HOFPrzkjtOvoY'),
+  //替换接口1：http://www.98qy.com/sjbz/api.php 替换接口2：https://moe.anosu.top/img
 ]
 
 e.reply(msg);
@@ -412,7 +417,8 @@ e.reply(msg);
 }else{
    let msg =[
   segment.at(e.user_id), 
-  `\n今日你的运气为`+num+`点,你今天就是天选之人！！`, segment.image('https://mirlkoi.ifast3.vipnps.vip/api.php?sort=top'),
+  `\n今日你的运气为`+num+`点,你今天就是天选之人！！`, segment.image('https://api.vvhan.com/api/girl'),
+  //替换接口1：https://api.ghser.com/random/api.php 替换接口2：https://api.ghser.com/random/pc.php
 ]
 
 e.reply(msg);
