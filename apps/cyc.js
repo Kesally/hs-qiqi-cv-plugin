@@ -1,7 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import fs from 'node:fs'
 import { promisify } from "util"
-import cfg from '../../../lib/config/config.js'
 import { pipeline } from "stream"
 import fetch from "node-fetch";
 let mp3 = 10 //音频文件数量初始10个
@@ -32,7 +31,7 @@ export class chuo extends plugin{
     )
 }
   async cycyy (e) {
-    if(e.target_id == cfg.qq){
+    if(e.target_id == e.self_id){
       if(!Config.getConfig('set','pz')['cyc']){return false}
       let fy =  e.operator_id
     let now_time = new Date().getTime();
