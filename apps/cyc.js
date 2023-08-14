@@ -107,24 +107,7 @@ export class chuo extends plugin{
         await e.reply(await e.group.makeForwardMsg(msgList))
       return;
       }
-     }}else if(ma >= 30){
-      await e.reply('别戳了听会歌吧')
-          let url = "https://api.uomg.com/api/rand.music?sort=热歌榜&format=json"
-          let rt = await fetch(url)
-          if(!rt){
-            e.reply('您的设备使用不了音乐,请加枫叶群获取其他版本')
-            return false;
-          }
-          rt = await rt.json()
-          if(rt.code != 200){
-            e.reply('您的设备使用不了音乐,请加枫叶群获取其他版本')
-            return false;
-          }
-          let data = rt.data
-          let oo = (segment.record(data.audioSrc))
-          await e.reply(oo);
-        return;
-     }else if(ma >= 25){await e.reply(msg)}else if(ma >= 20){
+     }}else if(ma >= 25){await e.reply(msg)}else if(ma >= 20){
       let kl = Math.round(Math.random() * mp3)
       while(kl <= 0){kl++;}
       let op =  (segment.record('plugins/hs-qiqi-plugin/resources/语音/'+ kl + '.mp3'))
@@ -133,7 +116,7 @@ export class chuo extends plugin{
           await e.reply('你把我戳生气了')
           await e.group.muteMember(fy,60);
         }else if(ma >= 10){
-     let url = `https://v2.alapi.cn/api/joke?token=LwExDtUWhF3rH5ib&num=1`;
+     let url = `https://v2.alapi.cn/api/joke/random?token=A85G8uKBXqHs4PzA&num=1`;
 	 //token会改变 变了请在插件issue区提出issues
      let response = await fetch(url);
      let res = await response.data();
