@@ -66,7 +66,7 @@ export class r18ss extends plugin {
             let rr = e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4`))
     })}
         if (e.msg.includes('枫叶漫剪视频')){
-            let url = await(await fetch(`http://api.caonm.net/api/mjsp/m.php`))
+            let url = await(await fetch(`http://api.caonm.net/api/mjsp/m?key=4nK9rkmw9WuWEsSTm2TNPgwc6u`))
             let ji = await url.arrayBuffer();
             fs.writeFile("plugins/hs-qiqi-plugin/resources/video/漫剪.mp4", Buffer.from(ji), "binary", function (err) {
             console.log(err || "保存成功");
@@ -236,11 +236,11 @@ export class r18ss extends plugin {
             if(ss == 2){
                 url = await(await fetch(`https://api.lolicon.app/setu/v2?proxy=i.pixiv.re&r18=0`)).json();
             }else if(ss == 0){
-            url = 'https://api.sdgou.cc/api/tao/'}
+            url = 'https://api.btstu.cn/sjbz/api.php?lx=meizi&format=images'}
             else if(ss == 1){
-                url = `https://iw233.cn/API/Random.php`;
+                url = `http://img.xjh.me/random_img.php?type=bg&ctype=acg`;
             }else if(ss == 3){
-                url = `https://www.acy.moe/api/404`;
+                url = `https://www.acy.moe/api/404/`;
             }
             let msgList = []
           const forwarder =
