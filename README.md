@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="resources/README.md图片/0.jpg" alt="枫叶" width = "600">
+  <img src="resources/README.md图片/0.jpg" alt="枫叶" width = "1326">
 
   
 <h1>hs-qiqi-plugin</h1>

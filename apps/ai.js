@@ -412,7 +412,7 @@ async function answer(e) {
   let uu = data.切换;
   let res;
   if(uu == 0){
-  res = await(await fetch(`https://api.pmay.cn/api/xiaoai?msg=${e.msg}`)).json();
+  res = await(await fetch(`https://xiaobai.klizi.cn/API/other/xiaoai.php?data=&msg=${e.msg}`)).json();
   //判断是否关闭语音
   let yy =await redis.get('aiyy:ai')
   let qd=1

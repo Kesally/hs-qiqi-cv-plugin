@@ -64,34 +64,11 @@ async makeForwardMsg (keys) {
         message: `[-------Bot：${机器人名字}-------]\n\n拼接路线,请复制链接后去浏览器打开，QQ会屏蔽链接\n\n建议使用浏览器去官网获取视频链接，最好是https的，尽量不要使用手机视频app分享出来的链接，目前测试爱奇艺等等不使用浏览器去官方获取视频链接，就很难解析，腾讯视频倒是没啥影响`
       }
     ]
-    let msg
-    
-        msg = [`[路线1]\n\n\nhttps://www.pangujiexi.cc/jiexi.php?url=${keys}`]
-      let  msg1 = [`[路线2]\n\n\nhttps://www.ckmov.vip/api.php?url=${keys}`]
-      let  msg2 = [`[路线3]\n\n\nhttps://jx.m3u8.tv/jiexi/?url=${keys}`]
-      let  msg3 = [`[备用路线，多路线较稳定，第一次解析失败就点左上角切换路线]\n\n\nhttp://hhhhhhhhhhh.cn:99/?url=${keys}`]
+      let  msg = [`[线路1]\n\n\nhttp://hhhhhhhhhhh.cn:99/?url=${keys}`]
         forwardMsg.push(
           {
             ...userInfo,
             message: msg
-          }
-        )
-   forwardMsg.push(
-          {
-            ...userInfo,
-            message: msg1
-          }
-        )
-    forwardMsg.push(
-          {
-            ...userInfo,
-            message: msg2
-          }
-        )
-    forwardMsg.push(
-          {
-            ...userInfo,
-            message: msg3
           }
         )
     if (this.e.isGroup) {
