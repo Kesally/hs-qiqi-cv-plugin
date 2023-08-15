@@ -149,7 +149,7 @@ async jntm(e) {
 async dz(e) {
 	if(!Config.getConfig('set','pz')['dz']) {return false} 
     let timeout = 0; //0表示不撤回，单位毫秒
-    let url = await(await fetch('https://api.micrsky.com/dzimgs')).json();
+    let url = 'https://api.fengye.ink/api/dzimg' //更换api为自己的api
     let msg=[segment.at(e.user_id),	  
         segment.image(url)]
       let msgRes = await e.reply(msg);
