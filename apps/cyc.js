@@ -69,8 +69,7 @@ export class chuo extends plugin{
      if(ma >= 35){
       await e.reply('给你几张壁纸别戳了')
       if(r18 == false){
-        let url = 'http://api.caonm.net/api/dm/index?key=4nK9rkmw9WuWEsSTm2TNPgwc6u'
-		//key是作者本人的 没额度自己换
+        let url = 'https://t.lizi.moe/pc'
         let msgList = []
       const forwarder =
       botsender

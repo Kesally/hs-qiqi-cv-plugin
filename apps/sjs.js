@@ -339,7 +339,7 @@ if(numss > numbb){
   }
  }else if(num3 < num4){
 	 let yy = await e.reply("正在开奖中.....");
-	let msp = [segment.at(e.user_id),'恭喜抽中特等奖晚安', segment.image('https://iw233.cn/API/Random.php')]
+	let msp = [segment.at(e.user_id),'恭喜抽中特等奖晚安', segment.image('https://moe.anosu.top/img')]
     //替换接口1：https://pic.tianyi.one 替换接口2：https://moe.jitsu.top/api
     let oo = await e.reply(msp);
     if(te == 1){
@@ -407,8 +407,8 @@ e.reply(msg);
 }else if(num > 80 && num<= 99){
      let msg =[
   segment.at(e.user_id), 
-  `\n今日你的运气为`+num+`点,建议去买彩票噢！`, segment.image('http://api.caonm.net/api/dm/index?key=UDXaG8Th9jS28HOFPrzkjtOvoY'),
-  //替换接口1：http://www.98qy.com/sjbz/api.php 替换接口2：https://moe.anosu.top/img
+  `\n今日你的运气为`+num+`点,建议去买彩票噢！`, segment.image('https://moe.anosu.top/img'),
+  //替换接口1：http://www.98qy.com/sjbz/api.php
 ]
 
 e.reply(msg);
