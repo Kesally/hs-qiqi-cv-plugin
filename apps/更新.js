@@ -3,6 +3,7 @@ import { createRequire } from 'module'
 import _ from 'lodash'
 import { Restart } from '../../other/restart.js'
 import fs from 'fs'
+import { Version , Common, Plugin_Name} from '../components/index.js'
 
 const require = createRequire(import.meta.url)
 const { exec, execSync } = require('child_process')
@@ -43,6 +44,18 @@ export class fy_update extends plugin {
         {
           reg: '^#*枫叶(插件)?(强制)?更新$',
           fnc: 'update'
+        },
+        {
+					/** 命令正则匹配 */
+					reg: '^#?枫叶(插件)?版本$',
+					/** 执行方法 */
+					fnc: 'plugin_version',
+				},
+				{
+					/** 命令正则匹配 */
+					reg: '^#?枫叶(插件)?更新日志$',
+					/** 执行方法 */
+					fnc: 'update_log',
         }
       ]
     })
@@ -334,4 +347,25 @@ export class fy_update extends plugin {
     }
     return true
   }
+
+async plugin_version(){
+  return versionInfo(this.e);
+}
+async update_log(){
+  let Update_Plugin = new update();
+  Update_Plugin.e = this.e;
+  Update_Plugin.reply = this.reply;
+  
+  if(Update_Plugin.getPlugin(Plugin_Name)){
+    this.e.reply(await Update_Plugin.getLog(Plugin_Name));
+  }
+  return true;
+}
+}
+async function versionInfo (e) {
+  return await Common.render('help/version-info', {
+    currentVersion: Version.ver,
+    changelogs: Version.logs,
+    elem: 'cryo'
+  }, { e, scale: 1.4 })
 }

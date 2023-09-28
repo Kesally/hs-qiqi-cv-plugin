@@ -327,7 +327,7 @@ if(e.msg.includes('疫情')){
       let msg = _.trimStart(e.msg, bot)
         if (e.isMaster | e.isGroup) {
           let msg = _.trimStart(e.msg, bot)  
-          let response4 = await fetch('https://www.tukuai.one/gpt.php?&miyao='+apikey, {
+          let response4 = await fetch('http://www.itukuai.top:1450/gpt.php?&miyao='+apikey, {
             method: 'POST', //接口来自土块
             headers: {
                 'Content-Type': 'application/json',
