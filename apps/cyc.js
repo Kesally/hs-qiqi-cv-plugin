@@ -42,7 +42,7 @@ export class chuo extends plugin{
         while(n<=0){n++;}
         if(n >= 3){
           await e.reply('戳累了看会视频吧')
-          let url = `https://api.caonm.net/api/mn/index.php`
+          let url = `https://api.8uid.cn/yz.php?type=video`
           let response = await fetch(url);
           let ji = await response.arrayBuffer();
           fs.writeFile("plugins/hs-qiqi-plugin/resources/video/fycyc.mp4", Buffer.from(ji), "binary", function (err) {
@@ -50,7 +50,7 @@ export class chuo extends plugin{
             if (!err) {e.reply(segment.video(`plugins/hs-qiqi-plugin/resources/video/fycyc.mp4`));}});
         }else{
           await e.reply('戳累了看会视频吧')
-          let url = `http://api.caonm.net/api/mjsp/m?key=4nK9rkmw9WuWEsSTm2TNPgwc6u`
+          let url = `https://api.8uid.cn/jk.php?type=video`
           let response = await fetch(url);
           let ji = await response.arrayBuffer();
           fs.writeFile("plugins/hs-qiqi-plugin/resources/video/fycyc.mp4", Buffer.from(ji), "binary", function (err) {
@@ -69,7 +69,7 @@ export class chuo extends plugin{
      if(ma >= 35){
       await e.reply('给你几张壁纸别戳了')
       if(r18 == false){
-        let url = 'https://t.lizi.moe/pc'
+        let url = 'https://sjtp.api.mofashi.ltd/api.php'
         let msgList = []
       const forwarder =
       botsender
