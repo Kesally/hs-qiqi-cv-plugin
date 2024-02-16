@@ -2,6 +2,7 @@ import fetch from "node-fetch";
 import { Config} from '../components/index.js'
 import fs from 'node:fs'
 const xhz_path ='plugins/hs-qiqi-plugin/resources/小黑子图片/'
+const dz_path ='plugins/hs-qiqi-plugin/resources/丁真图片/'
 let source={}
 import co from '../../../lib/common/common.js'
 
@@ -148,28 +149,14 @@ async jntm(e) {
 
 async dz(e) {
 	if(!Config.getConfig('set','pz')['dz']) {return false} 
-    let timeout = 0; //0表示不撤回，单位毫秒
-    let url = 'https://api.fengye.ink/api/dzimg' //更换api为自己的api
-    let msg=[segment.at(e.user_id),	  
-        segment.image(url)]
-      let msgRes = await e.reply(msg);
-      if (timeout!=0 && msgRes && msgRes.message_id){
-        let target = null;
-        if (e.isGroup) {
-          target = e.group;
-        }else{
-          target = e.friend;
-        }
-        if (target != null){
-          setTimeout(() => {
-            target.recallMsg(msgRes.message_id);
-            target.recallMsg(e.message_id);
-          }, timeout);
-        }
-      } 
-      return true; //返回true 阻挡消息不再往下
+    let file = fs.readdirSync(dz_path)
+    let imgnum = Math.round(Math.random() * (file.length - 1))
+    let msg = [segment.at(e.user_id), segment.image('file://' + dz_path + file[imgnum])]
+    await e.reply(msg);
+   return true; //返回true 阻挡消息不再往下
   }
  }
+
  
  async function tp() {
   if (!fs.existsSync(xhz_path)) {
@@ -179,5 +166,5 @@ async dz(e) {
     let picPath = `${xhz_path}/1.jpg`
     await streamPipeline(fs.createWriteStream(picPath))
     }catch(err) {}
-} 
-} 
+  }
+}
