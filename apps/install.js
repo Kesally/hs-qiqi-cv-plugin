@@ -18,7 +18,7 @@ const pluginList = {
 };
 const names = {  
   "reset-qianyu-plugin": "千羽插件",
-  "Fanji-plugin": '反击插件",
+  "Fanji-plugin": "反击插件",
   "cunyx-plugin": "寸幼萱插件",
   "TRSS-Plugin": "TRSS插件",
   "useless-plugin": "无用插件",
