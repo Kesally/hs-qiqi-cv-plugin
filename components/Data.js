@@ -1,10 +1,10 @@
-import lodash from 'lodash'
-import fs from 'fs'
+import lodash from "lodash"
+import fs from "fs"
 
 const _path = process.cwd()
-const plugin = 'hs-qiqi-plugin'
-const getRoot = (root = '') => {
-  if (root === 'root' || root === 'yunzai') {
+const plugin = "hs-qiqi-plugin"
+const getRoot = (root = "") => {
+  if (root === "root" || root === "yunzai") {
     root = `${_path}/`
   } else if (!root) {
     root = `${_path}/plugins/${plugin}/`
@@ -17,14 +17,14 @@ let Data = {
   /*
   * 根据指定的path依次检查与创建目录
   * */
-  createDir (path = '', root = '', includeFile = false) {
+  createDir(path = "", root = "", includeFile = false) {
     root = getRoot(root)
-    let pathList = path.split('/')
+    let pathList = path.split("/")
     let nowPath = root
     pathList.forEach((name, idx) => {
       name = name.trim()
       if (!includeFile && idx <= pathList.length - 1) {
-        nowPath += name + '/'
+        nowPath += name + "/"
         if (name) {
           if (!fs.existsSync(nowPath)) {
             fs.mkdirSync(nowPath)
@@ -37,11 +37,11 @@ let Data = {
   /*
   * 读取json
   * */
-  readJSON (file = '', root = '') {
+  readJSON(file = "", root = "") {
     root = getRoot(root)
     if (fs.existsSync(`${root}/${file}`)) {
       try {
-        return JSON.parse(fs.readFileSync(`${root}/${file}`, 'utf8'))
+        return JSON.parse(fs.readFileSync(`${root}/${file}`, "utf8"))
       } catch (e) {
         console.log(e)
       }
@@ -52,7 +52,7 @@ let Data = {
   /*
   * 写JSON
   * */
-  writeJSON (file, data, space = '\t', root = '') {
+  writeJSON(file, data, space = "\t", root = "") {
     // 检查并创建目录
     Data.createDir(file, root, true)
     root = getRoot(root)
@@ -60,7 +60,7 @@ let Data = {
     return fs.writeFileSync(`${root}/${file}`, JSON.stringify(data, null, space))
   },
 
-  async getCacheJSON (key) {
+  async getCacheJSON(key) {
     try {
       let txt = await redis.get(key)
       if (txt) {
@@ -72,14 +72,14 @@ let Data = {
     return {}
   },
 
-  async setCacheJSON (key, data, EX = 3600 * 24 * 90) {
+  async setCacheJSON(key, data, EX = 3600 * 24 * 90) {
     await redis.set(key, JSON.stringify(data), { EX })
   },
 
-  async importModule (file, root = '') {
+  async importModule(file, root = "") {
     root = getRoot(root)
     if (!/\.js$/.test(file)) {
-      file = file + '.js'
+      file = file + ".js"
     }
     if (fs.existsSync(`${root}/${file}`)) {
       try {
@@ -92,16 +92,16 @@ let Data = {
     return {}
   },
 
-  async importDefault (file, root) {
+  async importDefault(file, root) {
     let ret = await Data.importModule(file, root)
     return ret.default || {}
   },
 
-  async import (name) {
+  async import(name) {
     return await Data.importModule(`components/optional-lib/${name}.js`)
   },
 
-  async importCfg (key) {
+  async importCfg(key) {
     let sysCfg = await Data.importModule(`config/system/${key}_system.js`)
     let diyCfg = await Data.importModule(`config/${key}.js`)
     if (diyCfg.isSys) {
@@ -126,18 +126,18 @@ let Data = {
   *
   * */
 
-  getData (target, keyList = '', cfg = {}) {
+  getData(target, keyList = "", cfg = {}) {
     target = target || {}
     let defaultData = cfg.defaultData || {}
     let ret = {}
     // 分割逗号
-    if (typeof (keyList) === 'string') {
-      keyList = keyList.split(',')
+    if (typeof (keyList) === "string") {
+      keyList = keyList.split(",")
     }
 
     lodash.forEach(keyList, (keyCfg) => {
       // 处理通过:指定 toKey & fromKey
-      let _keyCfg = keyCfg.split(':')
+      let _keyCfg = keyCfg.split(":")
       let keyTo = _keyCfg[0].trim()
       let keyFrom = (_keyCfg[1] || _keyCfg[0]).trim()
       let keyRet = keyTo
@@ -153,12 +153,12 @@ let Data = {
     return ret
   },
 
-  getVal (target, keyFrom, defaultValue) {
+  getVal(target, keyFrom, defaultValue) {
     return lodash.get(target, keyFrom, defaultValue)
   },
 
   // 异步池，聚合请求
-  async asyncPool (poolLimit, array, iteratorFn) {
+  async asyncPool(poolLimit, array, iteratorFn) {
     const ret = [] // 存储所有的异步任务
     const executing = [] // 存储正在执行的异步任务
     for (const item of array) {
@@ -182,12 +182,12 @@ let Data = {
   },
 
   // sleep
-  sleep (ms) {
+  sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms))
   },
 
   // 获取默认值
-  def () {
+  def() {
     for (let idx in arguments) {
       if (!lodash.isUndefined(arguments[idx])) {
         return arguments[idx]
@@ -198,10 +198,10 @@ let Data = {
   // 循环字符串回调
   eachStr: (arr, fn) => {
     if (lodash.isString(arr)) {
-      arr = arr.replace(/\s*(;|；|、|，)\s*/, ',')
-      arr = arr.split(',')
+      arr = arr.replace(/\s*(;|；|、|，)\s*/, ",")
+      arr = arr.split(",")
     } else if (lodash.isNumber(arr)) {
-      arr = [arr.toString()]
+      arr = [ arr.toString() ]
     }
     lodash.forEach(arr, (str, idx) => {
       if (!lodash.isUndefined(str)) {
@@ -210,7 +210,7 @@ let Data = {
     })
   },
 
-  regRet (reg, txt, idx) {
+  regRet(reg, txt, idx) {
     if (reg && txt) {
       let ret = reg.exec(txt)
       if (ret && ret[idx]) {

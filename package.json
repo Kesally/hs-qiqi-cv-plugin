@@ -1,0 +1,38 @@
+{
+  "name": "hs-qiqi-plugin",
+  "version": "1.7.1",
+  "description": "Yunzai-Bot扩展插件",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "lint-staged --allow-empty"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/kesally/hs-qiqi-cv-plugin"
+  },
+  "keywords": [
+    "Yunzai-Bot",
+    "hs-qiqi-plugin"
+  ],
+  "author": "kesally",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "pipeline": "^0.1.3",
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^48.2.12",
+    "eslint-plugin-promise": "^6.2.0",
+    "lint-staged": "^15.2.7"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  }
+}

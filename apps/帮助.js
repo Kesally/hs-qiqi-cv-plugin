@@ -1,40 +1,39 @@
-import plugin from '../../../lib/plugins/plugin.js'
-import lodash from 'lodash'
-import { Common, Data} from '../components/index.js'
-import Theme from './help/theme.js'
+import plugin from "../../../lib/plugins/plugin.js"
+import lodash from "lodash"
+import { Common, Data } from "../components/index.js"
+import Theme from "./help/theme.js"
 
 export class fyhelp extends plugin {
-	constructor () {
-		super({
-			/** 功能名称 */
-			name: '枫叶插件_帮助',
-			/** 功能描述 */
-			dsc: '',
-			event: 'message',
-			/** 优先级，数字越小等级越高 */
-			priority: 2000,
-			rule: [
-				{
-					/** 命令正则匹配 */
-					reg: '^#?枫叶(插件)?帮助$',
-					/** 执行方法 */
-					fnc: 'message'
-				}
-			]
-		});
-	}
-	
-	async message(){
-		return await help(this.e);
-	}
+  constructor() {
+    super({
+      /** 功能名称 */
+      name: "枫叶插件_帮助",
+      /** 功能描述 */
+      dsc: "",
+      event: "message",
+      /** 优先级，数字越小等级越高 */
+      priority: 2000,
+      rule: [
+        {
+          /** 命令正则匹配 */
+          reg: "^#?枫叶(插件)?帮助$",
+          /** 执行方法 */
+          fnc: "message"
+        }
+      ]
+    })
+  }
 
+  async message() {
+    return await help(this.e)
+  }
 }
 
-async function help(e){
+async function help(e) {
   let custom = {}
   let help = {}
 
-  let { diyCfg, sysCfg } = await Data.importCfg('help')
+  let { diyCfg, sysCfg } = await Data.importCfg("help")
 
   custom = help
 
@@ -43,14 +42,14 @@ async function help(e){
   let helpGroup = []
 
   lodash.forEach(helpList, (group) => {
-    if (group.auth && group.auth === 'master' && !e.isMaster) {
+    if (group.auth && group.auth === "master" && !e.isMaster) {
       return true
     }
 
     lodash.forEach(group.list, (help) => {
       let icon = help.icon * 1
       if (!icon) {
-        help.css = 'display:none'
+        help.css = "display:none"
       } else {
         let x = (icon - 1) % 10
         let y = (icon - x - 1) / 10
@@ -61,11 +60,11 @@ async function help(e){
     helpGroup.push(group)
   })
   let themeData = await Theme.getThemeData(diyCfg.helpCfg || {}, sysCfg.helpCfg || {})
-  
-  return await Common.render('help/index', {
+
+  return await Common.render("help/index", {
     helpCfg: helpConfig,
     helpGroup,
     ...themeData,
-    element: 'default'
+    element: "default"
   }, { e, scale: 1 })
 }

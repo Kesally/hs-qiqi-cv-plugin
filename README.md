@@ -5,9 +5,6 @@
   
 <h1>hs-qiqi-plugin</h1>
 
-<h1>注意:现戳一戳功能不适配TRSS-Yunzai</h1>
-
-
 枫叶插件是一个Yunzai-Bot的扩展插件，给bot提供一些有趣的功能。
 
 
@@ -29,25 +26,31 @@
 
 推荐使用git进行安装，以方便后续升级。在Yunzai目录打开终端，运行~
 
-// 使用Gitee
+- 使用Gitee
 
-```
+```sh
 git clone https://gitee.com/kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
 
 ```
 
-// 使用GitHub Proxy
+- 使用GitHub Proxy
 
-```
+```sh
 git clone https://ghproxy.com/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
 
 ```
 
-// 使用GitHub
+- 使用GitHub
 
-```
+```sh
 git clone https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
 
+```
+
+## 安装依赖
+
+```sh
+pnpm install
 ```
 
 ## 功能介绍

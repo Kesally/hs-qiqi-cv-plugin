@@ -1,6 +1,6 @@
-import render from './common-lib/render.js'
+import render from "./common-lib/render.js"
 
-function sleep (ms) {
+function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
