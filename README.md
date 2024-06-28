@@ -17,7 +17,7 @@
 
 ## 我们的网站
 [主站（自己的服务器）](https://fengye.ink/) 
-[备用网站(由Vercel提供托管服务)](https://mapleleaves.cn/)
+[备用网站(由Vercel提供托管服务)](https://kesally.eu.org/)
 
 ## 安装教程
 **`注意`：hs-qiqi-plugin只适配Yunzai-BotV3!!!**
@@ -130,9 +130,9 @@ pnpm install
     
     - sese
 	
-	- 枫叶涩涩帮助
+	- 枫叶sese帮助
 	
-	- 涩图撤回时间
+	- se图撤回时间
 
 - 数字炸弹
     
