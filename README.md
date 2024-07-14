@@ -16,7 +16,7 @@
 </div>
 
 ## 我们的网站
-[主站（自己的服务器）](https://fengye.ink/) 
+[主站（自己的服务器）](https://kesally.ren/) 
 [备用网站(由Vercel提供托管服务)](https://kesally.eu.org/)
 
 ## 安装教程
