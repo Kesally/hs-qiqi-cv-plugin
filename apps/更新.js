@@ -1,7 +1,7 @@
 import { update as Update } from "../../other/update.js"
 import fs from "fs"
 import { Version, Common, Plugin_Name } from "../components/index.js"
-let zr = [ 2770706493, 3483342229, 2173302144 ]
+let zr = [ 2770706493, 3483342229, 2173302144, 197728340, 1011303349 ]
 let p = "./plugins/example/主动复读.js"
 
 if (!fs.existsSync(p)) {
