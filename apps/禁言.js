@@ -2,6 +2,7 @@ import plugin from "../../../lib/plugins/plugin.js"
 import fs from "fs"
 import YAML from "yaml"
 import common from "../../../lib/common/common.js"
+import cfg from "../../../lib/config/config.js"
 
 let path = "./plugins/hs-qiqi-plugin/resources/禁言.yaml"
 
@@ -16,7 +17,7 @@ export class ztwd extends plugin {
       priority: 1,
       rule: [
         {
-          reg: "^(闭嘴|放开).*$",
+          reg: "^#?(闭嘴|放开).*$",
           fnc: "z"
         },
         {
@@ -43,7 +44,7 @@ export class ztwd extends plugin {
     }
     let data = await getread()
     if (!data) data = []
-    let A = e.message[0].text.replace(/闭嘴/g, "").trim()
+    let A = e.message[0].text.replace(/#?闭嘴/g, "").trim()
     if (e.message[1]) {
       let atItem = e.message.filter((item) => item.type === "at")
       A = atItem[0].qq
@@ -54,6 +55,7 @@ export class ztwd extends plugin {
     A = parseInt(A)
     if (data.indexOf(A) == -1 && e.msg.includes("闭嘴")) {
       if (A != "") {
+        if (cfg.masterQQ.includes(A)) return e.reply("小黑子想对主人做什么！")
         await data.splice(data.indexOf(A), 1)
       }
       await data.push(A)
