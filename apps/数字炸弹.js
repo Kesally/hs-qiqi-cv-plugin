@@ -1,16 +1,18 @@
 import plugin from "../../../lib/plugins/plugin.js"
 import { Config } from "../components/index.js"
 
+const st_api = "https://api.suyanw.cn/api/hs.php"
+
 export class szzd extends plugin {
   constructor() {
     super({
       /** 功能名称 */
       name: "数字炸弹",
       /** 功能描述 */
-      dsc: "简单开发示例",
+      dsc: "数字炸弹小游戏",
       event: "message",
       /** 优先级，数字越小等级越高 */
-      priority: 1,
+      priority: 500,
       rule: [
         {
           reg: "^#?数字炸弹$",
@@ -34,12 +36,14 @@ export class szzd extends plugin {
         },
         {
           reg: "^(\\d)*$",
-          fnc: "NumberBoomAnser"
+          fnc: "NumberBoomAnser",
+          log: false
         },
         {
           reg: "^结束数字炸弹$",
           fnc: "NumberBoomEnd"
-        }, {
+        }, 
+        {
           reg: "^(关闭|开启)数字炸弹(涩涩|色色|sese)$",
           fnc: "guanb",
           permission: "master"
@@ -209,9 +213,12 @@ export class szzd extends plugin {
     } else {
       let pd = await redis.get("shuzizadan")
       let msg = {}
-      if (!pd || pd == 1) {
-        msg = [ "你猜对了，给你张涩图吧。快谢谢我！", segment.image("https://api.sdgou.cc/api/tao/") ]
-      } else if (pd == 0) {
+      if (!pd) {
+        msg = [
+          "你猜对了，给你张涩图吧。快谢谢我！", 
+          segment.image(st_api)
+        ]
+      } else {
         msg = "你猜对了哟，你真厉害！O(∩_∩)O~"
       }
       e.reply(msg, true)
