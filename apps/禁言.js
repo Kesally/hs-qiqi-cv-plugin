@@ -6,30 +6,29 @@ import cfg from "../../../lib/config/config.js"
 
 let path = "./plugins/hs-qiqi-plugin/resources/禁言.yaml"
 
-if (!fs.existsSync(path)) { fs.writeFileSync(path, "") }
+if (!fs.existsSync(path)) fs.writeFileSync(path, "")
 
 export class ztwd extends plugin {
   constructor() {
     super({
-      name: "禁言",
-      dsc: "",
+      name: "闭嘴",
+      dsc: "撤回某个群员消息",
       event: "message.group",
-      priority: 1,
+      priority: 50,
       rule: [
         {
-          reg: "^#?(闭嘴|放开).*$",
-          fnc: "z"
+          reg: "^#(闭嘴|放开)",
+          fnc: "set"
         },
         {
-          reg: "",
-          fnc: "t",
+          fnc: "stop",
           log: false
         }
       ]
     })
   }
 
-  async z(e) {
+  async set(e) {
     if (!e.group.is_owner && !e.group.is_admin) { return false }
     let used = await getread()
     let op = e.user_id
@@ -44,32 +43,30 @@ export class ztwd extends plugin {
     }
     let data = await getread()
     if (!data) data = []
-    let A = e.message[0].text.replace(/#?闭嘴/g, "").trim()
+    let id = e.msg.replace(/#?闭嘴/g, "").trim()
     if (e.message[1]) {
       let atItem = e.message.filter((item) => item.type === "at")
-      A = atItem[0].qq
+      id = atItem[0].qq
     } else {
-      A = A.match(/[1-9]\d*/g)
+      id = id.match(/[1-9]\d*/g)
     }
-    if (!A) return e.reply("你自己看看这是QQ号吗")
-    A = parseInt(A)
-    if (data.indexOf(A) == -1 && e.msg.includes("闭嘴")) {
-      if (A != "") {
-        if (cfg.masterQQ.includes(A)) return e.reply("小黑子想对主人做什么！")
-        await data.splice(data.indexOf(A), 1)
-      }
-      await data.push(A)
-      await e.reply(`好的主人从现在开始让(${A})闭嘴`)
+    if (!id) return e.reply("你自己看看这是QQ号吗")
+    id = parseInt(id)
+    if (data.indexOf(id) == -1 && e.msg.includes("闭嘴")) {
+      if (cfg.masterQQ.includes(id)) return e.reply("小黑子想对主人做什么！")
+      await data.splice(data.indexOf(id), 1)
+      await data.push(id)
+      await e.reply(`好的主人从现在开始让(${id})闭嘴`)
     }
-    if (data.indexOf(A) !== -1 && e.msg.includes("放开")) {
-      await data.splice(data.indexOf(A), 1)
-      await e.reply(`好吧,放开(${A})`)
+    if (data.indexOf(id) !== -1 && e.msg.includes("放开")) {
+      await data.splice(data.indexOf(id), 1)
+      await e.reply(`好吧,放开(${id})`)
     }
     getwrite(data)
   }
 
-  async t(e) {
-    if (!e.group.is_owner && !e.group.is_admin) { return false }
+  async stop(e) {
+    if (!e.group.is_owner && !e.group.is_admin) return false
     let used = await getread()
     let op = e.user_id
     try {
