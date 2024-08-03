@@ -45,11 +45,6 @@ export const helpList = [
         "desc": "新的涩涩功能"
       },
       {
-        "icon": 8,
-        "title": "切换ai",
-        "desc": "选择小爱 openai 青客云作为您的群聊ai"
-      },
-      {
         "icon": 16,
         "title": "全部抽卡记录",
         "desc": "简单地调用云崽，出3张图"
@@ -58,21 +53,6 @@ export const helpList = [
         "icon": 33,
         "title": "拼接＋[视频链接]",
         "desc": "解析爱奇艺、芒果、优酷、哔哩的视频链接，腾讯视频的链接不用‘拼接’二字，自动解析，告别VIP"
-      },
-      {
-        "icon": 9,
-        "title": "ai回复概率+[数字]",
-        "desc": "默认100%,改成0就是关闭ai"
-      },
-      {
-        "icon": 15,
-        "title": "(开启|关闭)ai全局模式",
-        "desc": "全局模式，ai会接收群聊所有消息"
-      },
-      {
-        "icon": 18,
-        "title": "(开启|关闭)ai概率语音",
-        "desc": "让ai的回复有概率为小爱语音回复"
       },
       {
         "icon": 35,
@@ -149,16 +129,6 @@ export const helpList = [
         "icon": 21,
         "title": "(关闭|开启)数字炸弹涩涩",
         "desc": "最后是否奖励图片，默认开启"
-      },
-      {
-        "icon": 56,
-        "title": "ai",
-        "desc": "与openai对话，命令前缀为ai，私人key，额度可能会不足，key可更改"
-      },
-      {
-        "icon": 55,
-        "title": "#激活openai",
-        "desc": "填写openai密钥"
       },
       {
         "icon": 47,

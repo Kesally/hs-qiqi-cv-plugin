@@ -42,7 +42,7 @@ export class szzd extends plugin {
         {
           reg: "^结束数字炸弹$",
           fnc: "NumberBoomEnd"
-        }, 
+        },
         {
           reg: "^(关闭|开启)数字炸弹(涩涩|色色|sese)$",
           fnc: "guanb",
@@ -215,7 +215,7 @@ export class szzd extends plugin {
       let msg = {}
       if (!pd) {
         msg = [
-          "你猜对了，给你张涩图吧。快谢谢我！", 
+          "你猜对了，给你张涩图吧。快谢谢我！",
           segment.image(st_api)
         ]
       } else {

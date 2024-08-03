@@ -7,7 +7,6 @@ import { promisify } from "util"
 import { pipeline } from "stream"
 
 let sum = 1 // 这里记录总次数 也就是每天可查询次数接口分开算
-// yyyy-MM-DD 默认当前年月日 改后面的时间就行
 let dateTime = "YYYY-MM-DD 00:00:00" // 这里定义时间刷新时间格式是 年-月-日 时:分:秒
 let GayCD = {}
 const xhz_path = "plugins/hs-qiqi-plugin/resources/小黑子图片/"
@@ -17,12 +16,9 @@ let path = "./plugins/hs-qiqi-plugin/config/配置/开奖配置.yaml"
 export class sjs extends plugin {
   constructor() {
     super({
-      /** 功能名称 */
       name: "随机类游戏",
-      /** 功能描述 */
       dsc: "随机类游戏",
       event: "message",
-      /** 优先级，数字越小等级越高 */
       priority: 1,
       rule: [
         {
@@ -46,27 +42,19 @@ export class sjs extends plugin {
           fnc: "ch"
         },
         {
-          /** 命令正则匹配 */
           reg: "^今日运气$",
-          /** 执行方法 */
           fnc: "jryq"
         },
         {
-          /** 命令正则匹配 */
           reg: "^#*开奖$",
-          /** 执行方法 */
           fnc: "cj"
         },
         {
-          /** 命令正则匹配 */
           reg: "^群友(老婆|老公)|娶老婆|娶老公$",
-          /** 执行方法 */
           fnc: "whoismywife"
         },
         {
-          /** 命令正则匹配 */
           reg: "^娶群主$",
-          /** 执行方法 */
           fnc: "qunzhu"
         }
       ]

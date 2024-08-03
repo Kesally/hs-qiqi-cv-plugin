@@ -8,7 +8,7 @@ export class time extends plugin {
       priority: 5000,
       rule: [
         {
-          reg: "^#*几点了$",
+          reg: "^#几点了$",
           fnc: "time"
         }
       ]

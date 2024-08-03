@@ -15,12 +15,9 @@ await tp()
 export class example extends plugin {
   constructor() {
     super({
-      /** 功能名称 */
       name: "[枫叶]随机图片",
-      /** 功能描述 */
       dsc: "概率发送图片",
       event: "message",
-      /** 优先级，数字越小等级越高 */
       priority: 5888,
       rule: [
         {
@@ -49,9 +46,6 @@ export class example extends plugin {
           fnc: "bz"
         },
         {
-          /** 命令正则匹配 */
-          reg: "",
-          /** 执行方法 */
           fnc: "sjtp",
           log: false
         }
@@ -59,6 +53,10 @@ export class example extends plugin {
     })
   }
 
+  /**
+   * 开启随机图
+   * @param {object} e 消息事件
+   */
   async kq(e) {
     if (!Config.getConfig("set", "pz").sjtp) { return false }
     let data = await getread()
@@ -75,6 +73,10 @@ export class example extends plugin {
     }
   }
 
+  /**
+   * 随机图帮助
+   * @param {object} e 消息事件
+   */
   async bz(e) {
     if (!Config.getConfig("set", "pz").sjtp) { return false }
     if (!e.isMaster) { e.reply("你不能用叫主人来"); return true }
@@ -115,6 +117,10 @@ export class example extends plugin {
     await e.reply(forwardMsg)
   }
 
+  /**
+   * 随机图列表
+   * @param {object} e 消息事件
+   */
   async sf(e) {
     if (!Config.getConfig("set", "pz").sjtp) { return false }
     if (!e.isMaster) { return false }
@@ -137,6 +143,10 @@ export class example extends plugin {
     }
   }
 
+  /**
+   * 删除随机图
+   * @param {object} e 消息事件
+   */
   async sc(e) {
     if (!Config.getConfig("set", "pz").sjtp) { return false }
     if (!e.isMaster) { return false }
@@ -154,6 +164,10 @@ export class example extends plugin {
     }
   }
 
+  /**
+   * 上传随机图
+   * @param {object} e 消息事件
+   */
   async kt(e) {
     if (!Config.getConfig("set", "pz").sjtp) { return false }
     if (!e.isMaster) return e.reply("只有主人能上传!!!")
@@ -202,6 +216,10 @@ export class example extends plugin {
     return true
   }
 
+  /**
+   * 设置随机概率
+   * @param {object} e 消息事件
+   */
   async sj(e) {
     if (!Config.getConfig("set", "pz").sjtp) { return false }
     if (!e.isMaster) { e.reply("你不能用叫主人来"); return true }

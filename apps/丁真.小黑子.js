@@ -20,29 +20,26 @@ export class example extends plugin {
       priority: 10,
       rule: [
         {
-          reg: "^上传坤图$",
+          reg: "^#?上传坤图$",
           fnc: "kt"
         },
         {
-          reg: "^爱坤(图片)?列表$",
+          reg: "^#?爱坤(图片)?列表$",
           fnc: "sf"
         },
         {
-          reg: "^删除坤图(\\d)+$",
+          reg: "^#?删除坤图(\\d)+$",
           fnc: "sc"
         },
         {
-          /** 命令正则匹配 */
-          reg: "^((.*)鸡你太美(.*)|(.*)坤坤(.*)|(.*)小黑子(.*)|(.*)鲲鲲(.*)|(.*)鸽鸽(.*))$",
-          /** 执行方法 */
+          reg: "鸡你太美|坤坤|小黑子|鲲鲲|鸽鸽",
           fnc: "jntm"
         },
         {
-          /** 命令正则匹配 */
-          reg: "^((.*)一眼丁真(.*)|(.*)雪豹闭嘴(.*)|(.*)芝士雪豹(.*)|(.*)雪豹(.*)|(.*)讨口子(.*))$",
-          /** 执行方法 */
+          reg: "一眼丁真|雪豹闭嘴|芝士雪豹|雪豹|讨口子",
           fnc: "dz"
-        }, {
+        },
+        {
           reg: "^丁真帮助",
           fnc: "dzbz"
         }
@@ -51,6 +48,10 @@ export class example extends plugin {
     })
   }
 
+  /**
+   * 坤图列表
+   * @param {object} e
+   */
   async sf(e) {
     if (!Config.getConfig("set", "pz").dz) return this.reply("一眼丁真功能已关闭")
     if (!e.isMaster) { return false }
@@ -73,6 +74,10 @@ export class example extends plugin {
     }
   }
 
+  /**
+   * 删除图片
+   * @param {object} e
+   */
   async sc(e) {
     if (!Config.getConfig("set", "pz").dz) return this.reply("一眼丁真功能已关闭")
     if (!e.isMaster) { return false }
@@ -90,6 +95,10 @@ export class example extends plugin {
     }
   }
 
+  /**
+   * 上传坤图
+   * @param {object} e
+   */
   async kt(e) {
     if (!Config.getConfig("set", "pz").dz) return this.reply("一眼丁真功能已关闭")
     if (!e.isMaster) return e.reply("只有主人能上传!!!")
@@ -138,27 +147,36 @@ export class example extends plugin {
     return true
   }
 
+  /** 顶针帮助 */
   async dzbz() {
     if (!Config.getConfig("set", "pz").dz) return this.reply("一眼丁真功能已关闭")
     this.reply("发送一眼丁真.雪豹闭嘴.芝士雪豹.讨口子.鸡你太美.坤坤.小黑子.鲲鲲.鸽鸽.触发表情,全文匹配")
   }
 
+  /**
+   * ikun
+   * @param {object} e 消息事件
+   */
   async jntm(e) {
     if (!Config.getConfig("set", "pz").dz) { return false }
     let file = fs.readdirSync(xhz_path)
     let imgnum = Math.round(Math.random() * (file.length - 1))
     let msg = [ segment.at(e.user_id), segment.image("file://" + xhz_path + file[imgnum]) ]
     await e.reply(msg)
-    return true // 返回true 阻挡消息不再往下
+    return false
   }
 
+  /**
+   * 顶针
+   * @param {object} e 消息事件
+   */
   async dz(e) {
     if (!Config.getConfig("set", "pz").dz) { return false }
     let file = fs.readdirSync(dz_path)
     let imgnum = Math.round(Math.random() * (file.length - 1))
     let msg = [ segment.at(e.user_id), segment.image("file://" + dz_path + file[imgnum]) ]
     await e.reply(msg)
-    return true // 返回true 阻挡消息不再往下
+    return false
   }
 }
 
@@ -169,6 +187,6 @@ async function tp() {
       let streamPipeline = promisify(pipeline)
       let picPath = `${xhz_path}/1.jpg`
       await streamPipeline(fs.createWriteStream(picPath))
-    } catch (err) {}
+    } catch (err) { }
   }
 }

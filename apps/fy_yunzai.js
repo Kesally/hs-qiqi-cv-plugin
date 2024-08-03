@@ -2,7 +2,7 @@ import plugin from "../../../lib/plugins/plugin.js"
 import User from "../../genshin/model/user.js"
 
 let path = "./plugins/hs-qiqi-plugin/resources/记录帮助/"
-// 调用yunzai的模块
+
 export class fy_yunzai extends plugin {
   constructor(e) {
     super({
@@ -16,7 +16,7 @@ export class fy_yunzai extends plugin {
           fnc: "bd"
         },
         {
-          reg: "^#*枫叶记录帮助",
+          reg: "^#枫叶记录帮助",
           fnc: "jlbz"
         }
       ]

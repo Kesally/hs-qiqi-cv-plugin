@@ -1,21 +1,17 @@
-import { createRequire } from "module" // 引入module模块
-const require = createRequire(import.meta.url) // 加载模块
-const fs = require("fs") // 加载fs模块
-// 创建空对象
+import { createRequire } from "module"
+const require = createRequire(import.meta.url)
+const fs = require("fs")
 let json = {}
 
-export class sleepset extends plugin { // 插件主体
-  constructor() { // 正则
+export class sleepset extends plugin {
+  constructor() {
     super({
       name: "只听我的",
       dsc: "枫叶_只听我的",
       event: "message",
       priority: -99999999999,
       rule: [
-        {
-          reg: "^openai帮助$",
-          fnc: "o"
-        },
+
         {
           reg: "#?只听我的$",
           fnc: "ztwd"
@@ -29,17 +25,11 @@ export class sleepset extends plugin { // 插件主体
           fnc: "list"
         },
         {
-          reg: "",
           fnc: "t",
           log: false
         }
       ]
     })
-  }
-
-  async o(e) {
-    await e.reply("[枫叶]Openai帮助链接\nhttps://blog.fengye.ink/index.php/2023/07/02/openai-help")
-    return true
   }
 
   // 只听我的

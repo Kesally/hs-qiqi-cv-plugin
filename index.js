@@ -2,9 +2,7 @@ import fs from "node:fs"
 import Ver from "./components/Version.js"
 import chalk from "chalk"
 
-if (!global.segment) {
-  global.segment = (await import("oicq")).segment
-}
+global.segment ??= (await import("oicq")).segment
 
 try {
   global.uploadRecord = (await import("./model/uploadRecord.js")).default

@@ -28,24 +28,17 @@ const CfgReg = `^#?枫叶(插件)?设置\\s*(${lodash.keys(cfgMap).join("|")})?\
 export class fy_set extends plugin {
   constructor() {
     super({
-      /** 功能名称 */
       name: "枫叶插件_设置",
-      /** 功能描述 */
       dsc: "设置",
       event: "message",
-      /** 优先级，数字越小等级越高 */
       priority: 2000,
       rule: [
         {
-          /** 命令正则匹配 */
           reg: CfgReg,
-          /** 执行方法 */
           fnc: "message",
           permission: "master"
         }, {
-          /** 命令正则匹配 */
           reg: "^#?枫叶(开启|关闭)全部设置$",
-          /** 执行方法 */
           fnc: "All",
           permission: "master"
         }

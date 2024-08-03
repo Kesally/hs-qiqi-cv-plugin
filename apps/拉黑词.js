@@ -21,25 +21,25 @@ export class laheici extends plugin {
       priority: 4000,
       rule: [
         {
-          reg: "",
-          /** 执行方法 */
           fnc: "jt",
           log: false
-        }, {
+        },
+        {
           reg: "^#*取消拉黑词(.)+",
-          /** 执行方法 */
           fnc: "dellh"
         }, {
           reg: "^#*创建拉黑词(.)*",
-          /** 执行方法 */
           fnc: "addlh"
-        }, {
+        },
+        {
           reg: "^#*拉黑词列表$",
           fnc: "lahlb"
-        }, {
+        },
+        {
           reg: "^#*直接拉黑$",
           fnc: "lahei"
-        }, {
+        },
+        {
           reg: "^#*拉黑(qq|QQ)(.*)$",
           fnc: "lhQQ"
         },
@@ -47,10 +47,12 @@ export class laheici extends plugin {
           reg: "^#*拉黑词帮助$",
           fnc: "laheibz",
           permission: "master"
-        }, {
+        },
+        {
           reg: "^#*取消拉黑(QQ|qq)(.*)$",
           fnc: "quxiao"
-        }, {
+        },
+        {
           reg: "^#*拉黑名单$",
           fnc: "laheimd"
         }
@@ -152,7 +154,7 @@ export class laheici extends plugin {
             this.islog = true
           }
         }
-      } catch (e) {}
+      } catch (e) { }
     }
     return false
   }

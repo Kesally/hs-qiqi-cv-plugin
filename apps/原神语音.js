@@ -12,33 +12,24 @@ let 名字 = ""
 export class fy_yy extends plugin {
   constructor() {
     super({
-      /** 功能名称 */
       name: "[枫叶]原神角色语音",
-      /** 功能描述 */
       dsc: "",
       event: "message",
-      /** 优先级，数字越小等级越高 */
       priority: 110,
       rule: [
         {
-          /** 命令正则匹配 */
           reg: "^(.*)语音$",
-          /** 执行方法 */
           fnc: "ysyy"
-        }, {
-          /** 命令正则匹配 */
+        },
+        {
           reg: "^(.*)语音列表$",
-          /** 执行方法 */
           fnc: "yylb"
-        }, {
-          /** 命令正则匹配 */
+        },
+        {
           reg: "^#?高清语音(开启|关闭)$",
-          /** 执行方法 */
           fnc: "kg"
-        }, {
-          /** 命令正则匹配 */
-          reg: "",
-          /** 执行方法 */
+        },
+        {
           fnc: "jc",
           log: false
         }
@@ -47,6 +38,10 @@ export class fy_yy extends plugin {
     })
   }
 
+  /**
+   * 开关高清语音
+   * @param {object} e 消息事件
+   */
   async kg(e) {
     if (!e.isMaster) { return false }
     if (e.msg.includes("开")) {
@@ -60,6 +55,10 @@ export class fy_yy extends plugin {
     }
   }
 
+  /**
+   * 原神语音
+   * @param {*} e 消息事件
+   */
   async ysyy(e) {
     e.msg = e.msg.replace(/语音/g, "")
     if (e.msg.includes("日文") || e.msg.includes("日语") || e.msg.includes("日本")) {

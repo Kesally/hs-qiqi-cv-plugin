@@ -122,12 +122,12 @@ export class chuo extends plugin {
     let url = "https://v2.alapi.cn/api/joke/random?token=A85G8uKBXqHs4PzA&num=1"
     const response = await fetch(url)
     let res = await response.json()
-    if (!res) {
+    let data = res?.data?.content
+    if (!data) {
       e.reply("别戳了")
       return
     }
-    let ms = [ segment.text(res) ]
-    await e.reply(ms)
+    await e.reply(data)
   }
 
   async sendRandomMessage(e) {

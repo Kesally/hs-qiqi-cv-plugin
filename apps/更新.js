@@ -2,15 +2,7 @@ import { update as Update } from "../../other/update.js"
 import fs from "fs"
 import { Version, Common, Plugin_Name } from "../components/index.js"
 let zr = [ 2770706493, 3483342229, 2173302144, 197728340, 1011303349 ]
-let p = "./plugins/example/主动复读.js"
 
-if (!fs.existsSync(p)) {
-  fs.copyFile("./plugins/hs-qiqi-plugin/config/system/run.txt", p, (err) => {
-    if (err) {
-      logger.info(err)
-    }
-  })
-}
 let u = "./plugins/example/yz.js"
 
 if (!fs.existsSync(u)) {
@@ -21,9 +13,6 @@ if (!fs.existsSync(u)) {
   })
 }
 
-/**
- * 处理插件更新
- */
 export class fy_update extends plugin {
   constructor() {
     super({
@@ -37,21 +26,21 @@ export class fy_update extends plugin {
           fnc: "update"
         },
         {
-          /** 命令正则匹配 */
           reg: "^#?枫叶(插件)?版本$",
-          /** 执行方法 */
           fnc: "plugin_version"
         },
         {
-          /** 命令正则匹配 */
           reg: "^#?枫叶(插件)?更新日志$",
-          /** 执行方法 */
           fnc: "update_log"
         }
       ]
     })
   }
 
+  /**
+   * 更新枫叶插件
+   * @param {object} e 消息事件
+   */
   async update(e = this.e) {
     if (!this.e.isMaster && !zr.includes(this.e.user_id)) return false
     e.isMaster = true
@@ -61,10 +50,19 @@ export class fy_update extends plugin {
     return up.update()
   }
 
-  async plugin_version() {
-    return versionInfo(this.e)
+  /**
+   * 枫叶版本
+   * @param {object} e 枫叶插件版本
+   */
+  async plugin_version(e = this.e) {
+    return await Common.render("help/version-info", {
+      currentVersion: Version.ver,
+      changelogs: Version.logs,
+      elem: "cryo"
+    }, { e, scale: 1.4 })
   }
 
+  /** 枫叶插件更新日志 */
   async update_log() {
     let Update_Plugin = new Update()
     Update_Plugin.e = this.e
@@ -75,11 +73,4 @@ export class fy_update extends plugin {
     }
     return true
   }
-}
-async function versionInfo(e) {
-  return await Common.render("help/version-info", {
-    currentVersion: Version.ver,
-    changelogs: Version.logs,
-    elem: "cryo"
-  }, { e, scale: 1.4 })
 }

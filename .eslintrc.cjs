@@ -44,5 +44,5 @@ module.exports = {
     "jsdoc/require-param-type": 0,
     "import/extensions": [ "error", "ignorePackages" ]
   },
-  ignorePatterns: [ "uploadRecord.js" ]
+  ignorePatterns: [ "uploadRecord.js", "I.js" ]
 }
