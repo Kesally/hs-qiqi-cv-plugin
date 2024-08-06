@@ -18,10 +18,6 @@ export class ztwd extends plugin {
         {
           reg: "^#(闭嘴|放开)",
           fnc: "set"
-        },
-        {
-          fnc: "stop",
-          log: false
         }
       ]
     })
@@ -34,7 +30,7 @@ export class ztwd extends plugin {
   async set(e) {
     if (!e.group.is_owner && !e.group.is_admin) return false
 
-    let data = await this.getread() || []
+    let data = await getread() || []
     if (data.includes(e.user_id)) {
       e.group.recallMsg(e.message_id)
       return true
@@ -61,55 +57,54 @@ export class ztwd extends plugin {
       msg = `好吧,放开(${id})`
     }
 
-    if (this.getwrite(data)) {
+    if (getwrite(data)) {
       return e.reply(msg)
     } else {
       return e.reply("啊偶，写入数据失败了，主人请查看日志错误")
     }
   }
+}
 
-  /**
-   * 拦截并撤回消息
-   * @param {object} e 消息事件
-   */
-  async stop(e) {
-    if (!e.group.is_owner && !e.group.is_admin) return false
-    let data = await this.getread() || []
-    try {
-      if (data.includes(e.user_id)) {
-        e.group.recallMsg(e.message_id)
-      } else {
-        return false
-      }
-    } catch (e) {
+
+Bot.on("message.group", e => {
+  if (!e.group.is_owner && !e.group.is_admin) return false
+  let data = getread() || []
+  try {
+    if (data.includes(e.user_id)) {
+      logger.mark(`[hs-qiqi-plugin][禁言]撤回 ${logger.green(e.user_id)} 的消息，解除请发 #放开${e.user_id}`)
+      e.group.recallMsg(e.message_id)
+    } else {
       return false
     }
+  } catch (e) {
     return false
   }
+  return false
+})
 
-  /** 读取禁言名单 */
-  getread() {
-    try {
-      let fileContents = fs.readFileSync(path, "utf8")
-      return YAML.parse(fileContents)
-    } catch (e) {
-      console.log(e)
-      return false
-    }
+
+/** 读取禁言名单 */
+function getread() {
+  try {
+    let fileContents = fs.readFileSync(path, "utf8")
+    return YAML.parse(fileContents)
+  } catch (e) {
+    console.log(e)
+    return false
   }
+}
 
-  /**
-   * 写入禁言名单
-   * @param data - 写入的数据
-   */
-  getwrite(data) {
-    try {
-      let yaml = YAML.stringify(data)
-      fs.writeFileSync(path, yaml, "utf8")
-      return true
-    } catch (err) {
-      logger.error(err)
-      return false
-    }
+/**
+ * 写入禁言名单
+ * @param data - 写入的数据
+ */
+function getwrite(data) {
+  try {
+    let yaml = YAML.stringify(data)
+    fs.writeFileSync(path, yaml, "utf8")
+    return true
+  } catch (err) {
+    logger.error(err)
+    return false
   }
 }
