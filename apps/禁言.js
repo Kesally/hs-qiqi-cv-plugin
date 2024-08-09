@@ -43,6 +43,7 @@ export class ztwd extends plugin {
 
     let id = e.msg.replace(/^#(闭嘴|放开)/, "").trim() || e.at || e.message.find(item => item.type == "at")?.qq
     if (!id) return e.reply("请输入QQ或艾特不听话的群友哦")
+    if (id == e.self_id) return e.reply("你干嘛！哎哟~")
 
     id = Number(id) || String(id)
 
@@ -65,9 +66,9 @@ export class ztwd extends plugin {
   }
 }
 
-
 Bot.on("message.group", e => {
   if (!e.group.is_owner && !e.group.is_admin) return false
+  if (e.user_id == e.self_id) return false
   let data = getread() || []
   try {
     if (data.includes(e.user_id)) {
@@ -81,7 +82,6 @@ Bot.on("message.group", e => {
   }
   return false
 })
-
 
 /** 读取禁言名单 */
 function getread() {
