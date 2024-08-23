@@ -10,7 +10,6 @@ const cfgMap = {
   "数字炸弹": "pz.szzd",
   "随机类游戏": "pz.jryq",
   "涩涩": "pz.ss",
-  "openai": "pz.openai",
   "睡眠时间": "pz.smsj"
 }
 const ccc = {
@@ -20,7 +19,6 @@ const ccc = {
   "数字炸弹": "szzd",
   "随机类游戏": "jryq",
   "涩涩": "ss",
-  "openai": "openai",
   "睡眠时间": "smsj"
 }
 const CfgReg = `^#?枫叶(插件)?设置\\s*(${lodash.keys(cfgMap).join("|")})?\\s*(.*)$`
@@ -156,7 +154,6 @@ async function Setgb(e) {
     szzd: allgb,
     jryq: allgb,
     ss: allgb,
-    openai: allgb,
     sjtp: allgb
   }
   // 渲染图像
@@ -179,7 +176,6 @@ async function Setkq(e) {
     szzd: allkq,
     jryq: allkq,
     ss: allkq,
-    openai: allkq,
     sjtp: allkq
   }
   // 渲染图像

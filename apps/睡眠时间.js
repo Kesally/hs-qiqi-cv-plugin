@@ -3,23 +3,21 @@ import plugin from "../../../lib/plugins/plugin.js"
 import moment from "moment"
 import schedule from "node-schedule"
 
-if (Config.getConfig("set", "mz").botname == null) {
-  logger.info("【枫叶插件】检测到未设置机器人名字")
+if (!Config.getConfig("set", "mz").botname) {
+  logger.info("[枫叶插件] 检测到未设置机器人名字")
   logger.info(" 请发送：枫叶设置，查看名字")
 }
 
 let za_num = await redis.get("yz:zaoan_num")
+let wa_num = await redis.get("yz:wanan_num")
 
 if (!za_num) {
   await redis.set("yz:zaoan_num", "0")
-  logger.info("【枫叶插件】初始化早安排行")
+  logger.info("[枫叶插件] 初始化早安排行")
 }
-
-let wa_num = await redis.get("yz:wanan_num")
-
 if (!wa_num) {
   await redis.set("yz:wanan_num", "0")
-  logger.info("【枫叶插件】初始化晚安排行")
+  logger.info("[枫叶插件] 初始化晚安排行")
 }
 
 // let rule =`秒 分 时 * * ?`
@@ -79,11 +77,11 @@ export class zaowan extends plugin {
       priority: 10000,
       rule: [
         {
-          reg: "^(早安|早上好|早上好呀|早上好吖)$", // 命令匹配
+          reg: "^(早安|早上好(呀|吖)?)$", // 命令匹配
           fnc: "zaoan"
         },
         {
-          reg: "^(晚安|晚安啦|睡觉了|睡觉去了)$", // 匹配
+          reg: "^(晚安啦?|睡觉去?了?)$", // 匹配
           fnc: "wanan"
         }, {
           reg: "^我是?第几个?(睡觉|晚安)的?(？)?$", // 命令匹配
@@ -107,7 +105,7 @@ export class zaowan extends plugin {
 
   } */
     if (!Config.getConfig("set", "pz").smsj) { return false }
-    let botname = Config.getConfig("set", "mz").botname
+    let botname = Config.getConfig("set", "mz").botname || "我"
     let msg1 = msgwa[Math.ceil(Math.random() * msgwa.length) - 1]
     let b = new Date().getTime()// 当前时间戳
     let nn = moment(b).format("已" + "HH")
@@ -183,7 +181,7 @@ export class zaowan extends plugin {
 
     } */
     if (!Config.getConfig("set", "pz").smsj) { return false }
-    let botname = Config.getConfig("set", "mz").botname
+    let botname = Config.getConfig("set", "mz").botname || "我"
 
     let msg2 = msgza[Math.ceil(Math.random() * msgza.length) - 1]
 
@@ -296,7 +294,7 @@ export class zaowan extends plugin {
   }
 
   async shuijiao_ph(e) {
-    let botname = Config.getConfig("set", "mz").botname
+    let botname = Config.getConfig("set", "mz").botname || "我"
     let sj = await JSON.parse(await redis.get(`Yunzai:hahaha:wandata_${e.user_id}`))
     if (sj) {
       e.reply(`你是第${sj.wa_num}个睡觉的(*^▽^*) `, true)
@@ -307,7 +305,7 @@ export class zaowan extends plugin {
   }
 
   async qichuang_ph(e) {
-    let botname = Config.getConfig("set", "mz").botname
+    let botname = Config.getConfig("set", "mz").botname || "我"
     let qc = await JSON.parse(await redis.get(`Yunzai:hahaha:zaodata_${e.user_id}`))
     if (qc) {
       e.reply(`你是第${qc.za_num}个起床的(≖ᴗ≖)✧`, true)

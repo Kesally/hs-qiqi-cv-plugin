@@ -8,10 +8,6 @@ let CD = {}
 let isR18 = true
 let isR18s = true
 let path = "./plugins/hs-qiqi-plugin/config/配置/涩涩配置.yaml"
-if (Config.getConfig("set", "mz").botname == null) {
-  logger.info("【枫叶插件】检测到未设置机器人名字")
-  logger.info(" 请发送：枫叶设置，查看名字")
-}
 
 let path_ = "./plugins/hs-qiqi-plugin/config/冷却.yaml"
 

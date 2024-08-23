@@ -6,7 +6,7 @@ let path = "./plugins/hs-qiqi-plugin/resources/记录帮助/"
 export class fy_yunzai extends plugin {
   constructor(e) {
     super({
-      name: "fy_yunzai",
+      name: "[枫叶插件]绑定功能",
       dsc: "",
       event: "message",
       priority: 10000,
