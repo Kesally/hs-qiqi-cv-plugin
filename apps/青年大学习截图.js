@@ -1,4 +1,3 @@
-import plugin from "../../../lib/plugins/plugin.js"
 import fetch from "node-fetch"
 
 // 是否允许私聊使用，设为false则禁止私聊使用（主人除外）

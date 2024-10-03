@@ -1,4 +1,3 @@
-import plugin from "../../../lib/plugins/plugin.js"
 import User from "../../genshin/model/user.js"
 
 let path = "./plugins/hs-qiqi-plugin/resources/记录帮助/"

@@ -1,4 +1,3 @@
-import plugin from "../../../lib/plugins/plugin.js"
 import { Config } from "../components/index.js"
 
 const st_api = "https://api.suyanw.cn/api/hs.php"

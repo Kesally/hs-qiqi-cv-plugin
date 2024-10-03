@@ -1,7 +1,6 @@
 // 拉黑词不同于群屏蔽词，原文中若只是带有拉黑词并不会提醒，如果对方说的话与拉黑词一致，或者是@群友说了拉黑词，又或者是说了拉黑词且带有你机器人名字，那么机器人会通知你要不要拉黑
 
 import { Config } from "../components/index.js"
-import plugin from "../../../lib/plugins/plugin.js"
 import fs from "fs"
 import cfg from "../../../lib/config/config.js"
 import YAML from "yaml"

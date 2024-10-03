@@ -1,4 +1,3 @@
-import plugin from "../../../lib/plugins/plugin.js"
 import moment from "moment"
 export class time extends plugin {
   constructor() {

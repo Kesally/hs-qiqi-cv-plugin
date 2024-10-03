@@ -1,5 +1,4 @@
 import { Config } from "../components/index.js"
-import plugin from "../../../lib/plugins/plugin.js"
 import moment from "moment"
 import schedule from "node-schedule"
 

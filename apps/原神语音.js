@@ -1,4 +1,3 @@
-import plugin from "../../../lib/plugins/plugin.js"
 import gsCfg from "../../genshin/model/gsCfg.js"
 import fs from "fs"
 import YAML from "yaml"

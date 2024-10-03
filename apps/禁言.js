@@ -1,4 +1,3 @@
-import plugin from "../../../lib/plugins/plugin.js"
 import fs from "fs"
 import YAML from "yaml"
 import cfg from "../../../lib/config/config.js"
@@ -36,10 +35,7 @@ export class ztwd extends plugin {
       return true
     }
 
-    if (!e.isMaster) {
-      e.reply("你几把谁啊，我要见我主人")
-      return true
-    }
+    if (!e.isMaster) return e.reply("你几把谁啊，我要见我主人")
 
     let id = e.msg.replace(/^#(闭嘴|放开)/, "").trim() || e.at || e.message.find(item => item.type == "at")?.qq
     if (!id) return e.reply("请输入QQ或艾特不听话的群友哦")

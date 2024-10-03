@@ -1,4 +1,3 @@
-import plugin from "../../../lib/plugins/plugin.js"
 import fs from "node:fs"
 import { promisify } from "util"
 import { pipeline } from "stream"
