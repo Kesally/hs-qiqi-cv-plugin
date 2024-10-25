@@ -83,7 +83,7 @@ export function supportGuoba() {
       ],
       // 获取配置数据方法（用于前端填充显示数据）
       getConfigData() {
-        return Config.Yaml
+        return Config.getConfig("set", "pz");
       },
 
       // 设置配置的方法（前端点确定后调用的方法）
