@@ -91,6 +91,11 @@ export const helpList = [
         "desc": "芝士雪豹 鲲鲲"
       },
       {
+        "icon": 8,
+        "title": "今天周几",
+        "desc": "查看今天星期几"
+      },
+      {
         "icon": 7,
         "title": "随机图片帮助",
         "desc": "概率发送随机图片"

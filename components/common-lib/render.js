@@ -26,7 +26,7 @@ export default async function(path, params, cfg) {
     },
     sys: {
       scale: 1,
-      copyright: `云崽<span class="version">${Version.yunzai}</span> &nbsp 枫叶<span class="version">${Version.ver}</span>`
+      copyright: `Created By ${Version.name}<span class="version">${Version.yunzai}</span>&nbsp&&nbsphs-qiqi-plugin<span class="version">${Version.ver}</span>`
     },
     quality: 100
   }
