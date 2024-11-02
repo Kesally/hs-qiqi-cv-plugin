@@ -42,6 +42,10 @@ export class example extends plugin {
         {
           reg: "^丁真帮助",
           fnc: "dzbz"
+        },
+        {
+          reg: /^#?今天(周|星期)几$/i,
+          fnc: "weekday"
         }
 
       ]
@@ -178,6 +182,31 @@ export class example extends plugin {
     await e.reply(msg)
     return false
   }
+
+
+
+ async weekday(e) {
+  let nowWeekday = new Date()
+  let tdweekday = nowWeekday.getDay();
+  let weekdayImages = {
+      "0": "./plugins/hs-qiqi-plugin/resources/周几/Sunday.jpg", // 周天 
+      "1": "./plugins/hs-qiqi-plugin/resources/周几/Monday.jpg", // 周一
+      "2": "./plugins/hs-qiqi-plugin/resources/周几/Tuesday.jpg", // 周二  
+      "3": "./plugins/hs-qiqi-plugin/resources/周几/Wednesday.jpg", // 周三  
+      "4": "./plugins/hs-qiqi-plugin/resources/周几/Thursday.jpg", // 周四 
+      "5": "./plugins/hs-qiqi-plugin/resources/周几/Friday.jpg", // 周五  
+      "6": "./plugins/hs-qiqi-plugin/resources/周几/Saturday.jpg" // 周六 
+  };
+  let weekdayimg = weekdayImages[tdweekday]
+  let weekdayText = ["日", "一", "二", "三", "四", "五", "六"]
+  let todayWd = weekdayText[tdweekday]
+  if (e.isMaster) {
+      await this.reply([`主人 今天是『星期${todayWd}』`, segment.image("file://" + weekdayimg)], true)
+  } else {
+      await this.reply([`孩子们 今天『星期${todayWd}』`, segment.image("file://" + weekdayimg)], true)
+  }
+  return true
+}
 }
 
 async function tp() {

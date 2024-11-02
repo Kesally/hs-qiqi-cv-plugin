@@ -35,7 +35,7 @@ git clone https://gitee.com/kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plu
 - 使用GitHub Proxy
 
 ```sh
-git clone https://ghproxy.com/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
+git clone https://ghp.ci/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
 ```
 
 - 使用GitHub
@@ -115,6 +115,8 @@ pnpm install
 
   - 鸡你太美
 
+  - 今天周几
+
 - R18.js
 
   - sese
@@ -155,12 +157,12 @@ pnpm install
 
 </details>
 
-## 免责声明
+### 免责声明
 
 1. 功能仅限内部交流与小范围使用，请勿将Yunzai-Bot及hs-qiqi-plugin用于任何以盈利为目的的场景.
 2. 图片与其他素材均来自于网络，仅供交流学习使用，如有侵权请联系，会立即删除.
 
-## 联系方式
+### 联系方式
 
 <div align="center">
 
@@ -175,8 +177,7 @@ pnpm install
 |[我的爱发电](http://afdian.net/a/Kesally)|
 </div>
 
-## 其他
+### 其他
 
 - Yunzai-Bot插件库：[☞Github](https://github.com/yhArcadia/Yunzai-Bot-plugins-index)/[☞Gitee](https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index)
 
-- Yunzai-Bot：[☞Github](https://github.com/Le-niao/Yunzai-Bot)/[☞Gitee](https://gitee.com/Le-niao/Yunzai-Bot)
