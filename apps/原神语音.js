@@ -127,9 +127,9 @@ export class fy_yy extends plugin {
     }, { e, scale: 2 })
 
     if (gq) {
-      e.reply(await uploadRecord(`${语音}.mp3`, 0, false))
+      e.reply(await uploadRecord(语音, 0, false))
     } else {
-      e.reply(await segment.record(`${语音}.mp3`))
+      e.reply(await segment.record(语音))
     }
 
     return true
