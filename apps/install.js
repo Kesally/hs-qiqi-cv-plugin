@@ -14,7 +14,11 @@ const pluginList = {
   "StarRail-plugin": "https://gitee.com/hewang1an/StarRail-plugin",
   "xiaoyao-cvs-plugin": "https://gitee.com/Ctrlcvs/xiaoyao-cvs-plugin",
   "Circle-money-run-plugin": "https://gitee.com/theqingyao/Circle-money-run-plugin",
-  "fengye-plugin": "https://gitee.com/maple-leaf-sweeping/fengye-plugin"
+  "fengye-plugin": "https://gitee.com/maple-leaf-sweeping/fengye-plugin",
+  "miao-plugin": "https://gitee.com/yoimiya-kokomi/miao-plugin",
+  "guoba-plugin": "https://gitee.com/guoba-yunzai/guoba-plugin",
+  "liangshi-calc": "https://gitee.com/liangshi233/liangshi-calc",
+  "steam-plugin": "https://gitee.com/xiaoye12123/steam-plugin"
 };
 const names = {  
   "reset-qianyu-plugin": "千羽插件",
@@ -23,9 +27,13 @@ const names = {
   "TRSS-Plugin": "TRSS插件",
   "useless-plugin": "无用插件",
   "StarRail-plugin": "星铁插件",
-  "xiaoyao-cvs-plugin": "逍遥插件", 
+  "xiaoyao-cvs-plugin": "图鉴插件", 
   "Circle-money-run-plugin": "跑路插件",
-  "fengye-plugin": "枫叶插件-与现存枫叶无关"
+  "fengye-plugin": "枫叶插件-与现存枫叶无关",
+  "miao-plugin": "喵喵插件",
+  "guoba-plugin": "锅巴插件",
+  "liangshi-calc": "伤害计算插件",
+  "steam-plugin": "steam插件"
 };
 const mergedPlugins = Object.keys(pluginList).reduce((acc, name) => {  
   acc[name] = {  
@@ -105,7 +113,7 @@ export class PluginInstall extends plugin {
   }
 
   async install(e) {
-    if (!(e.isMaster || e.user_id == 2173302144)) return await e.reply('你没有权限');
+    if (!(e.isMaster)) return await e.reply('你没有权限');
     if (isInstalling) {
       await e.reply("已有命令安装中，请勿重复操作");
       return false;
