@@ -22,9 +22,9 @@
 
 **`注意`：hs-qiqi-plugin只适配Yunzai-BotV3!!!**
 
-将hs-qiqi-plugin下载下来放在Yunzai-Bot/plugins目录下，重启Yunzai-Bot后即可使用。
+将hs-qiqi-plugin下载下来 **解压修改文件夹名字为hs-qiqi-plugin**  放在Bot的/plugins目录下，重启Bot后即可使用。
 
-推荐使用git进行安装，以方便后续升级。在Yunzai目录打开终端，运行~
+ **推荐使用git进行安装** ，以方便后续升级。在Yunzai目录打开终端，运行~
 
 - 使用Gitee
 
@@ -35,7 +35,7 @@ git clone https://gitee.com/kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plu
 - 使用GitHub Proxy
 
 ```sh
-git clone https://ghp.ci/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
+git clone https://ghproxy.net/https://github.com/Kesally/hs-qiqi-cv-plugin.git  ./plugins/hs-qiqi-plugin
 ```
 
 - 使用GitHub
@@ -58,7 +58,7 @@ pnpm install
 <details>
   <summary>功能类</summary>
 
-- 原神语音.js
+- 原神语音
 
   - xx语音
 
@@ -70,30 +70,31 @@ pnpm install
   
 - 全部/所有抽卡记录
 
-- 视频解析.js
+- 视频解析
 
   - 【腾讯视频链接】
 
   - 拼接+【各类大视频平台链接】
 
-- 只听主人的话.js
+- 只听主人的话
 
   - 只听我的
 
   - 听大家的
 
-- 戳一戳语音.js
+- 戳一戳语音
 
   - 【戳一戳机器人发送消息】
-- news.js
+
+- news
 
   - 【查看今日新闻】
 
-- 现在时间.js
+- 现在时间
 
   - 【查看现在的时间，无用功能+1】
 
-- 禁言.js
+- 禁言
 
   - 闭嘴@某人
 
@@ -104,7 +105,7 @@ pnpm install
 <details>
   <summary>娱乐类</summary>
 
-- 丁真，小黑子.js
+- 丁真，小黑子
 
   - 丁真帮助
 
@@ -118,7 +119,7 @@ pnpm install
 
   - 今天周几
 
-- R18.js
+- R18
 
   - sese
 
@@ -144,11 +145,11 @@ pnpm install
 
   - 开奖
 
-- 青年大学习.js
+- 青年大学习
 
   - 获取本期青年大学习完成图片，以假乱真
 
-- 这周讨伐谁.js
+- 这周讨伐谁
 
   - 随机帮你选出这周讨伐谁，选择恐惧症的福音
 
@@ -175,7 +176,7 @@ pnpm install
 |  `ikun群:` [707499227](https://jq.qq.com/?_wv=1027&k=yTbA4lk6)|
 |[现作者Kesally](https://gitee.com/kesally)|
 |[现原作者七七](https://gitee.com/fengyeplugin)|
-|[我的爱发电](http://afdian.net/a/Kesally)|
+|[我的爱发电](http://afdian.com/a/Kesally)|
 </div>
 
 ## 其他
