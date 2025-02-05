@@ -102,7 +102,7 @@ export class PluginInstall extends plugin {
     super({
       name: "安装插件",
       dsc: "枫叶安装插件",
-      priority: -Infinity,
+      priority: 50000, // 不抢自带更新命令
       rule: [
         {
           reg: `^#枫叶(强制)?安装(插件|${Object.keys(pluginList).join("|")})$`,
