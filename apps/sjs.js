@@ -385,8 +385,8 @@ export class sjs extends plugin {
     } else if (num > 50 && num < 80) {
       let msg = [
         segment.at(e.user_id),
-        "\n今日你的运气为" + num + "点,人品还行噢,可以安全出门啦！", segment.image("https://api.yimian.xyz/img?type=moe")
-        // 替换接口1:https://mahiro.tianyi.one  //替换接口2：https://t.mwm.moe/ysmp
+        "\n今日你的运气为" + num + "点,人品还行噢,可以安全出门啦！", segment.image("https://t.mwm.moe/ysmp")
+        // 替换接口1:https://mahiro.tianyi.one  
       ]
 
       e.reply(msg)
@@ -401,7 +401,7 @@ export class sjs extends plugin {
     } else {
       let msg = [
         segment.at(e.user_id),
-        "\n今日你的运气为" + num + "点,你今天就是天选之人！！", segment.image("https://api.vvhan.com/api/girl")
+        "\n今日你的运气为" + num + "点,你今天就是天选之人！！", segment.image("https://moe.anosu.top/img")
         // 替换接口1：https://api.ghser.com/random/api.php 替换接口2：https://api.ghser.com/random/pc.php
       ]
 

@@ -56,19 +56,19 @@ export class r18ss extends plugin {
   async sp(e) {
     if (!Config.getConfig("set", "pz").ss) { return false }
     if (e.msg.includes("枫叶小姐姐视频")) {
-      let url = await (await fetch("https://api.caonm.net/api/mn/index.php"))
+      let url = await (await fetch("https://www.hhlqilongzhu.cn/api/MP4_xiaojiejie.php"))
       let ji = await url.arrayBuffer()
       fs.writeFile("plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4", Buffer.from(ji), "binary", function(err) {
         console.log(err || "保存成功")
         e.reply(segment.video("plugins/hs-qiqi-plugin/resources/video/小姐姐.mp4"))
       })
     }
-    if (e.msg.includes("枫叶漫剪视频")) {
-      let url = await (await fetch("http://api.caonm.net/api/mjsp/m?key=4nK9rkmw9WuWEsSTm2TNPgwc6u"))
+    if (e.msg.includes("枫叶漫展视频")) {
+      let url = await (await fetch("https://api.yujn.cn/api/manzhan.php?type=video"))
       let ji = await url.arrayBuffer()
-      fs.writeFile("plugins/hs-qiqi-plugin/resources/video/漫剪.mp4", Buffer.from(ji), "binary", function(err) {
+      fs.writeFile("plugins/hs-qiqi-plugin/resources/video/漫展.mp4", Buffer.from(ji), "binary", function(err) {
         console.log(err || "保存成功")
-        e.reply(segment.video("plugins/hs-qiqi-plugin/resources/video/漫剪.mp4"))
+        e.reply(segment.video("plugins/hs-qiqi-plugin/resources/video/漫展.mp4"))
       })
     }
   }
@@ -246,7 +246,7 @@ export class r18ss extends plugin {
     } else if (ss == 1) {
       url = "http://img.xjh.me/random_img.php?type=bg&ctype=acg"
     } else if (ss == 3) {
-      url = "https://www.acy.moe/api/404/"
+      url = "http://www.acy.moe/api/404/"
     }
     let msgList = []
     const forwarder =
