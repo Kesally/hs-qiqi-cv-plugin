@@ -7,7 +7,7 @@ let isInstalling = false;
 // 插件列表
 const pluginList = {
   "reset-qianyu-plugin": "https://gitee.com/think-first-sxs/reset-qianyu-plugin",
-  "Fanji-plugin": "https://gitee.com/adrae/Fanji-plugin",
+  "ad-plugin": "https://gitee.com/adrae/ad-plugin",
   "cunyx-plugin": "https://gitee.com/cunyx/cunyx-plugin",
   "TRSS-Plugin": "https://Yunzai.TRSS.me",
   "useless-plugin": "https://gitee.com/SmallK111407/useless-plugin",
@@ -22,7 +22,7 @@ const pluginList = {
 };
 const names = {  
   "reset-qianyu-plugin": "千羽插件",
-  "Fanji-plugin": "反击插件",
+  "ad-plugin": "ad插件",
   "cunyx-plugin": "寸幼萱插件",
   "TRSS-Plugin": "TRSS插件",
   "useless-plugin": "无用插件",
